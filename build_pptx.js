@@ -82,7 +82,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     fontFace: "Georgia", margin: 0,
   });
   s.addText(
-    "Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, matxa trị liệu, bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.",
+    "Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.",
     { x: 0.9, y: 3.95, w: 7.2, h: 1.1, fontSize: 15, color: "CFE6DF", fontFace: FONT, margin: 0, lineSpacingMultiple: 1.25 }
   );
   s.addShape("line", { x: 0.9, y: 5.9, w: 3.2, h: 0, line: { color: TEALMID, width: 1.5 } });
@@ -223,7 +223,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   });
   band(s, [
     { text: "Khả năng chi trả:  ", options: { bold: true, color: TEXT } },
-    { text: "thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–290.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu.  ", options: { color: TEXT } },
+    { text: "thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–320.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu.  ", options: { color: TEXT } },
     { text: "Nguồn: Tổng cục Thống kê (gso.gov.vn)", options: { color: PRIMARY, hyperlink: { url: "https://www.gso.gov.vn/" }, fontSize: 11 } },
   ], 5.85, 0.75);
   s.addNotes("Nhóm chính là trung niên 40–60: thu nhập tốt nhất, mua cho cả cha mẹ. Giá một phiên tương đương một bữa cơm gia đình — dễ quyết định định kỳ.");
@@ -251,7 +251,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   };
   dot(px + 1.15, py + 2.75, 1.1, 0.62, "C9D8D3", "Quán massage nhỏ");
   dot(px + 1.5, py + 0.62, 1.25, 0.68, TEALSOFT, "Spa cao cấp (thư giãn)");
-  dot(px + 4.45, py + 2.62, 1.15, 0.6, "C9D8D3", "Home care rời rạc");
+  dot(px + 4.45, py + 2.62, 1.15, 0.6, "C9D8D3", "Tại nhà tự phát");
   // CareTouch star
   s.addShape("ellipse", { x: px + 3.35, y: py + 0.68, w: 1.7, h: 0.95, fill: { color: ACCENT }, line: { color: "FFFFFF", width: 2 }, shadow: shadow() });
   s.addText("CareTouch", { x: px + 3.35, y: py + 0.68, w: 1.7, h: 0.95, fontSize: 12.5, bold: true, color: "FFFFFF", align: "center", valign: "middle", fontFace: FONT, margin: 0 });
@@ -260,7 +260,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   // right: 4 pillars
   const pil = [
     ["Tận giường – tận nhà", "Mang theo đệm, dầu xoa, khăn sạch; khách cao tuổi không cần ai đưa đón."],
-    ["An toàn có sàng lọc", "Mỗi buổi bắt đầu bằng hỏi bệnh nền, đo huyết áp — không an toàn thì không thực hiện."],
+    ["Khảo sát thể trạng trước buổi trị liệu", "Mỗi buổi bắt đầu bằng hỏi bệnh nền, đo huyết áp — không an toàn thì không thực hiện."],
     ["Giá niêm yết minh bạch", "Bảng giá công khai, không phát sinh chi phí; combo tiết kiệm 15–20%."],
     ["Sổ sức khỏe cá nhân", "Ghi nhận phản ứng sau mỗi buổi — liệu trình liên tục, không rời rạc."],
   ];
@@ -292,10 +292,10 @@ const bu = () => ({ code: "25B8", indent: 12 });
     text: t, options: { fill: { color: PRIMARY }, color: "FFFFFF", bold: true, fontSize: 13.5, align: t === "Dịch vụ" ? "left" : "center", valign: "middle" },
   }));
   const rowsData = [
-    ["Gội đầu dưỡng sinh thảo dược", "45 phút", "120.000", "180.000"],
-    ["Matxa cổ – vai – gáy trị liệu", "60 phút", "180.000", "250.000"],
-    ["Matxa toàn thân thư giãn", "70 phút", "220.000", "290.000"],
-    ["Bấm huyệt – đả thông kinh lạc", "60 phút", "200.000", "270.000"],
+    ["Gội đầu dưỡng sinh thảo dược", "45 phút", "120.000", "200.000"],
+    ["Massage cổ – vai – gáy trị liệu", "60 phút", "180.000", "270.000"],
+    ["Massage toàn thân thư giãn", "70 phút", "220.000", "320.000"],
+    ["Bấm huyệt – đả thông kinh lạc", "60 phút", "200.000", "290.000"],
     ["Chườm thảo dược – xông hơi đông y", "60 phút", "180.000", "—"],
   ];
   const body = rowsData.map((r, i) => r.map((c, j) => ({
@@ -316,12 +316,12 @@ const bu = () => ({ code: "25B8", indent: 12 });
   s.addText("PHỤC VỤ TẬN NHÀ", { x: 9.3, y: 2.24, w: 3.2, h: 0.3, fontSize: 11, bold: true, charSpacing: 2, color: TEALSOFT, fontFace: FONT, margin: 0 });
   s.addText([
     { text: "Miễn phí trong bán kính 5 km", options: { bold: true, fontSize: 15, color: "FFFFFF", breakLine: true } },
-    { text: "Xa hơn: phụ thu 20.000 đ mỗi 5 km. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.", options: { fontSize: 11.5, color: "B9D8D0" } },
+    { text: "Xa hơn: phụ thu 20.000 đ mỗi 5 km; khách đặt tối thiểu 2 buổi mỗi lượt. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.", options: { fontSize: 11.5, color: "B9D8D0" } },
   ], { x: 9.3, y: 2.58, w: 3.2, h: 1.5, fontFace: FONT, margin: 0, paraSpaceAfter: 6, lineSpacingMultiple: 1.15 });
   card(s, 9.0, 4.45, 3.78, 2.1, ACCENTSOFT, true, 0.1);
   s.addText([
     { text: "Định vị giá", options: { bold: true, fontSize: 14, color: ACCENT, breakLine: true } },
-    { text: "Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch đặt ngay dưới phân khúc spa — vừa túi tiền, vẫn chuyên nghiệp.", options: { fontSize: 11.5, color: TEXT } },
+    { text: "Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch ở khoảng 200.000–320.000 đ — chênh lệch 80–100 nghìn đ bù thời gian di chuyển, vẫn dưới phân khúc spa.", options: { fontSize: 11.5, color: TEXT } },
   ], { x: 9.3, y: 4.65, w: 3.2, h: 1.7, fontFace: FONT, margin: 0, paraSpaceAfter: 6, lineSpacingMultiple: 1.15 });
 
   src(s, [{ t: "Giá đề xuất của nhóm, căn theo khảo sát thị trường: " },
@@ -339,19 +339,20 @@ const bu = () => ({ code: "25B8", indent: 12 });
   motif(s); pageNo(s, 7);
 
   const packs = [
-    ["MUA LẺ", "120–290K", "đ/phiên", ["Không ràng buộc", "Giá niêm yết, không phát sinh", "Tích điểm thành viên từ phiên đầu"], "FFFFFF", TEXT, false],
-    ["COMBO 5 BUỔI", "890K", "tiết kiệm ~15%", ["Mix 3 dịch vụ tùy ý", "Đặt lịch linh hoạt trong 3 tháng", "1 buổi tổng kết liệu trình"], "FFFFFF", TEXT, false],
-    ["CAREPLUS 10 BUỔI", "1.590K", "tiết kiệm ~20%", ["Giá cố định 12 tháng", "Tích điểm 5% · ưu đãi tháng sinh nhật", "Cho người thân dùng chung"], DARK, "FFFFFF", true],
+    ["MUA LẺ", "120.000–290.000 đ", "", ["Không ràng buộc", "Giá niêm yết, không phát sinh", "Tích điểm thành viên từ phiên đầu"], "FFFFFF", TEXT, false, 21],
+    ["COMBO 5 BUỔI", "890.000 đ", "tiết kiệm ~15%", ["Tự chọn kết hợp 3 dịch vụ", "Đặt lịch linh hoạt trong 3 tháng", "1 buổi tổng kết liệu trình"], "FFFFFF", TEXT, false, 34],
+    ["CAREPLUS 10 BUỔI", "1.590.000 đ", "~20%", ["Giá cố định 12 tháng", "Tích điểm 5% · ưu đãi tháng sinh nhật", "Cho người thân dùng chung"], DARK, "FFFFFF", true, 31],
   ];
   let x = M;
   packs.forEach((p) => {
     const dark = p[6];
     card(s, x, 2.0, 3.93, 3.6, p[4], true, 0.1);
     s.addText(p[0], { x: x + 0.3, y: 2.28, w: 3.3, h: 0.32, fontSize: 12, bold: true, charSpacing: 2, color: dark ? TEALSOFT : TEALMID, fontFace: FONT, margin: 0 });
+    const pSize = p[7] || 34;
     s.addText([
-      { text: p[1], options: { fontSize: 38, bold: true, color: dark ? "F7965A" : (p[0] === "COMBO 5 BUỔI" ? PRIMARY : TEXT) } },
-      { text: "  " + p[2], options: { fontSize: 12.5, color: dark ? "B9D8D0" : MUTED } },
-    ], { x: x + 0.3, y: 2.62, w: 3.4, h: 0.75, fontFace: FONT, margin: 0 });
+      { text: p[1], options: { fontSize: pSize, bold: true, color: dark ? "F7965A" : (p[0] === "COMBO 5 BUỔI" ? PRIMARY : TEXT) } },
+      { text: p[2] ? "  " + p[2] : "", options: { fontSize: 12, color: dark ? "B9D8D0" : MUTED } },
+    ], { x: x + 0.3, y: 2.62, w: 3.45, h: 0.75, fontFace: FONT, margin: 0, valign: "middle" });
     s.addText(p[3].map((t, i) => ({ text: t, options: { bullet: bu(), breakLine: i < p[3].length - 1 } })),
       { x: x + 0.3, y: 3.55, w: 3.4, h: 1.9, fontSize: 12, color: dark ? "D5EAE4" : MUTED, fontFace: FONT, margin: 0, paraSpaceAfter: 8, lineSpacingMultiple: 1.12 });
     x += 4.13;
@@ -373,7 +374,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   motif(s); pageNo(s, 8);
 
   const steps = [
-    ["01", "Sàng lọc", "5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định."],
+    ["01", "Khảo sát", "5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định."],
     ["02", "Đánh giá", "Xác định vùng đau, tư thế sai lệch để trị liệu nhắm đúng chỗ."],
     ["03", "Trị liệu", "Matxa – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút."],
     ["04", "Theo dõi", "Dặn bài tập nhẹ, ghi sổ sức khỏe — buổi sau điều chỉnh tốt hơn."],
@@ -391,7 +392,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     { text: "Nguyên tắc bất di bất dịch:  ", options: { bold: true } },
     { text: "không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.", options: {} },
   ], 6.0, 0.72, ACCENTSOFT);
-  s.addNotes("Điểm khác biệt vận hành quan trọng nhất: sàng lọc y khoa bắt buộc. Đây là thứ spa thư giãn và quán nhỏ không làm.");
+  s.addNotes("Điểm khác biệt vận hành quan trọng nhất: khảo sát thể trạng bắt buộc trước mỗi buổi. Đây là thứ spa thư giãn và quán nhỏ không làm.");
 }
 
 /* ============================== S9 · KHÁC BIỆT CẠNH TRANH ============================== */
@@ -399,11 +400,11 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Giá trị khác biệt");
-  title(s, "Khoảng trống thị trường: professional care cho trung niên – cao tuổi còn bỏ ngỏ");
+  title(s, "Khoảng trống thị trường: dịch vụ chăm sóc chuyên nghiệp cho trung niên – cao tuổi còn bỏ ngỏ");
   motif(s); pageNo(s, 9);
 
   const C = "✓", X = "✕", P = "~";
-  const head = ["Tiêu chí", "CareTouch", "Spa cao cấp", "Quán massage nhỏ", "Home care rời rạc"].map((t, j) => ({
+  const head = ["Tiêu chí", "CareTouch", "Spa cao cấp", "Quán massage nhỏ", "Tại nhà tự phát"].map((t, j) => ({
     text: t, options: {
       fill: { color: j === 1 ? ACCENT : PRIMARY }, color: "FFFFFF", bold: true, fontSize: 12.5,
       align: j === 0 ? "left" : "center", valign: "middle",
@@ -412,10 +413,10 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const rows = [
     ["Giá niêm yết minh bạch, không phát sinh", C, C, X, P],
     ["Trị liệu cổ truyền theo bài chuẩn", C, X, P, P],
-    ["Sàng lọc y khoa trước mỗi buổi", C, X, X, P],
+    ["Khảo sát thể trạng an toàn trước mỗi buổi", C, X, X, P],
     ["Phục vụ tận giường – tận nhà", C, X, P, C],
     ["Sổ sức khỏe cá nhân theo dõi liệu trình", C, X, X, X],
-    ["Giá phù hợp chi trả định kỳ (120–290K)", C, X, C, P],
+    ["Giá phù hợp chi trả định kỳ (120–320 nghìn đồng)", C, X, C, P],
   ];
   const body = rows.map((r, i) => r.map((c, j) => ({
     text: c, options: {
@@ -437,7 +438,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Tài chính dự phóng");
-  title(s, "Hòa vốn từ tháng thứ 5 — hoàn vốn trong 12–14 tháng vận hành");
+  title(s, "Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong khoảng 12 tháng");
   motif(s); pageNo(s, 10);
 
   card(s, M, 1.95, 7.35, 4.75, "FFFFFF", true);
@@ -468,20 +469,29 @@ const bu = () => ({ code: "25B8", indent: 12 });
   });
 
   const fin = [
-    ["95 tr.", "vốn đầu tư ban đầu (cải tạo, dụng cụ, quảng bá khai trương)", TINT, PRIMARY],
-    ["48 tr./th.", "chi phí cố định: thuê 12tr + lương 4 người 32tr + điện nước, vật tư, khấu hao", TINT, PRIMARY],
+    ["165 tr.", "tổng vốn khởi đầu = 95 tr. đầu tư ban đầu + 70 tr. vốn lưu động bù lỗ 4 tháng đầu", TINT, PRIMARY],
+    ["48 tr./th.", "chi phí cố định: thuê 12tr + lương 4 kỹ thuật viên 32tr + điện nước, vật tư, khấu hao", TINT, PRIMARY],
     ["88 tr./th.", "doanh thu tháng 12 — tương đương ~350 khách/tháng", TINT, PRIMARY],
     ["≥ 55%", "tỷ lệ khách quay lại để hoàn vốn đúng hạn — đo từ tháng đầu tiên", ACCENTSOFT, ACCENT],
   ];
   let fy = 1.95;
   fin.forEach((f) => {
     card(s, 8.3, fy, 4.48, 1.08, f[2], true, 0.08);
-    s.addText(f[0], { x: 8.58, y: fy + 0.12, w: 1.62, h: 0.85, fontSize: 21, bold: true, color: f[3], fontFace: FONT, margin: 0, valign: "middle" });
+    s.addText(f[0], { x: 8.58, y: fy + 0.12, w: 1.62, h: 0.85, fontSize: f[0] === "165 tr." ? 19 : 21, bold: true, color: f[3], fontFace: FONT, margin: 0, valign: "middle" });
     s.addText(f[1], { x: 10.24, y: fy + 0.1, w: 2.4, h: 0.9, fontSize: 10.5, color: MUTED, fontFace: FONT, margin: 0, valign: "middle", lineSpacingMultiple: 1.08 });
     fy += 1.24;
   });
-  src(s, [{ t: "Giả định minh họa theo mô hình vận hành của nhóm: 1 cơ sở 2 giường trị liệu + 3 kỹ thuật viên phục vụ tại nhà; giá theo bảng giá đề xuất (slide 6)." }]);
-  s.addNotes("Doanh thu vượt chi phí cố định 48 triệu từ tháng 5. Tháng 12 đạt 88 triệu với 60% từ gói định kỳ. Mọi số liệu là giả định minh họa, sẽ thay bằng khảo sát địa bàn thực tế.");
+  s.addText([
+    { text: "T4: 44 < 48 < T5: 50  →  ", options: { color: MUTED } },
+    { text: "hòa vốn ngay tháng thứ 5", options: { color: ACCENT, bold: true } },
+  ], { x: M + 0.32, y: 6.2, w: 6.6, h: 0.3, fontSize: 10.5, italic: true, fontFace: FONT, margin: 0 });
+  src(s, [
+    { t: "Phép tính: lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng." },
+  ], 6.74);
+  src(s, [
+    { t: "Giả định minh họa của nhóm: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên (lương cứng ~8 tr. + phụ cấp ca tại nhà), nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6)." },
+  ]);
+  s.addNotes("Tổng vốn khởi đầu 165 triệu = 95 triệu đầu tư + 70 triệu vốn lưu động bù lỗ 4 tháng đầu (26+18+10+4=58 triệu, dự trù dư 12 triệu). Doanh thu vượt chi phí cố định 48 triệu từ tháng 5; lãi ròng lũy kế T5-T12 = 174 triệu ≥ 165 triệu nên hoàn vốn đủ trong khoảng 12 tháng. Kịch bản thận trọng (quay lại 55%): 12-14 tháng. Nhân sự: 4 KTV + nhóm sáng lập điều phối.");
 }
 
 /* ============================== S11 · LỘ TRÌNH ============================== */
@@ -521,14 +531,14 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Quản trị rủi ro");
-  title(s, "Nhìn thẳng rủi ro — và cách hóa giải từng cái");
+  title(s, "Nhìn thẳng rủi ro — và giải pháp ứng phó cho từng cái");
   motif(s); pageNo(s, 12);
 
   const risks = [
     ["Ranh giới pháp lý với “khám chữa bệnh”", "CAO",
-      "Định vị dịch vụ chăm sóc – thư giãn – phục hồi vận động; không khám bệnh, không kê thuốc, không quảng cáo chữa bệnh; bác sĩ y học cổ truyền cộng tác phụ trách chuyên môn; kỹ thuật viên thi chứng chỉ nghề."],
+      "Định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề."],
     ["Sự cố với khách có bệnh nền", "CAO",
-      "Sàng lọc bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; mua bảo hiểm trách nhiệm dịch vụ."],
+      "Khảo sát bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; mua bảo hiểm trách nhiệm dịch vụ."],
     ["Nhân lực và tay nghề", "TRUNG BÌNH",
       "Đào tạo nội bộ theo giáo trình chuẩn, kèm cặp thực tế; chất lượng đo bằng đánh giá sau mỗi buổi; người dạy nghề giữ cổ phần nhỏ."],
     ["Cạnh tranh về giá", "TRUNG BÌNH",
@@ -542,13 +552,13 @@ const bu = () => ({ code: "25B8", indent: 12 });
     s.addText(r[1], { x: M + 0.22, y: y + 0.33, w: hi ? 0.85 : 1.55, h: 0.4, fontSize: 10.5, bold: true, color: "FFFFFF", align: "center", valign: "middle", fontFace: FONT, margin: 0 });
     s.addText(r[0], { x: M + 2.0, y: y + 0.12, w: 3.6, h: 0.85, fontSize: 13.5, bold: true, color: TEXT, fontFace: FONT, margin: 0, valign: "middle", lineSpacingMultiple: 1.05 });
     s.addText([
-      { text: "Hóa giải:  ", options: { bold: true, color: PRIMARY } },
+      { text: "Giải pháp:  ", options: { bold: true, color: PRIMARY } },
       { text: r[2], options: { color: MUTED } },
     ], { x: M + 5.85, y: y + 0.08, w: 6.15, h: 0.94, fontSize: 10.8, fontFace: FONT, margin: 0, valign: "middle", lineSpacingMultiple: 1.1 });
     y += 1.18;
   });
-  src(s, [{ t: "Đánh giá mức độ rủi ro của nhóm dựa trên quy định hiện hành về massage – trị liệu phục hồi chức năng và khảo sát thực địa." }]);
-  s.addNotes("Hai rủi ro mức cao đều thuộc lĩnh vực pháp lý-an toàn. Chiến lược chung: định vị 'chăm sóc-thư giãn', không xâm phạm phạm vi khám chữa bệnh.");
+  src(s, [{ t: "Đánh giá rủi ro của nhóm dựa trên quy định hiện hành về massage – xoa bóp (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP) và khảo sát thực địa." }]);
+  s.addNotes("Hai rủi ro mức cao đều thuộc pháp lý - an toàn. Chiến lược: định vị 'chăm sóc - thư giãn - hỗ trợ vận động', không xâm phạm phạm vi khám chữa bệnh theo Luật KBBC 2023 và NĐ 96/2023/NĐ-CP. Nhân sự vận hành: 4 KTV lương cứng + nhóm sáng lập trực tiếp điều phối giai đoạn đầu; năm 2 tuyển thêm điều phối viên toàn thời gian.");
 }
 
 /* ============================== S13 · ĐỘI NGŨ ============================== */

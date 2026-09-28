@@ -188,6 +188,25 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 .nav-btn:hover{background:rgba(255,255,255,.22)}
 .slide-counter{color:rgba(255,255,255,.75);font-size:13px;min-width:4.5em;text-align:center}
 .hint{position:fixed;bottom:2.9vh;right:2vw;color:rgba(255,255,255,.45);font-size:11px;z-index:100}
+/* ẩn điều khiển khi thuyết trình */
+.nav-controls,.hint{transition:opacity .45s cubic-bezier(.22,.61,.36,1)}
+body.chrome-hidden .nav-controls,body.chrome-hidden .hint{opacity:0;pointer-events:none}
+/* chế độ sửa chữ */
+.editbar{position:fixed;left:2vw;bottom:2.6vh;z-index:120;display:flex;flex-direction:column;gap:8px;font-size:12.5px;transition:opacity .45s cubic-bezier(.22,.61,.36,1)}
+body.chrome-hidden .editbar{opacity:0;pointer-events:none}
+.editbar button{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;padding:8px 14px;border-radius:10px;cursor:pointer;backdrop-filter:blur(4px);font-family:var(--font);font-size:12.5px}
+.editbar button:hover{background:rgba(255,255,255,.22)}
+.editbar .panel{display:none;flex-direction:column;gap:8px;width:290px;background:rgba(7,42,37,.92);border:1px solid rgba(42,168,143,.4);border-radius:12px;padding:14px;backdrop-filter:blur(6px)}
+.editbar.open .panel{display:flex}
+.editbar input{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;padding:8px 10px;border-radius:8px;font-family:var(--font);font-size:13px;outline:none}
+.editbar .row{display:flex;gap:8px}
+.editbar .row button{flex:1}
+.editbar .note{color:rgba(255,255,255,.55);font-size:11px;line-height:1.45}
+.editbar .status{color:var(--teal-soft);font-size:11.5px;min-height:1em}
+body.editing [contenteditable="true"]{outline:1.5px dashed rgba(232,89,12,.6);outline-offset:3px;border-radius:4px;cursor:text;min-height:1em}
+body.editing [contenteditable="true"]:hover{background:rgba(232,89,12,.05)}
+body.editing [contenteditable="true"]:focus{outline:2px solid var(--accent);background:rgba(232,89,12,.07)}
+body.editing .slide a{pointer-events:none;text-decoration:none}
 @media (max-width:768px){
   .slide{padding:5% 6%}
   .grid2,.grid3{grid-template-columns:1fr;overflow-y:auto}
@@ -209,7 +228,7 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
     <div class="kicker reveal d1">Hồ sơ dự án khởi nghiệp · Tháng 9/2026</div>
     <div class="wordmark reveal d2"><span class="c">Care</span><span class="t">Touch</span></div>
     <div class="tagline reveal d3">Healing Touch, Healthy Life</div>
-    <p class="cover-sub reveal d4">Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, matxa trị liệu,
+    <p class="cover-sub reveal d4">Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu,
     bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.</p>
     <div class="cover-meta reveal d5">
       <div class="grp"><b>Nhóm 3 · Tổ 14 · Lớp A1K79</b><br>Thực tập Nghiên cứu khoa học — Đổi mới sáng tạo Khởi nghiệp<br><i>Tiền thân: An Khang Đường</i></div>
@@ -294,7 +313,7 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
       <li>Con cháu đặt và thanh toán hộ — trung thành cao nếu buổi đầu an toàn</li></ul>
     </div>
   </div>
-  <div class="band reveal d5" style="margin-top:2vh"><b>Khả năng chi trả:</b> thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–290.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu. <a href="https://www.gso.gov.vn/" target="_blank" style="color:var(--primary)">Nguồn: Tổng cục Thống kê</a></div>
+  <div class="band reveal d5" style="margin-top:2vh"><b>Khả năng chi trả:</b> thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–320.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu. <a href="https://www.gso.gov.vn/" target="_blank" style="color:var(--primary)">Nguồn: Tổng cục Thống kê</a></div>
 </section>
 
 <!-- 5 GIẢI PHÁP & ĐỊNH VỊ -->
@@ -312,13 +331,13 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
       <div class="bubble" style="left:26%;top:72%;width:8em;height:4.2em;background:#C9D8D3"></div>
       <div class="b-label" style="left:26%;top:86%">Quán massage nhỏ</div>
       <div class="bubble" style="left:78%;top:66%;width:8.4em;height:4.2em;background:#C9D8D3"></div>
-      <div class="b-label" style="left:78%;top:80%">Home care rời rạc</div>
+      <div class="b-label" style="left:78%;top:80%">Tại nhà tự phát</div>
       <div class="bubble" style="left:72%;top:26%;width:11.5em;height:5.6em;background:var(--accent);color:#fff;font-weight:700;font-size:clamp(11px,1.25vw,15px);box-shadow:0 14px 30px -12px rgba(232,89,12,.55)">CareTouch</div>
       <div class="b-label" style="left:72%;top:41%;color:var(--accent)">trị liệu cổ truyền · giá phải chăng</div>
     </div>
     <div class="row-list">
       <div class="row-item reveal d2"><div class="num-badge">1</div><div><h4>Tận giường – tận nhà</h4><p>Mang theo đệm, dầu xoa, khăn sạch; khách cao tuổi không cần ai đưa đón.</p></div></div>
-      <div class="row-item reveal d3"><div class="num-badge coral">2</div><div><h4>An toàn có sàng lọc</h4><p>Mỗi buổi bắt đầu bằng hỏi bệnh nền, đo huyết áp — không an toàn thì không thực hiện.</p></div></div>
+      <div class="row-item reveal d3"><div class="num-badge coral">2</div><div><h4>Khảo sát thể trạng trước buổi trị liệu</h4><p>Mỗi buổi bắt đầu bằng hỏi bệnh nền, đo huyết áp — không an toàn thì không thực hiện.</p></div></div>
       <div class="row-item reveal d4"><div class="num-badge">3</div><div><h4>Giá niêm yết minh bạch</h4><p>Bảng giá công khai, không phát sinh chi phí; combo tiết kiệm 15–20%.</p></div></div>
       <div class="row-item reveal d5"><div class="num-badge">4</div><div><h4>Sổ sức khỏe cá nhân</h4><p>Ghi nhận phản ứng sau mỗi buổi — liệu trình liên tục, không rời rạc.</p></div></div>
     </div>
@@ -335,19 +354,19 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
     <div class="card reveal d2" style="padding:0;overflow:hidden">
       <table class="ctable">
         <tr><th>Dịch vụ</th><th class="c">Thời lượng</th><th class="c">Tại cơ sở</th><th class="c">Tại nhà</th></tr>
-        <tr><td>Gội đầu dưỡng sinh thảo dược</td><td class="c">45 phút</td><td class="c" style="color:var(--primary);font-weight:700">120.000</td><td class="c" style="color:var(--accent);font-weight:700">180.000</td></tr>
-        <tr><td>Matxa cổ – vai – gáy trị liệu</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">180.000</td><td class="c" style="color:var(--accent);font-weight:700">250.000</td></tr>
-        <tr><td>Matxa toàn thân thư giãn</td><td class="c">70 phút</td><td class="c" style="color:var(--primary);font-weight:700">220.000</td><td class="c" style="color:var(--accent);font-weight:700">290.000</td></tr>
-        <tr><td>Bấm huyệt – đả thông kinh lạc</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">200.000</td><td class="c" style="color:var(--accent);font-weight:700">270.000</td></tr>
+        <tr><td>Gội đầu dưỡng sinh thảo dược</td><td class="c">45 phút</td><td class="c" style="color:var(--primary);font-weight:700">120.000</td><td class="c" style="color:var(--accent);font-weight:700">200.000</td></tr>
+        <tr><td>Massage cổ – vai – gáy trị liệu</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">180.000</td><td class="c" style="color:var(--accent);font-weight:700">270.000</td></tr>
+        <tr><td>Massage toàn thân thư giãn</td><td class="c">70 phút</td><td class="c" style="color:var(--primary);font-weight:700">220.000</td><td class="c" style="color:var(--accent);font-weight:700">320.000</td></tr>
+        <tr><td>Bấm huyệt – đả thông kinh lạc</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">200.000</td><td class="c" style="color:var(--accent);font-weight:700">290.000</td></tr>
         <tr><td>Chườm thảo dược – xông hơi đông y</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">180.000</td><td class="c">—</td></tr>
       </table>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.8vh">
       <div class="card darkcard reveal d3"><div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.25em;color:var(--teal-soft);font-weight:700;margin-bottom:1vh">PHỤC VỤ TẬN NHÀ</div>
         <p style="font-weight:700;font-size:clamp(13px,1.5vw,17px)">Miễn phí trong bán kính 5 km</p>
-        <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Xa hơn: phụ thu 20.000 đ mỗi 5 km. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.</p></div>
+        <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Xa hơn: phụ thu 20.000 đ mỗi 5 km; khách đặt tối thiểu 2 buổi mỗi lượt. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.</p></div>
       <div class="card coralcard reveal d4"><p style="font-weight:700;color:var(--accent);font-size:clamp(12.5px,1.4vw,16px)">Định vị giá</p>
-        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch đặt ngay dưới phân khúc spa — vừa túi tiền, vẫn chuyên nghiệp.</p></div>
+        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch ở khoảng 200.000–320.000 đ — chênh lệch 80–100 nghìn đ bù thời gian di chuyển, vẫn dưới phân khúc spa.</p></div>
     </div>
   </div>
   <p class="src reveal d5">Giá đề xuất của nhóm, căn theo khảo sát thị trường: <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank">Massagenha.com, 7/2025</a> — con số sẽ hiệu chỉnh theo địa bàn triển khai thực tế.</p>
@@ -361,21 +380,21 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
   <div class="body grid3" style="align-items:stretch;align-content:stretch">
     <div class="card p-card reveal d2">
       <div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.22em;color:var(--teal-mid);font-weight:700">MUA LẺ</div>
-      <div class="pricing-num" style="margin:1vh 0">120–290K <span style="font-size:clamp(10px,1.15vw,13px);color:var(--muted);font-weight:400">đ/phiên</span></div>
+      <div class="pricing-num" style="margin:1vh 0;font-size:clamp(20px,2.2vw,30px)">120.000–290.000 đ</div>
       <div class="divider"></div>
       <ul class="dots"><li>Không ràng buộc</li><li>Giá niêm yết, không phát sinh</li><li>Tích điểm thành viên từ phiên đầu</li></ul>
       <div class="p-note">Dành cho khách trải nghiệm lần đầu</div>
     </div>
     <div class="card p-card reveal d3">
       <div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.22em;color:var(--teal-mid);font-weight:700">COMBO 5 BUỔI</div>
-      <div class="pricing-num" style="margin:1vh 0;color:var(--primary)">890K <span style="font-size:clamp(10px,1.15vw,13px);color:var(--muted);font-weight:400">tiết kiệm ~15%</span></div>
+      <div class="pricing-num" style="margin:1vh 0;color:var(--primary)">890.000 đ <span style="font-size:clamp(10px,1.15vw,13px);color:var(--muted);font-weight:400">tiết kiệm ~15%</span></div>
       <div class="divider"></div>
-      <ul class="dots"><li>Mix 3 dịch vụ tùy ý</li><li>Đặt lịch linh hoạt trong 3 tháng</li><li>1 buổi tổng kết liệu trình</li></ul>
+      <ul class="dots"><li>Tự chọn kết hợp 3 dịch vụ</li><li>Đặt lịch linh hoạt trong 3 tháng</li><li>1 buổi tổng kết liệu trình</li></ul>
       <div class="p-note">Dành cho liệu trình ngắn 2–4 tuần</div>
     </div>
     <div class="card darkcard p-card reveal d4">
       <div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.22em;color:var(--teal-soft);font-weight:700">CAREPLUS 10 BUỔI</div>
-      <div class="pricing-num" style="margin:1vh 0;color:#F7965A">1.590K <span style="font-size:clamp(10px,1.15vw,13px);color:var(--on-dark-muted);font-weight:400">tiết kiệm ~20%</span></div>
+      <div class="pricing-num" style="margin:1vh 0;color:#F7965A">1.590.000 đ <span style="font-size:clamp(10px,1.15vw,13px);color:var(--on-dark-muted);font-weight:400">~20%</span></div>
       <div class="divider darkcard-divider"></div>
       <ul class="dots on-dark"><li>Giá cố định 12 tháng</li><li>Tích điểm 5% · ưu đãi tháng sinh nhật</li><li>Cho người thân dùng chung</li></ul>
       <div class="p-note on-dark">Gói chủ lực — dành cho liệu trình chuẩn &amp; gia đình</div>
@@ -392,14 +411,14 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
   <div class="body">
     <div class="steps">
       <div class="card step reveal d2" style="background:var(--tint)"><div class="arrow">→</div>
-        <div class="ghost-num">01</div><h4 style="font-size:clamp(14px,1.6vw,19px)">Sàng lọc</h4>
+        <div class="ghost-num">01</div><h4 style="font-size:clamp(14px,1.6vw,19px)">Khảo sát</h4>
         <p style="color:var(--muted);font-size:clamp(11px,1.2vw,14px);margin-top:1vh;line-height:1.5">5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định.</p></div>
       <div class="card step reveal d3"><div class="arrow">→</div>
         <div class="ghost-num">02</div><h4 style="font-size:clamp(14px,1.6vw,19px)">Đánh giá</h4>
         <p style="color:var(--muted);font-size:clamp(11px,1.2vw,14px);margin-top:1vh;line-height:1.5">Xác định vùng đau, tư thế sai lệch để trị liệu nhắm đúng chỗ.</p></div>
       <div class="card step reveal d4"><div class="arrow">→</div>
         <div class="ghost-num">03</div><h4 style="font-size:clamp(14px,1.6vw,19px)">Trị liệu</h4>
-        <p style="color:var(--muted);font-size:clamp(11px,1.2vw,14px);margin-top:1vh;line-height:1.5">Matxa – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút.</p></div>
+        <p style="color:var(--muted);font-size:clamp(11px,1.2vw,14px);margin-top:1vh;line-height:1.5">Massage – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút.</p></div>
       <div class="card step reveal d5">
         <div class="ghost-num">04</div><h4 style="font-size:clamp(14px,1.6vw,19px)">Theo dõi</h4>
         <p style="color:var(--muted);font-size:clamp(11px,1.2vw,14px);margin-top:1vh;line-height:1.5">Dặn bài tập nhẹ, ghi sổ sức khỏe — buổi sau điều chỉnh tốt hơn.</p></div>
@@ -412,16 +431,16 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Giá trị khác biệt</div>
-  <h2 class="title reveal d2">Khoảng trống thị trường: professional care cho trung niên – cao tuổi còn bỏ ngỏ</h2>
+  <h2 class="title reveal d2">Khoảng trống thị trường: dịch vụ chăm sóc chuyên nghiệp cho trung niên – cao tuổi còn bỏ ngỏ</h2>
   <div class="body card reveal d2" style="padding:0;overflow:hidden">
     <table class="ctable" style="height:100%">
-      <tr><th>Tiêu chí</th><th class="c hl">CareTouch</th><th class="c">Spa cao cấp</th><th class="c">Quán massage nhỏ</th><th class="c">Home care rời rạc</th></tr>
+      <tr><th>Tiêu chí</th><th class="c hl">CareTouch</th><th class="c">Spa cao cấp</th><th class="c">Quán massage nhỏ</th><th class="c">Tại nhà tự phát</th></tr>
       <tr><td>Giá niêm yết minh bạch, không phát sinh</td><td class="hl">✓</td><td class="c yes">✓</td><td class="c no">✕</td><td class="c">~</td></tr>
       <tr><td>Trị liệu cổ truyền theo bài chuẩn</td><td class="hl">✓</td><td class="c no">✕</td><td class="c">~</td><td class="c">~</td></tr>
-      <tr><td>Sàng lọc y khoa trước mỗi buổi</td><td class="hl">✓</td><td class="c no">✕</td><td class="c no">✕</td><td class="c">~</td></tr>
+      <tr><td>Khảo sát thể trạng an toàn trước mỗi buổi</td><td class="hl">✓</td><td class="c no">✕</td><td class="c no">✕</td><td class="c">~</td></tr>
       <tr><td>Phục vụ tận giường – tận nhà</td><td class="hl">✓</td><td class="c no">✕</td><td class="c">~</td><td class="c yes">✓</td></tr>
       <tr><td>Sổ sức khỏe cá nhân theo dõi liệu trình</td><td class="hl">✓</td><td class="c no">✕</td><td class="c no">✕</td><td class="c no">✕</td></tr>
-      <tr><td>Giá phù hợp chi trả định kỳ (120–290K)</td><td class="hl">✓</td><td class="c no">✕</td><td class="c yes">✓</td><td class="c">~</td></tr>
+      <tr><td>Giá phù hợp chi trả định kỳ (120–320 nghìn đồng)</td><td class="hl">✓</td><td class="c no">✕</td><td class="c yes">✓</td><td class="c">~</td></tr>
     </table>
   </div>
   <p class="src reveal d3">So sánh do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai tại TP.HCM, 2025–2026 (spa: KKday, Jackfruit Adventure; home care: Massagenha).</p>
@@ -431,20 +450,21 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Tài chính dự phóng</div>
-  <h2 class="title reveal d2">Hòa vốn từ tháng thứ 5 — hoàn vốn trong 12–14 tháng vận hành</h2>
+  <h2 class="title reveal d2">Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong khoảng 12 tháng</h2>
   <div class="body grid2" style="grid-template-columns:1.55fr 1fr">
     <div class="card reveal d2" style="display:flex;flex-direction:column">
       <div class="panel-title">Doanh thu dự phóng 12 tháng đầu (triệu đồng/tháng)</div>
       <div class="chartbox"><canvas id="chRevenue"></canvas></div>
+      <div class="reveal d4" style="text-align:center;font-size:clamp(10.5px,1.12vw,13px);padding-top:1vh"><span style="color:var(--muted)">T4: 44 &lt; 48 &lt; T5: 50  →  </span><b style="color:var(--accent)">hòa vốn ngay tháng thứ 5</b></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center">
-      <div class="card tint reveal d3" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">95 tr.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">vốn đầu tư ban đầu (cải tạo, dụng cụ, quảng bá khai trương)</p></div>
-      <div class="card tint reveal d4" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">48 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">chi phí cố định: thuê 12tr + lương 4 người 32tr + điện nước, vật tư, khấu hao</p></div>
+      <div class="card tint reveal d3" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">165 tr.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tổng vốn khởi đầu = 95 tr. đầu tư + 70 tr. vốn lưu động bù lỗ 4 tháng đầu</p></div>
+      <div class="card tint reveal d4" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">48 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">chi phí cố định: thuê 12tr + lương 4 kỹ thuật viên 32tr + điện nước, vật tư, khấu hao</p></div>
       <div class="card tint reveal d5" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">88 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">doanh thu tháng 12 — tương đương ~350 khách/tháng</p></div>
       <div class="card coralcard reveal d6" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);flex:none;width:5.2em">≥ 55%</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tỷ lệ khách quay lại để hoàn vốn đúng hạn — đo từ tháng đầu tiên</p></div>
     </div>
   </div>
-  <p class="src reveal d6">Giả định minh họa theo mô hình vận hành của nhóm: 1 cơ sở 2 giường trị liệu + 3 kỹ thuật viên phục vụ tại nhà; giá theo bảng giá đề xuất (slide 6).</p>
+  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Phép tính:</b> lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng). Giả định: 4 kỹ thuật viên lương cứng ~8 tr. + phụ cấp ca tại nhà; nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6).</p>
 </section>
 
 <!-- 11 LỘ TRÌNH -->
@@ -457,7 +477,7 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
       <div class="t-node reveal d2"><div class="t-dot">1</div>
         <div style="font-size:clamp(10px,1.05vw,12px);color:var(--teal-mid);font-weight:700">GĐ 1 · Tháng 1–6</div>
         <h4 style="font-size:clamp(14px,1.7vw,20px);margin:.6vh 0 1vh">Kiểm chứng</h4>
-        <p style="color:var(--muted);font-size:clamp(11px,1.18vw,14px);line-height:1.5">Vận hành cơ sở đầu tiên; chuẩn hóa quy trình sàng lọc &amp; đào tạo; đo tỷ lệ khách quay lại từ tháng đầu.</p></div>
+        <p style="color:var(--muted);font-size:clamp(11px,1.18vw,14px);line-height:1.5">Vận hành cơ sở đầu tiên; chuẩn hóa quy trình khảo sát thể trạng &amp; đào tạo; đo tỷ lệ khách quay lại từ tháng đầu.</p></div>
       <div class="t-node reveal d3"><div class="t-dot">2</div>
         <div style="font-size:clamp(10px,1.05vw,12px);color:var(--teal-mid);font-weight:700">GĐ 2 · Tháng 7–12</div>
         <h4 style="font-size:clamp(14px,1.7vw,20px);margin:.6vh 0 1vh">Tăng trưởng</h4>
@@ -479,18 +499,18 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Quản trị rủi ro</div>
-  <h2 class="title reveal d2">Nhìn thẳng rủi ro — và cách hóa giải từng cái</h2>
+  <h2 class="title reveal d2">Nhìn thẳng rủi ro — và giải pháp ứng phó cho từng cái</h2>
   <div class="body" style="display:flex;flex-direction:column;gap:1.4vh">
     <div class="risk reveal d2"><span class="chip coral">CAO</span><h4>Ranh giới pháp lý với “khám chữa bệnh”</h4>
-      <p><b>Hóa giải:</b> định vị chăm sóc – thư giãn – phục hồi vận động; không khám bệnh, không kê thuốc, không quảng cáo chữa bệnh; bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề.</p></div>
+      <p><b>Giải pháp:</b> định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề.</p></div>
     <div class="risk reveal d3"><span class="chip coral">CAO</span><h4>Sự cố với khách có bệnh nền</h4>
-      <p><b>Hóa giải:</b> sàng lọc bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; bảo hiểm trách nhiệm dịch vụ.</p></div>
+      <p><b>Giải pháp:</b> khảo sát bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; bảo hiểm trách nhiệm dịch vụ.</p></div>
     <div class="risk reveal d4"><span class="chip teal">TRUNG BÌNH</span><h4>Nhân lực và tay nghề</h4>
-      <p><b>Hóa giải:</b> đào tạo nội bộ theo giáo trình chuẩn, kèm cặp thực tế; chất lượng đo bằng đánh giá sau mỗi buổi; người dạy nghề giữ cổ phần nhỏ.</p></div>
+      <p><b>Giải pháp:</b> đào tạo nội bộ theo giáo trình chuẩn, kèm cặp thực tế; chất lượng đo bằng đánh giá sau mỗi buổi; người dạy nghề giữ cổ phần nhỏ.</p></div>
     <div class="risk reveal d5"><span class="chip teal">TRUNG BÌNH</span><h4>Cạnh tranh về giá</h4>
-      <p><b>Hóa giải:</b> không đua giá rẻ nhất; cạnh tranh bằng quy trình an toàn và niềm tin; gói combo &amp; CarePlus giữ khách dài hạn.</p></div>
+      <p><b>Giải pháp:</b> không đua giá rẻ nhất; cạnh tranh bằng quy trình an toàn và niềm tin; gói combo &amp; CarePlus giữ khách dài hạn.</p></div>
   </div>
-  <p class="src reveal d6">Đánh giá mức độ rủi ro của nhóm dựa trên quy định hiện hành về massage – trị liệu phục hồi chức năng và khảo sát thực địa.</p>
+  <p class="src reveal d6">Đánh giá rủi ro của nhóm dựa trên quy định hiện hành về massage – xoa bóp (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP) và khảo sát thực địa.</p>
 </section>
 
 <!-- 13 ĐỘI NGŨ -->
@@ -506,7 +526,7 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
       <div class="card member reveal d5"><div class="avatar" style="background:var(--accent)">QV</div><h4>Phạm Quốc Việt</h4><p>2401742</p></div>
       <div class="card member reveal d6"><div class="avatar" style="background:var(--primary)">VS</div><h4>Viengkeo Shengchan</h4><p>2401761</p></div>
     </div>
-    <div class="band reveal d6" style="margin-top:3vh"><b>Cam kết vận hành:</b> kỹ thuật viên thi chứng chỉ nghề · bác sĩ y học cổ truyền cộng tác · bảo hiểm trách nhiệm dịch vụ · quy trình sàng lọc an toàn cho mọi buổi trị liệu.</div>
+    <div class="band reveal d6" style="margin-top:3vh"><b>Cam kết vận hành:</b> kỹ thuật viên thi chứng chỉ nghề · bác sĩ y học cổ truyền cộng tác · bảo hiểm trách nhiệm dịch vụ · quy trình khảo sát thể trạng an toàn cho mọi buổi trị liệu.<br><span style="color:var(--muted);font-size:.92em">Giai đoạn đầu, 5 thành viên sáng lập trực tiếp điều phối lịch, marketing và chăm sóc khách; năm 2 tuyển thêm điều phối viên toàn thời gian.</span></div>
   </div>
 </section>
 
@@ -529,12 +549,26 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 
 </div><!-- /deck -->
 
+<div class="editbar" id="editbar">
+  <button id="editToggleBtn">✎ Sửa nội dung</button>
+  <div class="panel" id="editPanel">
+    <strong style="color:#fff">Chế độ sửa chữ</strong>
+    <input type="password" id="editCode" placeholder="Mã bảo mật" autocomplete="off">
+    <div class="row">
+      <button id="editSaveBtn">Lưu thay đổi</button>
+      <button id="editExitBtn">Thoát</button>
+    </div>
+    <div class="status" id="editStatus">Bấm vào chữ trên slide để sửa. Lưu cần mã bảo mật.</div>
+    <div class="note">Up lên hosting kèm file <b>save.php</b>: chỉnh sửa lưu chung cho cả nhóm. Mở trực tiếp trên máy: chỉ lưu trên trình duyệt này. Mã mặc định: <b>1234321</b>.</div>
+  </div>
+</div>
+
 <div class="nav-controls">
   <button class="nav-btn" onclick="prevSlide()" aria-label="Slide trước">←</button>
   <span class="slide-counter"><span id="cur">1</span> / <span id="total">14</span></span>
   <button class="nav-btn" onclick="nextSlide()" aria-label="Slide sau">→</button>
 </div>
-<div class="hint">← → hoặc click để chuyển slide</div>
+<div class="hint">→ / click: chuyển slide · ← lùi · H: ẩn/hiện · F: toàn màn hình</div>
 
 <script>
 /* ---------- deck navigation ---------- */
@@ -543,6 +577,21 @@ const slides = document.querySelectorAll('.slide');
 const total = slides.length;
 document.getElementById('total').textContent = total;
 const charts = {};
+/* plugin vẽ nhãn giá trị lên cột */
+const valueLabels = { id:'valueLabels', afterDatasetsDraw(chart){
+  chart.data.datasets.forEach((ds, di) => {
+    if(!ds._showLabels) return;
+    const meta = chart.getDatasetMeta(di);
+    meta.data.forEach((bar, i) => {
+      const v = ds.data[i]; if(v == null) return;
+      const {ctx} = chart;
+      ctx.save(); ctx.font = '700 14px Segoe UI, Arial, sans-serif';
+      ctx.fillStyle = '#16302B'; ctx.textAlign = 'center';
+      ctx.fillText(v.toFixed(1).replace('.', ','), bar.x, bar.y - 9);
+      ctx.restore();
+    });
+  });
+} };
 
 function showSlide(n){
   n = Math.max(1, Math.min(total, n));
@@ -581,7 +630,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Home'){showSlide(1);} if(e.key==='End'){showSlide(total);}
 });
 document.addEventListener('click',e=>{
-  if(e.target.closest('.nav-controls')||e.target.closest('a')) return;
+  if(e.target.closest('.nav-controls')||e.target.closest('.editbar')||e.target.closest('a')||document.body.classList.contains('editing')) return;
   nextSlide();
 });
 let tx=null;
@@ -601,9 +650,10 @@ const CHART_BUILDERS = {
     data:{labels:['2019','2025','2028 (dự báo)'],datasets:[{
       data:[17.4,27.5,34.1],
       backgroundColor:['#9ED9CC','#0E7C6B','#E8590C'],
-      borderRadius:8, maxBarThickness:86
+      borderRadius:8, maxBarThickness:86, _showLabels:true
     }]},
-    options:{responsive:true,maintainAspectRatio:false,animation:{duration:1100,easing:'easeOutQuart'},
+    plugins:[valueLabels],
+    options:{responsive:true,maintainAspectRatio:false,animation:{duration:1100,easing:'easeOutQuart'},layout:{padding:{top:26}},
       plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.y.toFixed(1).replace('.',',')+' tỷ USD'}}},
       scales:{x:{grid:{display:false},ticks:{font:{size:13}}},y:{display:false,max:40}}}
   }),
@@ -624,6 +674,126 @@ const CHART_BUILDERS = {
 };
 
 showSlide(1);
+</script>
+<script>
+/* ---------- chrome tự ẩn khi thuyết trình ---------- */
+let chromeForced = false, chromeIdleT = null;
+function applyChrome(hidden){ document.body.classList.toggle('chrome-hidden', hidden); }
+function chromeIdleReset(){
+  clearTimeout(chromeIdleT);
+  chromeIdleT = setTimeout(()=>{ if(!chromeForced) applyChrome(true); }, 2600);
+}
+function chromeMouse(){ if(!chromeForced) applyChrome(false); chromeIdleReset(); }
+function chromeKb(){ if(!chromeForced) applyChrome(true); chromeIdleReset(); }
+function chromeToggle(){ chromeForced = !chromeForced; applyChrome(chromeForced); }
+['mousemove','mousedown','touchstart'].forEach(ev=>document.addEventListener(ev, chromeMouse, {passive:true}));
+document.addEventListener('fullscreenchange', ()=>{ if(document.fullscreenElement) chromeKb(); else chromeMouse(); });
+chromeIdleReset();
+
+/* ---------- phím tắt: H ẩn/hiện, F toàn màn hình ---------- */
+document.addEventListener('keydown', e=>{
+  if(e.key === 'h' || e.key === 'H'){ chromeToggle(); }
+  if(e.key === 'f' || e.key === 'F'){
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(()=>{});
+  }
+  if((e.key === 'e' || e.key === 'E') && !document.body.classList.contains('editing')){
+    document.getElementById('editbar').classList.toggle('open');
+  }
+});
+
+/* ---------- chế độ sửa chữ ---------- */
+const EDIT_CODE = '1234321';
+const EDIT_SELECTOR = 'h2.title, .kicker, p, li, td, th, h4, .band, .panel-title, .p-note, .axis-label, .b-label, .cover-sub, .tagline, .grp, .chip, .ghost-num, .pricing-num, .stat-num';
+const SKIP_IN_EDIT = '.wordmark, .count, .avatar, .t-dot, .num-badge';
+let editing = false, baseline = {};
+
+function editTargetsIn(s){
+  const set = new Set();
+  s.querySelectorAll(EDIT_SELECTOR).forEach(el=>{
+    if(el.closest(SKIP_IN_EDIT)) return;
+    if(el.querySelector('.count, .wordmark, .avatar')) return;
+    if(!el.textContent.trim()) return;
+    set.add(el);
+  });
+  return [...set];
+}
+function editTargets(){ return editTargetsIn(document); }
+function assignIds(){
+  document.querySelectorAll('.slide').forEach((s,si)=>{
+    editTargetsIn(s).forEach((el,i)=>{ el.dataset.eid = 's'+si+'-'+i; });
+  });
+}
+function setEdit(on){
+  editing = on;
+  document.body.classList.toggle('editing', on);
+  editTargets().forEach(el=>{ el.contentEditable = on ? 'true' : 'false'; });
+  document.getElementById('editStatus').textContent = on ? 'Đang sửa — bấm vào chữ trên slide.' : '';
+}
+function collectChanges(){
+  const changes = {};
+  document.querySelectorAll('[data-eid]').forEach(el=>{
+    if(el.innerHTML !== baseline[el.dataset.eid]) changes[el.dataset.eid] = el.innerHTML;
+  });
+  return changes;
+}
+function applyEdits(map){
+  if(!map) return;
+  document.querySelectorAll('[data-eid]').forEach(el=>{
+    const v = map[el.dataset.eid];
+    if(typeof v === 'string') el.innerHTML = v;
+  });
+}
+function localStore(){ try{ return JSON.parse(localStorage.getItem('caretouch_edits_v1')||'{}'); }catch(e){ return {}; } }
+function localSave(map){
+  const merged = Object.assign(localStore(), map);
+  try{ localStorage.setItem('caretouch_edits_v1', JSON.stringify(merged)); }catch(e){}
+}
+async function loadEdits(){
+  applyEdits(localStore());
+  try{
+    const r = await fetch('content.json?ts='+Date.now(), {cache:'no-store'});
+    if(r.ok){ applyEdits(await r.json()); }
+  }catch(e){}
+  refreshBaseline();
+}
+function refreshBaseline(){
+  baseline = {};
+  document.querySelectorAll('[data-eid]').forEach(el=>{ baseline[el.dataset.eid] = el.innerHTML; });
+}
+document.getElementById('editToggleBtn').addEventListener('click', ()=>{
+  const bar = document.getElementById('editbar');
+  bar.classList.toggle('open');
+  if(bar.classList.contains('open') && !editing) setEdit(true);
+});
+document.getElementById('editExitBtn').addEventListener('click', ()=>{
+  setEdit(false);
+  document.getElementById('editbar').classList.remove('open');
+});
+document.getElementById('editSaveBtn').addEventListener('click', async ()=>{
+  const changes = collectChanges();
+  const status = document.getElementById('editStatus');
+  if(!Object.keys(changes).length){ status.textContent = 'Chưa có thay đổi nào.'; return; }
+  const code = document.getElementById('editCode').value.trim();
+  status.textContent = 'Đang lưu...';
+  let savedServer = false;
+  try{
+    const r = await fetch('save.php', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({code: code, edits: changes})
+    });
+    const j = await r.json().catch(()=>({ok:false}));
+    if(r.ok && j.ok){ savedServer = true; status.textContent = 'Đã lưu lên máy chủ ('+j.saved+' mục) — cả nhóm sẽ thấy.'; }
+    else if(r.status === 403){ status.textContent = 'Sai mã bảo mật.'; return; }
+  }catch(e){}
+  if(!savedServer){
+    if(code !== EDIT_CODE){ status.textContent = 'Sai mã bảo mật (hoặc không có save.php trên host).'; return; }
+    status.textContent = 'Đã lưu trên trình duyệt này (host chưa có save.php).';
+  }
+  localSave(changes);
+  refreshBaseline();
+});
+assignIds();
+loadEdits();
 </script>
 </body>
 </html>
