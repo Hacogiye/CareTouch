@@ -461,7 +461,7 @@ doc.add_heading("Phụ lục A. Ghi chú quá trình lựa chọn ý tưởng", 
 para("Nhóm đã sinh 5 ý tưởng ban đầu quanh vấn đề “chăm sóc sức khỏe chủ động, tiện lợi cho người già”: hỗ trợ đi khám bệnh; khám sức khỏe định kỳ tại nhà; thiết bị nhắc uống thuốc; massage – xoa bóp, bấm huyệt và đả thông kinh lạc theo cổ truyền; và dịch vụ nấu ăn chế độ cho người già. Ba ý tưởng khả thi nhất được đưa vào bảng đánh giá 5 tiêu chí, thang điểm 5:")
 t = doc.add_table(rows=7, cols=4)
 rows = [
-    ("Tiêu chí", "Ý tưởng 1: Khám định kỳ tại nhà", "Ý tưởng 2: Thiết bị nhắc uống thuốc", "Ý tưởng 3: Matxa – trị liệu cổ truyền"),
+    ("Tiêu chí", "Ý tưởng 1: Khám định kỳ tại nhà", "Ý tưởng 2: Thiết bị nhắc uống thuốc", "Ý tưởng 3: Massage – trị liệu cổ truyền"),
     ("Mức độ đáp ứng nhu cầu khách hàng", "4", "3,5", "4,5"),
     ("Giá trị và sự khác biệt", "4", "4", "4"),
     ("Tiềm năng thị trường", "3,5", "3", "4,5"),

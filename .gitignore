@@ -2,3 +2,4 @@
 render/
 .playwright-mcp/
 render_sync/
+.claude/
