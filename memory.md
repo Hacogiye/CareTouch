@@ -88,7 +88,9 @@
 - Đã test bằng PowerPoint COM trên máy user (render_sync/animtest/test_pp.ps1: Presentations.Open, WithWindow=0, DisplayAlerts=2): 4 biến thể + file cuối đều OK.
 - add_anim.py đã refactor: make(src, dst, timing, transition, rise, with_bld); PLAN cập nhật id slide 10 (26) và slide 14 (6–9 segment, 10 legend, 11 equity, 12 team).
 - PPTX hiện KHÔNG còn hiệu ứng (user rollback sau khi PowerPoint báo repair); add_anim.py vẫn giữ để sau này chạy lại nếu muốn.
-- LIVE: https://hacogiye.github.io/CareTouch/ (trang chủ) + /slide/ (deck) — GitHub Pages đã bật, xác nhận HTTP 200.
+- LIVE: https://hacogiye.github.io/CareTouch/ (trang chủ) + /slide/ (deck) + /admin.html (quản trị) — GitHub Pages đã bật, xác nhận HTTP 200.
+- TRANG QUẢN TRỊ (admin.html, mã 1234321): 107 khối chữ sửa được trên landing. Kiến trúc: edit-core.js (dùng chung, SEL + units() gán data-ct-eid theo thứ tự + applyTo() + clean() chống XSS) → content.json là nguồn nội dung, index.html tự fetch khi mở. 2 nơi lưu: localStorage (Lưu máy này) và GitHub API (token fine-grained giới hạn repo, quyền Contents: Read and write → ghi content.json, Pages rebuild ~1 phút). Có Xuất/Nhập JSON + Về bản gốc.
+- Bẫy đã gặp: (1) <option> không có ô hiển thị (w=h=0) nên không bấm được → sửa cả <select> qua bảng nhập từng dòng; (2) quy tắc "bỏ phần tử có id" loại mất #fSvc → chỉ chặn id do JS quản lý (PROTECTED = year/bookForm/toast); (3) iframe load event đã nổ trước khi login → phải kiểm tra readyState; (4) khi test bằng Playwright phải tắt scroll-behavior:smooth trong iframe nếu không boundingBox trả về.
 - "Nguyên tắc bất di bất dịch" đã đổi thành "Nguyên tắc cốt lõi" đồng bộ PPTX S8 / slide deck / landing (theo yêu cầu user).
 - Repo GitHub: https://github.com/Hacogiye/CareTouch (origin). File HTML chính là index.html (landing); deck ở slide/index.html. Chỉnh sửa trên GitHub Pages chỉ lưu localStorage.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Quản trị nội dung — CareTouch</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='32' r='16' fill='%230E7C6B'/%3E%3Ccircle cx='42' cy='32' r='16' fill='%23E8590C' fill-opacity='.85'/%3E%3C/svg%3E">
+<style>
+:root{--dark:#0B3B34;--primary:#0E7C6B;--accent:#E8590C;--ink:#16302B;--muted:#5B7770;--line:#E1EBE7;--bg:#FBF9F4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden}
+button,input,select{font-family:inherit;font-size:14px}
+
+/* ---- đăng nhập ---- */
+#gate{position:fixed;inset:0;z-index:50;background:var(--dark);display:flex;align-items:center;justify-content:center;padding:24px}
+#gate.off{display:none}
+.gate-card{background:#fff;border-radius:20px;padding:38px 34px;width:min(400px,100%);text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.gate-logo{width:46px;height:46px;position:relative;margin:0 auto 18px}
+.gate-logo i{position:absolute;top:4px;width:38px;height:38px;border-radius:50%}
+.gate-logo i:first-child{left:0;background:#9ED9CC}
+.gate-logo i:last-child{right:0;background:var(--accent);opacity:.9}
+.gate-card h1{font-size:20px;margin-bottom:6px}
+.gate-card p{font-size:13.5px;color:var(--muted);margin-bottom:22px}
+.gate-card input{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;letter-spacing:.2em;text-align:center;outline:none;margin-bottom:14px}
+.gate-card input:focus{border-color:var(--primary)}
+.gate-card button{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-weight:600;cursor:pointer}
+.gate-card button:hover{background:#0b6858}
+.gate-err{color:#c0392b;font-size:13px;margin-top:12px;min-height:18px}
+.gate-back{display:block;margin-top:18px;font-size:13px;color:var(--muted);text-decoration:none}
+.gate-back:hover{color:var(--primary)}
+
+/* ---- thanh công cụ ---- */
+#bar{background:var(--dark);color:#fff;padding:9px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none}
+#bar .t{font-weight:700;font-size:14px;margin-right:6px;display:flex;align-items:center;gap:8px}
+#bar .dot{width:9px;height:9px;border-radius:50%;background:#4ade80}
+.bar-btn{padding:8px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:13px;font-weight:500;transition:.15s}
+.bar-btn:hover{background:rgba(255,255,255,.18)}
+.bar-btn.primary{background:var(--accent);border-color:var(--accent);font-weight:600}
+.bar-btn.primary:hover{background:#f26a1f}
+.bar-btn:disabled{opacity:.4;cursor:not-allowed}
+#status{font-size:12.5px;color:#9EC9BF;margin-left:auto;padding-right:4px}
+#status.ok{color:#4ade80}
+#status.err{color:#fca5a5}
+
+/* ---- bảng GitHub ---- */
+#gh{display:none;background:#082E28;color:#CFE6DF;padding:14px 16px;gap:10px;flex-wrap:wrap;align-items:flex-end;flex:none;border-bottom:1px solid rgba(255,255,255,.1)}
+#gh.show{display:flex}
+#gh label{display:block;font-size:11.5px;color:#7FB3A8;margin-bottom:4px;letter-spacing:.04em}
+#gh input{width:150px;padding:8px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;font-size:13px;outline:none}
+#gh input:focus{border-color:#9ED9CC}
+#gh input.wide{width:230px}
+#gh .hint{font-size:11.5px;color:#6E9C92;max-width:100%;margin-top:2px}
+
+/* ---- khung xem trang ---- */
+#frame{flex:1;border:0;width:100%;background:#fff}
+
+/* ---- bảng chỉnh sửa nút chọn ---- */
+#picker{display:none;position:fixed;inset:0;background:rgba(8,46,40,.55);z-index:60;align-items:center;justify-content:center;padding:20px}
+#picker.show{display:flex}
+.pk-card{background:#fff;border-radius:18px;padding:28px;width:min(520px,100%);max-height:80vh;overflow:auto}
+.pk-card h2{font-size:18px;margin-bottom:6px}
+.pk-card p{font-size:13px;color:var(--muted);margin-bottom:16px}
+.pk-row{display:flex;gap:10px;margin-bottom:12px}
+.pk-row input{flex:1;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;outline:none;font-size:14px}
+.pk-row input:focus{border-color:var(--primary)}
+.pk-actions{display:flex;gap:10px;margin-top:18px}
+.pk-actions button{flex:1;padding:12px;border-radius:10px;border:none;font-weight:600;cursor:pointer;font-size:14px}
+.pk-apply{background:var(--primary);color:#fff}
+.pk-cancel{background:#EEF3F1;color:var(--ink)}
+.file-in{display:none}
+</style>
+</head>
+<body>
+
+<!-- ================= CỔNG ĐĂNG NHẬP ================= -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo"><i></i><i></i></div>
+    <h1>Quản trị nội dung CareTouch</h1>
+    <p>Nhập mã bảo mật để chỉnh sửa nội dung trang web</p>
+    <input type="password" id="code" placeholder="•••••••" autocomplete="off">
+    <button id="btnLogin">Vào trang quản trị</button>
+    <div class="gate-err" id="gateErr"></div>
+    <a class="gate-back" href="index.html">← Về trang chủ</a>
+  </div>
+</div>
+
+<!-- ================= THANH CÔNG CỤ ================= -->
+<div id="bar">
+  <span class="t"><span class="dot"></span>Đang sửa nội dung</span>
+  <button class="bar-btn" id="btnSave">Lưu (máy này)</button>
+  <button class="bar-btn" id="btnExport">Xuất file JSON</button>
+  <button class="bar-btn" id="btnImport">Nhập file JSON</button>
+  <button class="bar-btn" id="btnGh">Đăng lên GitHub…</button>
+  <button class="bar-btn" id="btnReset">Về bản gốc</button>
+  <span id="status">Bấm vào chữ trên trang để sửa. Bấm Esc để kết thúc sửa ô đó.</span>
+  <input type="file" id="fileIn" class="file-in" accept=".json">
+</div>
+
+<!-- ================= BẢNG CẤU HÌNH GITHUB ================= -->
+<div id="gh">
+  <div><label>Kho / repo</label><input id="ghRepo" value="Hacogiye/CareTouch"></div>
+  <div><label>Nhánh</label><input id="ghBranch" value="main" style="width:96px"></div>
+  <div><label>Đường dẫn</label><input id="ghPath" value="content.json" style="width:150px"></div>
+  <div><label>Token GitHub (chỉ lưu trên máy này)</label><input id="ghToken" type="password" class="wide" placeholder="github_pat_…"></div>
+  <button class="bar-btn primary" id="btnPublish">Lưu &amp; Đăng lên GitHub</button>
+  <div class="hint">Cần token <b>Fine-grained</b> giới hạn đúng repo trên, quyền <b>Contents: Read and write</b>. Sau khi đăng, GitHub Pages cần khoảng 1 phút mới cập nhật.</div>
+</div>
+
+<iframe id="frame" src="index.html" title="Xem trước trang web"></iframe>
+
+<!-- ================= HỘP CHỌN (dùng cho &lt;option&gt;) ================= -->
+<div id="picker">
+  <div class="pk-card">
+    <h2 id="pkTitle">Sửa danh sách</h2>
+    <p id="pkHint">Các mục trong ô chọn không sửa tại chỗ được — nhập lại từng mục tại đây.</p>
+    <div class="pk-row"><input id="pkText" placeholder="Nội dung mục" style="display:none"></div>
+    <div id="pkList" style="display:grid;gap:10px"></div>
+    <div class="pk-actions">
+      <button class="pk-cancel" id="pkCancel">Hủy</button>
+      <button class="pk-apply" id="pkApply">Áp dụng</button>
+    </div>
+  </div>
+</div>
+
+<script src="edit-core.js"></script>
+<script>
+(function () {
+  'use strict';
+  var CODE = '1234321';
+  var KEY = 'caretouch-content';
+  var GHKEY = 'caretouch-gh';
+
+  var gate = document.getElementById('gate'), gateErr = document.getElementById('gateErr');
+  var frame = document.getElementById('frame');
+  var statusEl = document.getElementById('status');
+  var picker = document.getElementById('picker');
+  var work = {};                 // nội dung đang chỉnh
+  var editing = null;            // phần tử đang sửa trong iframe
+
+  /* ---------- đăng nhập ---------- */
+  function enter() {
+    gate.classList.add('off');
+    boot();
+  }
+  document.getElementById('btnLogin').addEventListener('click', function () {
+    if (document.getElementById('code').value === CODE) enter();
+    else { gateErr.textContent = 'Mã không đúng.'; document.getElementById('code').value = ''; document.getElementById('code').focus(); }
+  });
+  document.getElementById('code').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('btnLogin').click();
+  });
+  document.getElementById('code').focus();
+
+  /* ---------- khởi tạo ---------- */
+  var wired = false;   // iframe có thể đã tải xong trước khi vào trang quản trị
+
+  function say(msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = kind || '';
+    clearTimeout(say._t);
+    if (kind) say._t = setTimeout(function () { statusEl.className = ''; statusEl.textContent = 'Bấm vào chữ trên trang để sửa.'; }, 5000);
+  }
+
+  function boot() {
+    frame.addEventListener('load', onFrameLoad);
+    if (frame.contentDocument && frame.contentDocument.readyState === 'complete') onFrameLoad();
+    // nạp bản đang lưu trên máy; nếu chưa có thì lấy bản đang publish trên hosting
+    var local = null;
+    try { local = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (local && Object.keys(local).length) {
+      work = local;
+      if (wired) CareTouchEdit.applyTo(frame.contentDocument, work);
+      say('Đã nạp bản sửa trên máy này.');
+    } else {
+      CareTouchEdit.load(function (d) {
+        work = d || {};
+        if (wired) CareTouchEdit.applyTo(frame.contentDocument, work);
+        say(Object.keys(work).length ? 'Đã nạp bản đang publish trên hosting.' : 'Chưa có nội dung nào được sửa — đang hiện bản gốc.');
+      });
+    }
+  }
+
+  function onFrameLoad() {
+    var doc = frame.contentDocument;
+    CareTouchEdit.units(doc);                       // gán data-ct-eid cho mọi khối chữ
+    if (Object.keys(work).length) CareTouchEdit.applyTo(doc, work);
+    injectStyle(doc);
+    doc.addEventListener('click', onClick, true);
+    doc.addEventListener('keydown', onKeydown, true);
+    wired = true;
+  }
+
+  /* Đường viền mảnh cho mọi khối sửa được; ô đang sửa nổi bật hơn. */
+  function injectStyle(doc) {
+    var st = doc.createElement('style');
+    st.textContent =
+      '[data-ct-eid]{outline:1px dashed rgba(14,124,107,.5);outline-offset:3px;border-radius:2px;cursor:text;}' +
+      '[data-ct-eid]:hover{background:rgba(14,124,107,.08);outline-style:solid;}' +
+      '[data-ct-eid][contenteditable="true"]{outline:2px solid #E8590C;background:rgba(232,89,12,.07);}' +
+      'body{caret-color:#E8590C}';
+    doc.head.appendChild(st);
+  }
+
+  /* ---------- bấm để sửa ---------- */
+  function onClick(e) {
+    var el = e.target.closest && e.target.closest('[data-ct-eid]');
+    if (editing && el !== editing) commit();
+    if (el) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (el.tagName === 'SELECT') { openSelectPanel(el); return; }
+      editing = el;
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'false');
+      el.focus();
+      placeCaretEnd(el);
+      return;
+    }
+    if (e.target.tagName === 'A') e.preventDefault();   // không điều hướng khỏi trang xem trước
+  }
+
+  function onKeydown(e) {
+    if (e.key === 'Escape' && editing) { e.preventDefault(); commit(); }
+  }
+
+  function placeCaretEnd(el) {
+    try {
+      var r = document.createRange(); r.selectNodeContents(el);
+      r.collapse(false);
+      var s = frame.contentWindow.getSelection(); s.removeAllRanges(); s.addRange(r);
+    } catch (err) {}
+  }
+
+  function commit() {
+    if (!editing) return;
+    var el = editing; editing = null;
+    el.removeAttribute('contenteditable');
+    el.removeAttribute('spellcheck');
+    var eid = el.getAttribute('data-ct-eid');
+    var html = CareTouchEdit.clean(el.innerHTML);
+    if (html.trim()) work[eid] = { h: html };
+    else delete work[eid];
+    el.innerHTML = html;
+    say('Đã cập nhật. Tổng ' + Object.keys(work).length + ' mục đã sửa — bấm "Lưu" để lưu.', 'ok');
+  }
+
+  /* <select> không sửa tại chỗ được (các <option> không có ô hiển thị) →
+     mở bảng cho sửa từng dòng. */
+  var pending = null;
+  function openSelectPanel(sel) {
+    pending = sel;
+    var box = document.getElementById('pkList');
+    box.innerHTML = '';
+    [].slice.call(sel.options).forEach(function (o, i) {
+      var row = document.createElement('input');
+      row.value = o.textContent;
+      row.placeholder = 'Mục ' + (i + 1);
+      box.appendChild(row);
+    });
+    document.getElementById('pkText').style.display = 'none';
+    picker.classList.add('show');
+    var first = box.querySelector('input');
+    if (first) { first.focus(); first.select(); }
+  }
+  document.getElementById('pkApply').addEventListener('click', function () {
+    if (!pending) return;
+    var rows = [].slice.call(document.getElementById('pkList').querySelectorAll('input'));
+    var html = rows.map(function (r) {
+      var t = r.value.trim();
+      return t ? '<option>' + t + '</option>' : '';
+    }).join('');
+    var rec = { h: html };
+    pending.innerHTML = html;
+    work[pending.getAttribute('data-ct-eid')] = rec;
+    picker.classList.remove('show'); pending = null;
+    document.getElementById('pkList').innerHTML = '';
+    say('Đã cập nhật danh sách (' + rows.length + ' mục).', 'ok');
+  });
+  document.getElementById('pkCancel').addEventListener('click', function () {
+    picker.classList.remove('show'); pending = null;
+    document.getElementById('pkList').innerHTML = '';
+  });
+
+  /* ---------- lưu ---------- */
+  document.getElementById('btnSave').addEventListener('click', function () {
+    commit();
+    localStorage.setItem(KEY, JSON.stringify(work, null, 2));
+    say('Đã lưu trên máy này (' + Object.keys(work).length + ' mục). Dùng "Đăng lên GitHub" để mọi người cùng thấy.', 'ok');
+  });
+
+  document.getElementById('btnExport').addEventListener('click', function () {
+    commit();
+    var blob = new Blob([JSON.stringify(work, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'content.json';
+    a.click();
+    say('Đã tải content.json — đưa file này lên repo để mọi người thấy thay đổi.', 'ok');
+  });
+
+  document.getElementById('btnImport').addEventListener('click', function () { document.getElementById('fileIn').click(); });
+  document.getElementById('fileIn').addEventListener('change', function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        work = JSON.parse(r.result);
+        CareTouchEdit.applyTo(frame.contentDocument, work);
+        localStorage.setItem(KEY, JSON.stringify(work));
+        say('Đã nhập ' + Object.keys(work).length + ' mục từ file.', 'ok');
+      } catch (err) { say('File JSON không hợp lệ.', 'err'); }
+    };
+    r.readAsText(f);
+    e.target.value = '';
+  });
+
+  document.getElementById('btnReset').addEventListener('click', function () {
+    if (!confirm('Xoá toàn bộ nội dung đã sửa và trở về bản gốc?')) return;
+    work = {}; localStorage.removeItem(KEY);
+    onFrameLoad();
+    say('Đã trở về bản gốc.', 'ok');
+  });
+
+  /* ---------- GitHub ---------- */
+  var gh = document.getElementById('gh');
+  try {
+    var cfg = JSON.parse(localStorage.getItem(GHKEY) || '{}');
+    ['ghRepo', 'ghBranch', 'ghPath', 'ghToken'].forEach(function (id) {
+      if (cfg[id]) document.getElementById(id).value = cfg[id];
+    });
+  } catch (e) {}
+  document.getElementById('btnGh').addEventListener('click', function () { gh.classList.toggle('show'); });
+
+  document.getElementById('btnPublish').addEventListener('click', function () {
+    commit();
+    var repo = document.getElementById('ghRepo').value.trim();
+    var branch = document.getElementById('ghBranch').value.trim() || 'main';
+    var path = document.getElementById('ghPath').value.trim() || 'content.json';
+    var token = document.getElementById('ghToken').value.trim();
+    if (!repo || !token) { say('Cần nhập kho/repo và token.', 'err'); return; }
+    localStorage.setItem(GHKEY, JSON.stringify({ ghRepo: repo, ghBranch: branch, ghPath: path, ghToken: token }));
+    say('Đang tải bản trên repo…');
+    var base = 'https://api.github.com/repos/' + repo + '/contents/' + path;
+    var headers = { 'Accept': 'application/vnd.github+json', 'Authorization': 'Bearer ' + token };
+
+    fetch(base + '?ref=' + encodeURIComponent(branch), { headers: headers })
+      .then(function (r) { return r.json(); })
+      .then(function (info) {
+        if (info.message && !info.sha) throw new Error(info.message);
+        var body = {
+          message: 'Cập nhật nội dung website từ trang quản trị',
+          content: btoa(unescape(encodeURIComponent(JSON.stringify(work, null, 2)))),
+          branch: branch
+        };
+        if (info.sha) body.sha = info.sha;   // có file rồi thì cần sha để ghi đè
+        return fetch(base, { method: 'PUT', headers: headers, body: JSON.stringify(body) });
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.j && res.j.message) || 'Lỗi không rõ');
+        localStorage.setItem(KEY, JSON.stringify(work));
+        say('Đã đăng lên GitHub! Trang chủ sẽ cập nhật sau khoảng 1 phút.', 'ok');
+      })
+      .catch(function (err) { say('Không đăng được: ' + err.message, 'err'); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !picker.classList.contains('show')) commit();
+  });
+})();
+</script>
+</body>
+</html>

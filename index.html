@@ -600,5 +600,13 @@ form.addEventListener('submit', e => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script src="edit-core.js"></script>
+<script>
+/* Nội dung do nhóm sửa trên trang admin (nếu có) — nạp trước khi hiển thị.
+   Thiếu file hoặc file rỗng thì giữ nguyên bản gốc. */
+CareTouchEdit.load(function (data) {
+  if (Object.keys(data).length) CareTouchEdit.applyTo(document, data);
+});
+</script>
 </body>
 </html>
