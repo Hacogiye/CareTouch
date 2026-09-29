@@ -4,3 +4,4 @@ render/
 render_sync/
 .claude/
 xsd_tmp/
+__pycache__/

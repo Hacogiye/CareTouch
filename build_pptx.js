@@ -389,7 +389,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     x += 3.08;
   });
   band(s, [
-    { text: "Nguyên tắc bất di bất dịch:  ", options: { bold: true } },
+    { text: "Nguyên tắc cốt lõi:  ", options: { bold: true } },
     { text: "không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.", options: {} },
   ], 6.0, 0.72, ACCENTSOFT);
   s.addNotes("Điểm khác biệt vận hành quan trọng nhất: khảo sát thể trạng bắt buộc trước mỗi buổi. Đây là thứ spa thư giãn và quán nhỏ không làm.");
