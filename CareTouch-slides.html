@@ -252,9 +252,9 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
     </div>
     <div class="card darkcard reveal d3" style="display:flex;flex-direction:column;justify-content:space-evenly;padding:3vh 1.8vw">
       <div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.25em;color:var(--teal-soft);font-weight:700">VÌ SAO LÀ BÂY GIỜ?</div>
-      <div><div class="stat-num" style="font-size:clamp(28px,3.6vw,46px)"><span class="count" data-target="16.1" data-dec="1">0</span> triệu</div>
+      <div><div class="stat-num" style="font-size:clamp(28px,3.6vw,46px)"><span class="count" data-target="16.1" data-dec="1">16,1</span> triệu</div>
         <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px)">người Việt trên 60 tuổi (2025) — hơn 16% dân số</p></div>
-      <div><div class="stat-num" style="font-size:clamp(24px,3vw,38px);color:#fff"><span class="count" data-target="94.4" data-dec="1">0</span> triệu</div>
+      <div><div class="stat-num" style="font-size:clamp(24px,3vw,38px);color:#fff"><span class="count" data-target="94.4" data-dec="1">94,4</span> triệu</div>
         <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px)">lượt khám BHYT 6 tháng đầu 2026 — hệ thống khám chữa bệnh chạy hết công suất</p></div>
       <div><div class="stat-num" style="font-size:clamp(24px,3vw,38px);color:#fff">3,5–4 bệnh</div>
         <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px)">mạn tính bình quân mỗi lần nhập viện của người cao tuổi</p></div>
@@ -279,7 +279,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
       <div class="card tint reveal d4"><span class="stat-num" style="font-size:clamp(20px,2.4vw,30px)">+15,6%/năm</span>
         <p style="color:var(--muted);font-size:clamp(10.5px,1.15vw,13.5px)">tăng trưởng wellness của Việt Nam — cao nhất châu Á, trước Ấn Độ (8,1%) và Trung Quốc (7,6%). <a href="https://globalwellnessinstitute.org/wp-content/uploads/2024/11/WellnessEconMonitor2024PDF.pdf" target="_blank" style="color:var(--primary)">GWI Monitor</a></p></div>
       <div class="card tint reveal d5"><span class="stat-num" style="font-size:clamp(20px,2.4vw,30px)">1,4 tỷ USD</span>
-        <p style="color:var(--muted);font-size:clamp(10.5px,1.15vw,13.5px)">doanh thu spa Việt Nam 2023 — top 20 toàn cầu, từ 850 triệu USD (2019). <a href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia" target="_blank" style="color:var(--primary)">Nikkei Asia, 1/2025</a></p></div>
+        <p style="color:var(--muted);font-size:clamp(10.5px,1.15vw,13.5px)">doanh thu spa Việt Nam 2023 — top 20 thị trường toàn cầu, từ 850 triệu USD (2019). <a href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia" target="_blank" style="color:var(--primary)">Nikkei Asia, 1/2025</a></p></div>
     </div>
   </div>
   <p class="src reveal d6">Nguồn: <a href="https://vnexpress.net/chi-phi-cho-y-te-cua-nguoi-viet-nam-tang-thang-dung-4997605.html" target="_blank">VnExpress, 24/12/2025</a> (chi tiêu y tế) · GWI 2024 · Nikkei Asia</p>
@@ -313,7 +313,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
       <li>Con cháu đặt và thanh toán hộ — trung thành cao nếu buổi đầu an toàn</li></ul>
     </div>
   </div>
-  <div class="band reveal d5" style="margin-top:2vh"><b>Khả năng chi trả:</b> thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–320.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu. <a href="https://www.gso.gov.vn/" target="_blank" style="color:var(--primary)">Nguồn: Tổng cục Thống kê</a></div>
+  <div class="band reveal d5" style="margin-top:2vh"><b>Khả năng chi trả:</b> thu nhập bình quân đầu người 2025 đạt 5,9 triệu đồng/tháng (+9,3% so với 2024) — mức giá 120.000–320.000 đ/phiên nằm trong tầm chi trả định kỳ của nhóm mục tiêu. <a href="https://www.gso.gov.vn/" target="_blank" style="color:var(--primary)">Nguồn: Tổng cục Thống kê (gso.gov.vn)</a></div>
 </section>
 
 <!-- 5 GIẢI PHÁP & ĐỊNH VỊ -->
@@ -455,6 +455,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
     <div class="card reveal d2" style="display:flex;flex-direction:column">
       <div class="panel-title">Doanh thu dự phóng 12 tháng đầu (triệu đồng/tháng)</div>
       <div class="chartbox"><canvas id="chRevenue"></canvas></div>
+        <div style="display:flex;justify-content:center;gap:2.2em;font-size:clamp(10px,1.05vw,12.5px);color:var(--muted);padding-top:0.6vh"><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:3px;background:#0E7C6B;border-radius:2px;display:inline-block"></span>Doanh thu</span><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:0;border-top:2.5px dashed #16302B;display:inline-block"></span>Chi phí cố định 48 tr./tháng</span></div>
       <div class="reveal d4" style="text-align:center;font-size:clamp(10.5px,1.12vw,13px);padding-top:1vh"><span style="color:var(--muted)">T4: 44 &lt; 48 &lt; T5: 50  →  </span><b style="color:var(--accent)">hòa vốn ngay tháng thứ 5</b></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center">
@@ -464,7 +465,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
       <div class="card coralcard reveal d6" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);flex:none;width:5.2em">≥ 55%</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tỷ lệ khách quay lại để hoàn vốn đúng hạn — đo từ tháng đầu tiên</p></div>
     </div>
   </div>
-  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Phép tính:</b> lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng). Giả định: 4 kỹ thuật viên lương cứng ~8 tr. + phụ cấp ca tại nhà; nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6).</p>
+  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Phép tính:</b> lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng). Giả định minh họa: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên lương cứng ~8 tr. + phụ cấp ca tại nhà; nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6).</p>
 </section>
 
 <!-- 11 LỘ TRÌNH -->
@@ -504,7 +505,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
     <div class="risk reveal d2"><span class="chip coral">CAO</span><h4>Ranh giới pháp lý với “khám chữa bệnh”</h4>
       <p><b>Giải pháp:</b> định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề.</p></div>
     <div class="risk reveal d3"><span class="chip coral">CAO</span><h4>Sự cố với khách có bệnh nền</h4>
-      <p><b>Giải pháp:</b> khảo sát bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; bảo hiểm trách nhiệm dịch vụ.</p></div>
+      <p><b>Giải pháp:</b> khảo sát bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; mua bảo hiểm trách nhiệm dịch vụ.</p></div>
     <div class="risk reveal d4"><span class="chip teal">TRUNG BÌNH</span><h4>Nhân lực và tay nghề</h4>
       <p><b>Giải pháp:</b> đào tạo nội bộ theo giáo trình chuẩn, kèm cặp thực tế; chất lượng đo bằng đánh giá sau mỗi buổi; người dạy nghề giữ cổ phần nhỏ.</p></div>
     <div class="risk reveal d5"><span class="chip teal">TRUNG BÌNH</span><h4>Cạnh tranh về giá</h4>
@@ -667,7 +668,7 @@ const CHART_BUILDERS = {
          borderColor:'#16302B',borderDash:[7,6],borderWidth:2,pointRadius:0}
       ]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:1200,easing:'easeOutQuart'},
-      plugins:{legend:{position:'bottom',labels:{boxWidth:12,boxHeight:12,font:{size:12}}}},
+      plugins:{legend:{display:false}},
       scales:{x:{grid:{display:false},ticks:{font:{size:11}}},
               y:{max:100,grid:{color:GRID},ticks:{font:{size:11}}}}}
   })

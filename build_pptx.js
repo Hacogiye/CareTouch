@@ -339,9 +339,9 @@ const bu = () => ({ code: "25B8", indent: 12 });
   motif(s); pageNo(s, 7);
 
   const packs = [
-    ["MUA LẺ", "120.000–290.000 đ", "", ["Không ràng buộc", "Giá niêm yết, không phát sinh", "Tích điểm thành viên từ phiên đầu"], "FFFFFF", TEXT, false, 21],
-    ["COMBO 5 BUỔI", "890.000 đ", "tiết kiệm ~15%", ["Tự chọn kết hợp 3 dịch vụ", "Đặt lịch linh hoạt trong 3 tháng", "1 buổi tổng kết liệu trình"], "FFFFFF", TEXT, false, 34],
-    ["CAREPLUS 10 BUỔI", "1.590.000 đ", "~20%", ["Giá cố định 12 tháng", "Tích điểm 5% · ưu đãi tháng sinh nhật", "Cho người thân dùng chung"], DARK, "FFFFFF", true, 31],
+    ["MUA LẺ", "120.000–290.000 đ", "", ["Không ràng buộc", "Giá niêm yết, không phát sinh", "Tích điểm thành viên từ phiên đầu", "Dành cho khách trải nghiệm lần đầu"], "FFFFFF", TEXT, false, 21],
+    ["COMBO 5 BUỔI", "890.000 đ", "tiết kiệm ~15%", ["Tự chọn kết hợp 3 dịch vụ", "Đặt lịch linh hoạt trong 3 tháng", "1 buổi tổng kết liệu trình", "Dành cho liệu trình ngắn 2–4 tuần"], "FFFFFF", TEXT, false, 34],
+    ["CAREPLUS 10 BUỔI", "1.590.000 đ", "~20%", ["Giá cố định 12 tháng", "Tích điểm 5% · ưu đãi tháng sinh nhật", "Cho người thân dùng chung", "Gói chủ lực — liệu trình chuẩn & gia đình"], DARK, "FFFFFF", true, 31],
   ];
   let x = M;
   packs.forEach((p) => {
@@ -376,7 +376,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const steps = [
     ["01", "Khảo sát", "5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định."],
     ["02", "Đánh giá", "Xác định vùng đau, tư thế sai lệch để trị liệu nhắm đúng chỗ."],
-    ["03", "Trị liệu", "Matxa – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút."],
+    ["03", "Trị liệu", "Massage – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút."],
     ["04", "Theo dõi", "Dặn bài tập nhẹ, ghi sổ sức khỏe — buổi sau điều chỉnh tốt hơn."],
   ];
   let x = M;
@@ -486,7 +486,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     { text: "hòa vốn ngay tháng thứ 5", options: { color: ACCENT, bold: true } },
   ], { x: M + 0.32, y: 6.2, w: 6.6, h: 0.3, fontSize: 10.5, italic: true, fontFace: FONT, margin: 0 });
   src(s, [
-    { t: "Phép tính: lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng." },
+    { t: "Phép tính: lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng)." },
   ], 6.74);
   src(s, [
     { t: "Giả định minh họa của nhóm: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên (lương cứng ~8 tr. + phụ cấp ca tại nhà), nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6)." },
@@ -503,7 +503,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   motif(s); pageNo(s, 11);
 
   const ph = [
-    ["GĐ 1 · Tháng 1–6", "Kiểm chứng", "Vận hành cơ sở đầu tiên; chuẩn hóa quy trình sàng lọc & đào tạo; đo tỷ lệ khách quay lại từ tháng đầu."],
+    ["GĐ 1 · Tháng 1–6", "Kiểm chứng", "Vận hành cơ sở đầu tiên; chuẩn hóa quy trình khảo sát thể trạng & đào tạo; đo tỷ lệ khách quay lại từ tháng đầu."],
     ["GĐ 2 · Tháng 7–12", "Tăng trưởng", "Đạt 88 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý & chứng chỉ nghề."],
     ["GĐ 3 · Năm 2", "Mở rộng", "Cơ sở thứ 2; Zalo Mini App đặt lịch & nhắc liệu trình; huy động vốn mở rộng."],
     ["GĐ 4 · Năm 3", "Chuỗi hóa", "Nhượng quyền 3–5 cơ sở vệ tinh; chuẩn CareTouch Academy đào tạo kỹ thuật viên."],
@@ -588,8 +588,9 @@ const bu = () => ({ code: "25B8", indent: 12 });
   });
   band(s, [
     { text: "Cam kết vận hành:  ", options: { bold: true } },
-    { text: "kỹ thuật viên thi chứng chỉ nghề · bác sĩ y học cổ truyền cộng tác · bảo hiểm trách nhiệm dịch vụ · quy trình sàng lọc an toàn cho mọi buổi trị liệu.", options: {} },
+    { text: "kỹ thuật viên thi chứng chỉ nghề · bác sĩ y học cổ truyền cộng tác · bảo hiểm trách nhiệm dịch vụ · quy trình khảo sát thể trạng an toàn cho mọi buổi trị liệu.", options: {} },
   ], 5.95, 0.75, TINT);
+  s.addText("Giai đoạn đầu, 5 thành viên sáng lập trực tiếp điều phối lịch, marketing và chăm sóc khách; năm 2 tuyển thêm điều phối viên toàn thời gian.", { x: M, y: 6.86, w: W - 2 * M, h: 0.3, fontSize: 11, italic: true, color: MUTED, fontFace: FONT, margin: 0 });
   s.addNotes("Dự án được phát triển trong môn Thực tập NCKH Đổi mới sáng tạo Khởi nghiệp — Buổi thực tập: ca chiều 1, thứ 7, ngày 26/9/2026.");
 }
 
