@@ -177,6 +177,8 @@ ul.dots.on-dark li::before{color:var(--teal-soft)}
 .ctable td.c{text-align:center;color:var(--muted)}
 .ctable td.yes{color:var(--primary);font-weight:700}
 .ctable td.no{color:#B9C6C2}
+.ctable.tight th,.ctable.tight td{padding:.55vh .8vw}
+.ctable.tight{font-size:clamp(9.5px,1.02vw,12.5px)}
 /* closing */
 .ask{border:1px solid rgba(42,168,143,.55);background:rgba(14,74,65,.5);border-radius:14px;
   padding:2.4vh 2vw;max-width:46em}
@@ -231,7 +233,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
     <p class="cover-sub reveal d4">Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu,
     bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.</p>
     <div class="cover-meta reveal d5">
-      <div class="grp"><b>Nhóm 3 · Tổ 14 · Lớp A1K79</b><br>Thực tập Nghiên cứu khoa học — Đổi mới sáng tạo Khởi nghiệp<br><i>Tiền thân: An Khang Đường</i></div>
+      <div class="grp"><b>Nhóm 3 · Tổ 14 · Lớp A1K79</b><br>Thực tập Nghiên cứu khoa học — Đổi mới sáng tạo Khởi nghiệp<br><i>Healing Touch, Healthy Life</i></div>
     </div>
   </div>
 </section>
@@ -359,24 +361,27 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
         <tr><td>Massage toàn thân thư giãn</td><td class="c">70 phút</td><td class="c" style="color:var(--primary);font-weight:700">220.000</td><td class="c" style="color:var(--accent);font-weight:700">320.000</td></tr>
         <tr><td>Bấm huyệt – đả thông kinh lạc</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">200.000</td><td class="c" style="color:var(--accent);font-weight:700">290.000</td></tr>
         <tr><td>Chườm thảo dược – xông hơi đông y</td><td class="c">60 phút</td><td class="c" style="color:var(--primary);font-weight:700">180.000</td><td class="c">—</td></tr>
+        <tr><td>Châm cứu – cứu ngải</td><td class="c">45 phút</td><td class="c" style="color:var(--accent);font-weight:700">250.000</td><td class="c">—</td></tr>
       </table>
     </div>
-    <div style="display:flex;flex-direction:column;gap:1.8vh">
+    <div style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="card darkcard reveal d3"><div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.25em;color:var(--teal-soft);font-weight:700;margin-bottom:1vh">PHỤC VỤ TẬN NHÀ</div>
         <p style="font-weight:700;font-size:clamp(13px,1.5vw,17px)">Miễn phí trong bán kính 5 km</p>
-        <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Xa hơn: phụ thu 20.000 đ mỗi 5 km; khách đặt tối thiểu 2 buổi mỗi lượt. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.</p></div>
-      <div class="card coralcard reveal d4"><p style="font-weight:700;color:var(--accent);font-size:clamp(12.5px,1.4vw,16px)">Định vị giá</p>
-        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch ở khoảng 200.000–320.000 đ — chênh lệch 80–100 nghìn đ bù thời gian di chuyển, vẫn dưới phân khúc spa.</p></div>
+        <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Xa hơn: phụ thu 20.000 đ mỗi 5 km; tối thiểu 2 buổi mỗi lượt.</p></div>
+      <div class="card tint reveal d4"><p style="font-weight:700;color:var(--primary);font-size:clamp(12.5px,1.4vw,16px)">Tại cơ sở</p>
+        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Không gian riêng cho từng chỗ trị liệu, khảo sát thể trạng trước mỗi buổi, có phòng dành cho châm cứu.</p></div>
+      <div class="card tint reveal d5"><p style="font-weight:700;color:var(--primary);font-size:clamp(12.5px,1.4vw,16px)">Định vị giá</p>
+        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:.8vh;line-height:1.5">Thị trường tại nhà cho người lớn tuổi 350.000–620.000 đ/phiên. CareTouch ở 120.000–320.000 đ — chênh lệch bù thời gian di chuyển, vẫn dưới phân khúc spa.</p></div>
     </div>
   </div>
-  <p class="src reveal d5">Giá đề xuất của nhóm, căn theo khảo sát thị trường: <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank">Massagenha.com, 7/2025</a> — con số sẽ hiệu chỉnh theo địa bàn triển khai thực tế.</p>
+  <p class="src reveal d6">Giá đề xuất của nhóm, căn theo khảo sát thị trường: <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank">Massagenha.com, 7/2025</a> — đã hiệu chỉnh theo mặt bằng Hà Nội; con số sẽ chốt theo khảo sát địa bàn triển khai.</p>
 </section>
 
 <!-- 7 GÓI -->
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Mô hình doanh thu</div>
-  <h2 class="title reveal d2">Thiết kế doanh thu lặp lại — liệu trình 5–10 buổi, khách quay lại là mặc định</h2>
+  <h2 class="title reveal d2">Doanh thu lặp lại: liệu trình 5–10 buổi, khách quay lại theo chu kỳ</h2>
   <div class="body grid3" style="align-items:stretch;align-content:stretch">
     <div class="card p-card reveal d2">
       <div style="font-size:clamp(10px,1.05vw,12px);letter-spacing:.22em;color:var(--teal-mid);font-weight:700">MUA LẺ</div>
@@ -407,7 +412,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Quy trình vận hành</div>
-  <h2 class="title reveal d2">Một buổi trị liệu chuẩn — an toàn là tính năng của dịch vụ, không phải khẩu hiệu</h2>
+  <h2 class="title reveal d2">Một buổi trị liệu chuẩn: an toàn được kiểm soát ở từng bước</h2>
   <div class="body">
     <div class="steps">
       <div class="card step reveal d2" style="background:var(--tint)"><div class="arrow">→</div>
@@ -443,32 +448,94 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
       <tr><td>Giá phù hợp chi trả định kỳ (120–320 nghìn đồng)</td><td class="hl">✓</td><td class="c no">✕</td><td class="c yes">✓</td><td class="c">~</td></tr>
     </table>
   </div>
-  <p class="src reveal d3">So sánh do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai tại TP.HCM, 2025–2026 (spa: KKday, Jackfruit Adventure; home care: Massagenha).</p>
+  <p class="src reveal d3">So sánh do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai (giá niêm yết toàn quốc, hiệu chỉnh theo mặt bằng Hà Nội), 2025–2026 (spa: KKday, Jackfruit Adventure; home care: Massagenha).</p>
 </section>
 
 <!-- 10 TÀI CHÍNH -->
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Tài chính dự phóng</div>
-  <h2 class="title reveal d2">Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong khoảng 12 tháng</h2>
+  <h2 class="title reveal d2">Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong 19–20 tháng</h2>
   <div class="body grid2" style="grid-template-columns:1.55fr 1fr">
     <div class="card reveal d2" style="display:flex;flex-direction:column">
       <div class="panel-title">Doanh thu dự phóng 12 tháng đầu (triệu đồng/tháng)</div>
       <div class="chartbox"><canvas id="chRevenue"></canvas></div>
-        <div style="display:flex;justify-content:center;gap:2.2em;font-size:clamp(10px,1.05vw,12.5px);color:var(--muted);padding-top:0.6vh"><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:3px;background:#0E7C6B;border-radius:2px;display:inline-block"></span>Doanh thu</span><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:0;border-top:2.5px dashed #16302B;display:inline-block"></span>Chi phí cố định 48 tr./tháng</span></div>
-      <div class="reveal d4" style="text-align:center;font-size:clamp(10.5px,1.12vw,13px);padding-top:1vh"><span style="color:var(--muted)">T4: 44 &lt; 48 &lt; T5: 50  →  </span><b style="color:var(--accent)">hòa vốn ngay tháng thứ 5</b></div>
+        <div style="display:flex;justify-content:center;gap:2.2em;font-size:clamp(10px,1.05vw,12.5px);color:var(--muted);padding-top:0.6vh"><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:3px;background:#0E7C6B;border-radius:2px;display:inline-block"></span>Doanh thu</span><span style="display:inline-flex;align-items:center;gap:0.55em"><span style="width:2.2em;height:0;border-top:2.5px dashed #16302B;display:inline-block"></span>Chi phí cố định 73 tr./tháng</span></div>
+      <div class="reveal d4" style="text-align:center;font-size:clamp(10.5px,1.12vw,13px);padding-top:1vh"><span style="color:var(--muted)">T4: 68 &lt; 73 &lt; T5: 77  →  </span><b style="color:var(--accent)">hòa vốn ngay tháng thứ 5</b></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.5vh;justify-content:center">
-      <div class="card tint reveal d3" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">165 tr.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tổng vốn khởi đầu = 95 tr. đầu tư + 70 tr. vốn lưu động bù lỗ 4 tháng đầu</p></div>
-      <div class="card tint reveal d4" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">48 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">chi phí cố định: thuê 12tr + lương 4 kỹ thuật viên 32tr + điện nước, vật tư, khấu hao</p></div>
-      <div class="card tint reveal d5" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">88 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">doanh thu tháng 12 — tương đương ~350 khách/tháng</p></div>
+      <div class="card tint reveal d3" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">436 tr.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tổng vốn khởi đầu = 306 tr. đầu tư (gồm cọc + trả trước 3 tháng thuê nhà) + 130 tr. vốn lưu động</p></div>
+      <div class="card tint reveal d4" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">73 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">chi phí cố định: thuê 35tr + lương cứng 4 KTV 24tr + điện nước, vật tư, marketing; chưa gồm hoa hồng ca</p></div>
+      <div class="card tint reveal d5" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);color:var(--primary);flex:none;width:5.2em">107 tr./th.</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">doanh thu tháng 12 — tương đương ~460 khách/tháng</p></div>
       <div class="card coralcard reveal d6" style="display:flex;gap:1vw;align-items:center"><b class="stat-num" style="font-size:clamp(17px,2vw,26px);flex:none;width:5.2em">≥ 55%</b><p style="color:var(--muted);font-size:clamp(10.5px,1.12vw,13px)">tỷ lệ khách quay lại để hoàn vốn đúng hạn — đo từ tháng đầu tiên</p></div>
     </div>
   </div>
-  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Phép tính:</b> lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng). Giả định minh họa: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên lương cứng ~8 tr. + phụ cấp ca tại nhà; nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6).</p>
+  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Phép tính:</b> lỗ lũy kế T1–T4 = 43 + 31 + 18 + 5 = 97 triệu → dự trù vốn lưu động 130 triệu; lãi ròng lũy kế T5–T12 = 180 triệu → CAPEX 306 triệu thu hồi ~tháng 16, toàn bộ vốn trong 19–20 tháng (thận trọng 55%: 21–23 tháng). Giả định minh họa tại Hà Nội: 1 cơ sở 5 chỗ trị liệu (3 giường massage + 2 ghế gội đầu, chi tiết slide 11); 4 kỹ thuật viên lương cứng 6 tr. + hoa hồng ca; bác sĩ YHCT cộng tác; giá theo bảng giá đề xuất (slide 6).</p>
 </section>
 
-<!-- 11 LỘ TRÌNH -->
+<!-- 11 SỬ DỤNG VỐN -->
+<section class="slide light-blobs">
+  <div class="motif"><i></i><i></i></div>
+  <div class="kicker reveal d1">Nhu cầu &amp; sử dụng vốn</div>
+  <h2 class="title reveal d2">436 triệu đồng khởi đầu — đầu tư 306 triệu, vốn lưu động 130 triệu</h2>
+  <div class="body grid2" style="grid-template-columns:1.32fr 1fr">
+    <div class="card reveal d2" style="display:flex;flex-direction:column">
+      <div class="panel-title">Bóc tách chi phí đầu tư ban đầu (CAPEX) — 306 triệu đồng</div>
+      <table class="ctable tight" style="margin-top:.8vh">
+        <tr><th>Hạng mục</th><th class="c">SL</th><th class="c">Triệu đ</th></tr>
+        <tr><td>Thuê &amp; cọc nhà (cọc 1 + trả trước 3 tháng)</td><td class="c">4 th</td><td class="c">140,0</td></tr>
+        <tr><td>Cải tạo mặt bằng &amp; điện nước chuyên dụng</td><td class="c">—</td><td class="c">50,0</td></tr>
+        <tr><td>Thiết bị trị liệu &amp; nội thất</td><td class="c">—</td><td class="c">46,0</td></tr>
+        <tr><td>Vật tư &amp; kit trị liệu tận nhà</td><td class="c">—</td><td class="c">20,0</td></tr>
+        <tr><td>Đồng phục, ấm phẩm &amp; nhận diện</td><td class="c">—</td><td class="c">10,0</td></tr>
+        <tr><td>Marketing khai trương &amp; pháp lý ban đầu</td><td class="c">—</td><td class="c">15,0</td></tr>
+        <tr><td>Dự phòng phát sinh</td><td class="c">—</td><td class="c">25,0</td></tr>
+                <tr><td class="hl" style="text-align:left;color:var(--primary);font-weight:700;background:var(--tint)!important">Tổng đầu tư ban đầu (CAPEX)</td><td class="c" style="background:var(--tint)!important"></td><td class="hl" style="background:var(--tint)!important;color:var(--primary)">306,0</td></tr>
+      </table>
+    </div>
+    <div class="card reveal d3" style="display:flex;flex-direction:column">
+      <div class="panel-title">Cơ cấu tổng vốn khởi đầu 436 triệu đồng</div>
+      <div class="chartbox" style="min-height:0"><canvas id="chCapital"></canvas></div>
+    </div>
+  </div>
+  <div class="band reveal d5" style="margin-top:1.4vh"><b>Tổng vốn khởi đầu 436 triệu =</b> 306 triệu đầu tư (cọc 1 + trả trước 3 tháng thuê nhà 140 triệu, cải tạo 50 triệu, thiết bị &amp; nội thất 46 triệu) + 130 triệu vốn lưu động (lỗ 4 tháng 97 triệu + đệm an toàn 33 triệu).</div>
+  <p class="src reveal d6"><b style="color:var(--primary);font-style:normal">Nguồn giá:</b> đơn giá là mức tham khảo thị trường Hà Nội, 2025–2026 (nhóm tổng hợp từ báo giá công khai); con số cuối cùng chốt theo báo giá nhà cung cấp khi triển khai.</p>
+</section>
+
+<!-- 12 CHI PHÍ VẬN HÀNH -->
+<section class="slide light-blobs">
+  <div class="motif"><i></i><i></i></div>
+  <div class="kicker reveal d1">Chi phí vận hành tại Hà Nội</div>
+  <h2 class="title reveal d2">Cơ cấu chi phí hàng tháng &amp; mặt bằng giá thuê</h2>
+  <div class="body grid2" style="grid-template-columns:1.05fr 1fr">
+    <div class="card reveal d2" style="display:flex;flex-direction:column">
+      <div class="panel-title">Chi phí cố định hàng tháng — 73 triệu đồng</div>
+      <table class="ctable tight" style="margin-top:.8vh">
+        <tr><th>Khoản mục</th><th class="c">Triệu đ/tháng</th></tr>
+        <tr><td>Tiền thuê nhà (tầng 1, khu đông dân cư)</td><td class="c">35,0</td></tr>
+        <tr><td>Lương cứng 4 kỹ thuật viên (6 tr./người)</td><td class="c">24,0</td></tr>
+        <tr><td>Điện, nước, internet</td><td class="c">5,0</td></tr>
+        <tr><td>Giặt sấy &amp; vật tư tiêu hao</td><td class="c">4,0</td></tr>
+        <tr><td>Marketing duy trì (Zalo OA, quảng cáo)</td><td class="c">5,0</td></tr>
+        <tr><td class="hl" style="text-align:left;color:var(--primary);font-weight:700;background:var(--tint)!important">Tổng chi phí cố định</td><td class="hl" style="background:var(--tint)!important;color:var(--primary)">73,0</td></tr>
+      </table>
+      <p style="font-size:clamp(10px,1.05vw,12px);color:var(--muted);font-style:italic;margin-top:1vh">Chưa gồm hoa hồng biến phí theo ca: 20.000 đ/ca tại cơ sở, 60.000 đ/ca tại nhà.</p>
+      <div class="band coral" style="margin-top:auto;font-size:clamp(10px,1.08vw,12.5px);line-height:1.5"><b style="color:var(--accent)">Đã sửa so với bản trước:</b> bổ sung cọc + trả trước 3 tháng tiền thuê (bản cũ bỏ sót); nâng cải tạo mặt bằng từ 28 lên 50 triệu cho đúng chi phí thi công nước bồn gội; chuyển lương cứng cào bằng 8 triệu sang 6 triệu + hoa hồng ca.</div>
+    </div>
+    <div class="card tint reveal d3" style="display:flex;flex-direction:column">
+      <div class="panel-title">Mặt bằng giá thuê nhà tại Hà Nội</div>
+      <div style="display:flex;flex-direction:column;gap:1vh;margin-top:.6vh">
+        <div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.1vh 1vw"><div><b style="font-size:clamp(10.5px,1.12vw,13px)">Tầng 1 nhà riêng, khu đông dân cư</b><div style="color:var(--muted);font-size:clamp(9.5px,1vw,11.5px)">60–75 m²</div></div><b style="color:var(--primary);font-size:clamp(12px,1.35vw,15.5px);white-space:nowrap">32–40 tr</b></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.1vh 1vw"><div><b style="font-size:clamp(10.5px,1.12vw,13px)">Tầng 1 chung cư hướng ra ngoài</b><div style="color:var(--muted);font-size:clamp(9.5px,1vw,11.5px)">65–80 m²</div></div><b style="color:var(--primary);font-size:clamp(12px,1.35vw,15.5px);white-space:nowrap">30–38 tr</b></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.1vh 1vw"><div><b style="font-size:clamp(10.5px,1.12vw,13px)">Nhà riêng trong ngõ, xa trung tâm hơn</b><div style="color:var(--muted);font-size:clamp(9.5px,1vw,11.5px)">65–75 m²</div></div><b style="color:var(--primary);font-size:clamp(12px,1.35vw,15.5px);white-space:nowrap">20–28 tr</b></div>
+      </div>
+      <div class="band coral" style="margin-top:auto;font-size:clamp(10px,1.08vw,12.5px);line-height:1.45"><b style="color:var(--accent)">Vị trí chọn:</b> tầng 1 nhà riêng hoặc chung cư hướng ra ngoài tại khu đông dân cư; chỉ thuê một tầng, không thuê nguyên căn. Ngân sách 30–40 triệu/tháng, lấy mức 35 triệu để dự phóng.</div>
+    </div>
+  </div>
+  <p class="src reveal d5">Mặt bằng giá thuê do nhóm khảo sát tại Hà Nội, 2025–2026; chi phí vận hành là giả định minh họa phục vụ mục đích học tập.</p>
+</section>
+
+<!-- 13 LỘ TRÌNH -->
 <section class="slide light-blobs">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Lộ trình triển khai</div>
@@ -482,7 +549,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
       <div class="t-node reveal d3"><div class="t-dot">2</div>
         <div style="font-size:clamp(10px,1.05vw,12px);color:var(--teal-mid);font-weight:700">GĐ 2 · Tháng 7–12</div>
         <h4 style="font-size:clamp(14px,1.7vw,20px);margin:.6vh 0 1vh">Tăng trưởng</h4>
-        <p style="color:var(--muted);font-size:clamp(11px,1.18vw,14px);line-height:1.5">Đạt 88 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý &amp; chứng chỉ nghề.</p></div>
+        <p style="color:var(--muted);font-size:clamp(11px,1.18vw,14px);line-height:1.5">Đạt 107 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý &amp; chứng chỉ nghề.</p></div>
       <div class="t-node reveal d4"><div class="t-dot">3</div>
         <div style="font-size:clamp(10px,1.05vw,12px);color:var(--teal-mid);font-weight:700">GĐ 3 · Năm 2</div>
         <h4 style="font-size:clamp(14px,1.7vw,20px);margin:.6vh 0 1vh">Mở rộng</h4>
@@ -496,11 +563,11 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
   </div>
 </section>
 
-<!-- 12 RỦI RO -->
+<!-- 14 RỦI RO -->
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Quản trị rủi ro</div>
-  <h2 class="title reveal d2">Nhìn thẳng rủi ro — và giải pháp ứng phó cho từng cái</h2>
+  <h2 class="title reveal d2">Rủi ro trọng yếu và giải pháp ứng phó</h2>
   <div class="body" style="display:flex;flex-direction:column;gap:1.4vh">
     <div class="risk reveal d2"><span class="chip coral">CAO</span><h4>Ranh giới pháp lý với “khám chữa bệnh”</h4>
       <p><b>Giải pháp:</b> định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề.</p></div>
@@ -514,7 +581,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
   <p class="src reveal d6">Đánh giá rủi ro của nhóm dựa trên quy định hiện hành về massage – xoa bóp (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP) và khảo sát thực địa.</p>
 </section>
 
-<!-- 13 ĐỘI NGŨ -->
+<!-- 15 ĐỘI NGŨ -->
 <section class="slide">
   <div class="motif"><i></i><i></i></div>
   <div class="kicker reveal d1">Nhóm sáng lập</div>
@@ -531,20 +598,20 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
   </div>
 </section>
 
-<!-- 14 CLOSING -->
+<!-- 16 CLOSING -->
 <section class="slide dark closing">
   <div class="big-motif"><i></i><i></i></div>
   <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:72%">
     <h2 class="title reveal d1" style="font-size:clamp(26px,4vw,52px);color:#fff">Cùng CareTouch chạm đến<br>sức khỏe Việt Nam.</h2>
     <div class="tagline reveal d2" style="color:#F7965A;font-size:clamp(15px,2.1vw,27px)">Healing Touch, Healthy Life.</div>
     <div class="ask reveal d3" style="margin-top:4vh">
-      <p style="font-weight:700;font-size:clamp(14px,1.7vw,21px)">Vốn gọi đề xuất (minh họa): 500 triệu đồng</p>
-      <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.3vw,15px);margin-top:.8vh;line-height:1.5">mở cơ sở thứ 2 và xây nền tảng đặt lịch đa kênh &amp; CRM — mục tiêu doanh thu năm 2 gấp đôi năm 1.</p>
+      <p style="font-weight:700;font-size:clamp(14px,1.7vw,21px)">Vốn gọi đề xuất (minh họa): 636 triệu đồng</p>
+      <p style="color:var(--on-dark-muted);font-size:clamp(11px,1.3vw,15px);margin-top:.8vh;line-height:1.5">436 triệu khởi động cơ sở đầu tiên tại Hà Nội, phần còn lại mở cơ sở thứ 2 và xây nền tảng đặt lịch đa kênh &amp; CRM — mục tiêu doanh thu năm 2 gấp đôi năm 1.</p>
       <div style="display:flex;height:.6em;max-width:36em;margin-top:1.4vh;border-radius:.45em;overflow:hidden">
-        <span style="flex:200;background:#F7965A"></span><span style="flex:80;background:#0E7C6B"></span><span style="flex:100;background:#9ED9CC"></span><span style="flex:120;background:#CFE6DF"></span>
+        <span style="flex:436;background:#F7965A"></span><span style="flex:80;background:#0E7C6B"></span><span style="flex:120;background:#9ED9CC"></span>
       </div>
-      <p style="color:var(--on-dark-muted);font-size:clamp(9.5px,1.05vw,13px);margin-top:.8vh"><b style="color:#fff">200 tr.</b> cơ sở thứ 2 &nbsp;·&nbsp; <b style="color:#fff">80 tr.</b> nền tảng đặt lịch &amp; CRM &nbsp;·&nbsp; <b style="color:#fff">100 tr.</b> marketing &amp; nhân sự &nbsp;·&nbsp; <b style="color:#fff">120 tr.</b> vốn lưu động</p>
-      <p style="color:#9EC9BF;font-style:italic;font-size:clamp(9.5px,1.05vw,13px);margin-top:.6vh">Hình thức huy động: góp vốn đổi cổ phần — 500 triệu ≈ 12–15% (tỷ lệ minh họa, định giá xác lập khi đàm phán).</p>
+      <p style="color:var(--on-dark-muted);font-size:clamp(9.5px,1.05vw,13px);margin-top:.8vh"><b style="color:#fff">436 tr.</b> cơ sở 1 tại Hà Nội (CAPEX + vốn lưu động) &nbsp;·&nbsp; <b style="color:#fff">80 tr.</b> nền tảng đặt lịch &amp; CRM &nbsp;·&nbsp; <b style="color:#fff">120 tr.</b> cơ sở 2, marketing &amp; dự phòng</p>
+      <p style="color:#9EC9BF;font-style:italic;font-size:clamp(9.5px,1.05vw,13px);margin-top:.6vh">Hình thức huy động: góp vốn đổi cổ phần — 636 triệu ≈ 15–18% (tỷ lệ minh họa, định giá xác lập khi đàm phán).</p>
     </div>
     <div class="reveal d4" style="margin-top:5vh;font-size:clamp(10.5px,1.2vw,14px);color:#9EC9BF">
       <b style="color:#fff">Nhóm 3 · Tổ 14 · Lớp A1K79</b><br>
@@ -572,7 +639,7 @@ body.editing .slide a{pointer-events:none;text-decoration:none}
 <div class="nav-controls">
   <a class="nav-btn" href="../" aria-label="Về trang chủ" title="Về trang chủ CareTouch" style="text-decoration:none">⌂</a>
   <button class="nav-btn" onclick="prevSlide()" aria-label="Slide trước">←</button>
-  <span class="slide-counter"><span id="cur">1</span> / <span id="total">14</span></span>
+  <span class="slide-counter"><span id="cur">1</span> / <span id="total">16</span></span>
   <button class="nav-btn" onclick="nextSlide()" aria-label="Slide sau">→</button>
 </div>
 <div class="hint">→ / click: chuyển slide · ← lùi · H: ẩn/hiện · F: toàn màn hình</div>
@@ -667,22 +734,40 @@ const CHART_BUILDERS = {
   chRevenue: () => new Chart(document.getElementById('chRevenue'), {
     data:{labels:['T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12'],
       datasets:[
-        {type:'bar',label:'Doanh thu',data:[22,30,38,44,50,56,62,68,73,78,83,88],
+        {type:'bar',label:'Doanh thu',data:[30,42,55,68,77,85,91,96,100,103,105,107],
          backgroundColor:['#9ED9CC','#9ED9CC','#9ED9CC','#9ED9CC','#E8590C','#0E7C6B','#0E7C6B','#0E7C6B','#0E7C6B','#0E7C6B','#0E7C6B','#0E7C6B'],
          borderRadius:6,maxBarThickness:30},
-        {type:'line',label:'Chi phí cố định 48 tr./tháng',data:Array(12).fill(48),
+        {type:'line',label:'Chi phí cố định 73 tr./tháng',data:Array(12).fill(73),
          borderColor:'#16302B',borderDash:[7,6],borderWidth:2,pointRadius:0}
       ]},
     plugins:[{id:'costLabel',afterDatasetsDraw(c){
       const pt=c.getDatasetMeta(1).data[0]; if(!pt) return;
       const x=c.ctx; x.save();
       x.font='600 12px "Segoe UI",sans-serif'; x.fillStyle='#16302B'; x.textAlign='left';
-      x.fillText('48 tr./tháng', pt.x+8, pt.y-9); x.restore();
+      x.fillText('73 tr./tháng', pt.x+8, pt.y-9); x.restore();
     }}],
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:1200,easing:'easeOutQuart'},
       plugins:{legend:{display:false}},
       scales:{x:{grid:{display:false},ticks:{font:{size:11}}},
               y:{max:100,grid:{color:GRID},ticks:{font:{size:11}}}}}
+  }),
+  chCapital: () => new Chart(document.getElementById('chCapital'), {
+    type:'doughnut',
+    data:{labels:['Vốn lưu động','Thuê & cọc nhà','Cải tạo mặt bằng','Thiết bị & nội thất','Vật tư & kit tận nhà','Nhận diện, marketing & dự phòng'],
+      datasets:[{data:[130,140,50,46,20,50],
+        backgroundColor:['#0E7C6B','#2AA88F','#9ED9CC','#E8590C','#F7965A','#F5C09A'],
+        borderColor:'#fff',borderWidth:2.5,hoverOffset:6}]},
+    plugins:[{id:'capCenter',afterDraw(c){
+      const x=c.ctx, m=c.getDatasetMeta(0).data[0]; if(!m) return;
+      x.save(); x.textAlign='center'; x.textBaseline='middle';
+      x.font='800 30px "Segoe UI",sans-serif'; x.fillStyle='#16302B';
+      x.fillText('436', m.x, m.y-6);
+      x.font='400 13px "Segoe UI",sans-serif'; x.fillStyle='#5C7370';
+      x.fillText('triệu đồng', m.x, m.y+20); x.restore();
+    }}],
+    options:{responsive:true,maintainAspectRatio:false,cutout:'56%',animation:{duration:1100,easing:'easeOutQuart'},
+      plugins:{legend:{position:'right',labels:{boxWidth:11,boxHeight:11,padding:8,font:{size:11},color:'#16302B'}},
+        tooltip:{callbacks:{label:c=>' '+c.label+': '+c.parsed+' tr. ('+Math.round(c.parsed/436*100)+'%)'}}}}
   })
 };
 

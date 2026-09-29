@@ -1,612 +1,1936 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CareTouch — Chạm trị liệu y học cổ truyền | Healing Touch, Healthy Life</title>
-<meta name="description" content="CareTouch — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi. Giá niêm yết minh bạch, khảo sát thể trạng an toàn trước mỗi buổi.">
-<meta property="og:title" content="CareTouch — Healing Touch, Healthy Life">
-<meta property="og:description" content="Dịch vụ chạm trị liệu y học cổ truyền tại cơ sở và tận nhà. An toàn là tính năng, không phải khẩu hiệu.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='32' r='16' fill='%230E7C6B'/%3E%3Ccircle cx='42' cy='32' r='16' fill='%23E8590C' fill-opacity='.85'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --dark:#0B3B34; --dark-2:#0E4A41; --primary:#0E7C6B; --teal-soft:#9ED9CC; --tint:#EAF4F1;
-  --accent:#E8590C; --accent-soft:#FCEADF;
-  --ink:#16302B; --muted:#5B7770; --cream:#FBF9F4; --card:#FFFFFF; --line:#E1EBE7;
-  --radius:20px; --shadow:0 14px 40px rgba(11,59,52,.09); --shadow-sm:0 6px 18px rgba(11,59,52,.07);
-  --head:"Playfair Display",Georgia,serif; --body:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;overflow-x:hidden}
-img,svg{display:block}
-a{color:var(--primary)}
-section{scroll-margin-top:84px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.18}
-.kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--primary);margin-bottom:14px}
-.sec-title{font-size:clamp(28px,4vw,44px);margin-bottom:14px}
-.sec-sub{color:var(--muted);max-width:640px;font-size:17px}
-.src{font-size:12.5px;color:var(--muted);font-style:italic}
-.src a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareTouch — Chạm trị liệu y học cổ truyền | Healing Touch, Healthy Life</title>
+  <meta name="description"
+    content="CareTouch — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi. Giá niêm yết minh bạch, khảo sát thể trạng an toàn trước mỗi buổi.">
+  <meta property="og:title" content="CareTouch — Healing Touch, Healthy Life">
+  <meta property="og:description"
+    content="Dịch vụ chạm trị liệu y học cổ truyền tại cơ sở và tận nhà. An toàn là tính năng, không phải khẩu hiệu.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='32' r='16' fill='%230E7C6B'/%3E%3Ccircle cx='42' cy='32' r='16' fill='%23E8590C' fill-opacity='.85'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0B3B34;
+      --dark-2: #0E4A41;
+      --primary: #0E7C6B;
+      --teal-soft: #9ED9CC;
+      --tint: #EAF4F1;
+      --accent: #E8590C;
+      --accent-soft: #FCEADF;
+      --ink: #16302B;
+      --muted: #5B7770;
+      --cream: #FBF9F4;
+      --card: #FFFFFF;
+      --line: #E1EBE7;
+      --radius: 20px;
+      --shadow: 0 14px 40px rgba(11, 59, 52, .09);
+      --shadow-sm: 0 6px 18px rgba(11, 59, 52, .07);
+      --head: "Playfair Display", Georgia, serif;
+      --body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+    }
 
-/* ---------- nav ---------- */
-.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.3s;padding:18px 0}
-.nav.scrolled{background:rgba(251,249,244,.92);backdrop-filter:blur(12px);box-shadow:var(--shadow-sm);padding:10px 0}
-.nav-in{display:flex;align-items:center;gap:28px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;font-size:19px;transition:.3s}
-.nav.scrolled .logo{color:var(--dark)}
-.logo-mark{width:30px;height:30px;border-radius:50%;position:relative;flex:none}
-.logo-mark i{position:absolute;top:2px;width:26px;height:26px;border-radius:50%}
-.logo-mark i:first-child{left:0;background:var(--teal-soft)}
-.logo-mark i:last-child{right:0;background:var(--accent);opacity:.9}
-.nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
-.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14.5px;font-weight:500;transition:.2s;position:relative}
-.nav-links a:hover{color:#fff}
-.nav.scrolled .nav-links a{color:var(--ink)}
-.nav.scrolled .nav-links a:hover{color:var(--primary)}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:.25s}
-.nav-links a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;transition:transform .2s,box-shadow .25s,background .25s;font-family:var(--body)}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(232,89,12,.32)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(232,89,12,.42)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.45);color:#fff;background:transparent}
-.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.btn-outline{border:1.5px solid var(--primary);color:var(--primary);background:transparent}
-.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
-.burger{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{display:block;width:24px;height:2.5px;background:#fff;margin:5px 0;border-radius:2px;transition:.3s}
-.nav.scrolled .burger span{background:var(--dark)}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-/* ---------- hero ---------- */
-.hero{position:relative;background:var(--dark);color:#fff;padding:170px 0 110px;overflow:hidden}
-.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
-.hero::before{width:560px;height:560px;background:#0E7C6B;top:-160px;right:-120px;animation:float 9s ease-in-out infinite}
-.hero::after{width:420px;height:420px;background:#B45309;bottom:-180px;left:-120px;opacity:.35;animation:float 11s ease-in-out infinite reverse}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
-.rings{position:absolute;top:60px;right:6%;width:420px;height:420px;opacity:.5;pointer-events:none}
-.rings i{position:absolute;inset:0;border:1.5px solid rgba(158,217,204,.4);border-radius:50%;animation:ripple 5s ease-out infinite}
-.rings i:nth-child(2){animation-delay:1.2s}.rings i:nth-child(3){animation-delay:2.4s}.rings i:nth-child(4){animation-delay:3.6s}
-@keyframes ripple{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1.15);opacity:0}}
-.hero-in{position:relative;z-index:2;max-width:760px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 16px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-soft);margin-bottom:26px}
-.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.1;margin-bottom:20px}
-.hero h1 em{font-style:italic;color:var(--accent);color:#F7965A}
-.hero p.lead{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.82);max-width:600px;margin-bottom:34px}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
-.hero-chips{display:flex;gap:12px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:baseline;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:12px 18px;backdrop-filter:blur(6px)}
-.chip b{font-size:21px;color:#F7965A;font-variant-numeric:tabular-nums}
-.chip span{font-size:12.5px;color:rgba(255,255,255,.75)}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* ---------- stats ---------- */
-.stats{background:#fff;border-bottom:1px solid var(--line)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.stat{padding:38px 26px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:none}
-.stat b{display:block;font-family:var(--head);font-size:clamp(28px,3.2vw,40px);color:var(--primary);font-variant-numeric:tabular-nums}
-.stat > span{font-size:13.5px;color:var(--muted);display:block;margin:4px 0 8px}
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden
+    }
 
-/* ---------- generic sections ---------- */
-.sec{padding:96px 0}
-.sec.alt{background:#fff}
-.sec-head{margin-bottom:52px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:var(--tint);color:var(--primary)}
-.ico.acc{background:var(--accent-soft);color:var(--accent)}
-.card h3{font-size:20px;margin-bottom:10px}
-.card p{font-size:14.5px;color:var(--muted)}
+    img,
+    svg {
+      display: block
+    }
 
-/* ---------- services ---------- */
-.svc-head-row{display:grid;grid-template-columns:1.6fr 1fr 1fr;padding:0 26px 12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.svc{display:grid;grid-template-columns:1.6fr 1fr 1fr;align-items:center;padding:22px 26px;border:1px solid var(--line);border-radius:16px;background:#fff;margin-bottom:12px;transition:.25s}
-.svc:hover{border-color:var(--primary);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
-.svc .name b{display:block;font-size:16.5px}
-.svc .name span{font-size:13px;color:var(--muted)}
-.svc .p{text-align:right;font-variant-numeric:tabular-nums}
-.svc .p b{font-size:17px;color:var(--ink)}
-.svc .p small{display:block;font-size:11.5px;color:var(--muted)}
-.svc .p.home b{color:var(--accent)}
+    a {
+      color: var(--primary)
+    }
 
-/* ---------- why ---------- */
-.why{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
-.why-visual{position:relative;border-radius:26px;overflow:hidden;background:var(--dark);color:#fff;padding:46px 40px;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
-.why-visual::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(158,217,204,.5),transparent 70%);top:-80px;right:-60px}
-.why-visual::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(247,150,90,.45),transparent 70%);bottom:-60px;left:-50px}
-.wv-quote{position:relative;z-index:1;font-family:var(--head);font-style:italic;font-size:clamp(20px,2.2vw,26px);line-height:1.4}
-.wv-author{position:relative;z-index:1;margin-top:16px;font-size:13px;color:var(--teal-soft)}
-.num-row{display:flex;gap:10px;align-items:baseline;margin-bottom:18px}
-.num-row b{font-family:var(--head);font-size:30px;color:var(--primary);min-width:64px;font-variant-numeric:tabular-nums}
-.num-row h3{font-size:18px}
-.num-row p{font-size:14px;color:var(--muted);margin-top:2px}
+    section {
+      scroll-margin-top: 84px
+    }
 
-/* ---------- packs ---------- */
-.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-.pack{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;transition:.3s;position:relative}
-.pack:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.pack.hot{background:var(--dark);color:#fff;border-color:var(--dark)}
-.pack .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--primary);margin-bottom:12px}
-.pack.hot .tag{color:var(--teal-soft)}
-.pack .price{font-family:var(--head);font-size:34px;margin-bottom:2px}
-.pack .price small{font-size:14px;font-family:var(--body);color:var(--muted);margin-left:8px}
-.pack.hot .price small{color:var(--teal-soft)}
-.pack ul{list-style:none;margin:20px 0 26px;flex:1}
-.pack li{padding:9px 0;font-size:14.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
-.pack.hot li{color:#D5EAE4}
-.pack li svg{flex:none;margin-top:3px;color:var(--primary)}
-.pack.hot li svg{color:var(--teal-soft)}
-.pack .who{font-size:12.5px;font-style:italic;color:var(--muted);margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
-.pack.hot .who{color:var(--teal-soft);border-color:rgba(255,255,255,.2)}
-.pack .btn{justify-content:center}
-.ribbon{position:absolute;top:-13px;right:22px;background:var(--accent);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.08em;padding:6px 14px;border-radius:999px;text-transform:uppercase}
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
 
-/* ---------- process ---------- */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
-.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;position:relative;transition:.25s}
-.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
-.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--head);font-size:40px;color:var(--teal-soft);display:block;margin-bottom:10px}
-.step h3{font-size:18px;margin-bottom:8px}
-.step p{font-size:13.5px;color:var(--muted)}
-.safety{margin-top:30px;background:var(--accent-soft);border-radius:16px;padding:20px 26px;font-size:14.5px;display:flex;gap:12px;align-items:flex-start}
-.safety svg{flex:none;color:var(--accent);margin-top:2px}
+    h1,
+    h2,
+    h3 {
+      font-family: var(--head);
+      font-weight: 600;
+      line-height: 1.18
+    }
 
-/* ---------- testimonials ---------- */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
-.quote .stars{color:var(--accent);display:flex;gap:3px;margin-bottom:14px}
-.quote p{font-size:14.5px;font-style:italic;color:var(--ink);margin-bottom:18px}
-.quote .who{display:flex;align-items:center;gap:12px}
-.quote .who i{width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--primary);font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
-.quote .who b{display:block;font-size:14px}
-.quote .who span{font-size:12.5px;color:var(--muted)}
+    .kicker {
+      display: inline-block;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px
+    }
 
-/* ---------- FAQ ---------- */
-.faq{max-width:780px;margin:0 auto}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:.25s}
-.faq details[open]{border-color:var(--primary);box-shadow:var(--shadow-sm)}
-.faq summary{cursor:pointer;list-style:none;padding:20px 24px;font-weight:600;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:24px;color:var(--primary);transition:.3s;line-height:1}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .ans{padding:0 24px 22px;font-size:14.5px;color:var(--muted)}
+    .sec-title {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 14px
+    }
 
-/* ---------- booking ---------- */
-.book{background:var(--dark);color:#fff;border-radius:30px;padding:64px 56px;position:relative;overflow:hidden}
-.book::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(158,217,204,.35),transparent 70%);top:-120px;right:-80px}
-.book-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-.book h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:14px}
-.book p.sub{color:rgba(255,255,255,.78);margin-bottom:26px}
-.book .contact-line{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:15px}
-.book .contact-line svg{color:var(--teal-soft);flex:none}
-.book form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:28px;backdrop-filter:blur(6px)}
-.book label{display:block;font-size:13px;color:var(--teal-soft);margin-bottom:6px;font-weight:600}
-.book input,.book select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-family:var(--body);font-size:14.5px;margin-bottom:16px;outline:none;transition:.2s}
-.book input:focus,.book select:focus{border-color:var(--teal-soft)}
-.book input::placeholder{color:rgba(255,255,255,.4)}
-.book select option{color:var(--ink)}
-.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--primary);color:#fff;padding:14px 26px;border-radius:999px;font-size:14px;box-shadow:var(--shadow);transition:.45s cubic-bezier(.22,.61,.36,1);z-index:200;opacity:0}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+    .sec-sub {
+      color: var(--muted);
+      max-width: 640px;
+      font-size: 17px
+    }
 
-/* ---------- footer ---------- */
-footer{background:#082E28;color:#9EC9BF;padding:64px 0 34px;font-size:14px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:44px;margin-bottom:40px}
-footer h4{color:#fff;font-size:15px;margin-bottom:16px;font-family:var(--body);font-weight:600}
-footer a{color:#9EC9BF;text-decoration:none;transition:.2s}
-footer a:hover{color:#fff;text-decoration:underline}
-footer ul{list-style:none}
-footer li{margin-bottom:9px}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#6E9C92}
+    .src {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic
+    }
 
-/* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0ms)}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .hero::before,.hero::after,.rings i{animation:none}
-  html{scroll-behavior:auto}
-}
-a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+    .src a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 2px
+    }
 
-/* ---------- responsive ---------- */
-@media (max-width:1024px){
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(3){border-left:none}
-  .stat{border-top:1px solid var(--line)}
-  .stat:nth-child(-n+2){border-top:none}
-  .grid-3,.packs,.quotes{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .why{grid-template-columns:1fr;gap:36px}
-  .book-grid{grid-template-columns:1fr;gap:32px}
-}
-@media (max-width:720px){
-  .nav-links{position:fixed;top:0;right:0;width:min(320px,84vw);height:100vh;background:var(--dark);flex-direction:column;align-items:flex-start;padding:90px 34px;gap:22px;transform:translateX(100%);transition:.35s cubic-bezier(.22,.61,.36,1)}
-  .nav-links.open{transform:none}
-  .nav-links a{color:#fff;font-size:17px}
-  .burger{display:block;position:relative;z-index:120}
-  .nav.scrolled .burger span{background:var(--dark)}
-  body.menu-open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-  body.menu-open .burger span:nth-child(2){opacity:0}
-  body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-  body.menu-open .burger span{background:#fff !important}
-  .grid-3,.packs,.quotes,.steps{grid-template-columns:1fr}
-  .svc{grid-template-columns:1fr;gap:8px}
-  .svc .p{text-align:left}
-  .svc .p small{display:inline;margin-left:8px}
-  .svc-head-row{display:none}
-  .sec{padding:64px 0}
-  .hero{padding:130px 0 80px}
-  .rings{display:none}
-  .book{padding:44px 26px}
-  .foot-grid{grid-template-columns:1fr;gap:30px}
-}
-</style>
+    /* ---------- nav ---------- */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      transition: .3s;
+      padding: 18px 0
+    }
+
+    .nav.scrolled {
+      background: rgba(251, 249, 244, .92);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      padding: 10px 0
+    }
+
+    .nav-in {
+      display: flex;
+      align-items: center;
+      gap: 28px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 19px;
+      transition: .3s
+    }
+
+    .nav.scrolled .logo {
+      color: var(--dark)
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: relative;
+      flex: none
+    }
+
+    .logo-mark i {
+      position: absolute;
+      top: 2px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%
+    }
+
+    .logo-mark i:first-child {
+      left: 0;
+      background: var(--teal-soft)
+    }
+
+    .logo-mark i:last-child {
+      right: 0;
+      background: var(--accent);
+      opacity: .9
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      margin-left: auto;
+      align-items: center
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, .85);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 500;
+      transition: .2s;
+      position: relative
+    }
+
+    .nav-links a:hover {
+      color: #fff
+    }
+
+    .nav.scrolled .nav-links a {
+      color: var(--ink)
+    }
+
+    .nav.scrolled .nav-links a:hover {
+      color: var(--primary)
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: .25s
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .25s, background .25s;
+      font-family: var(--body)
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(232, 89, 12, .32)
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(232, 89, 12, .42)
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255, 255, 255, .45);
+      color: #fff;
+      background: transparent
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .12);
+      transform: translateY(-2px)
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px)
+    }
+
+    .burger {
+      display: none;
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px
+    }
+
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: #fff;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: .3s
+    }
+
+    .nav.scrolled .burger span {
+      background: var(--dark)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      background: var(--dark);
+      color: #fff;
+      padding: 170px 0 110px;
+      overflow: hidden
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .5
+    }
+
+    .hero::before {
+      width: 560px;
+      height: 560px;
+      background: #0E7C6B;
+      top: -160px;
+      right: -120px;
+      animation: float 9s ease-in-out infinite
+    }
+
+    .hero::after {
+      width: 420px;
+      height: 420px;
+      background: #B45309;
+      bottom: -180px;
+      left: -120px;
+      opacity: .35;
+      animation: float 11s ease-in-out infinite reverse
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .rings {
+      position: absolute;
+      top: 60px;
+      right: 6%;
+      width: 420px;
+      height: 420px;
+      opacity: .5;
+      pointer-events: none
+    }
+
+    .rings i {
+      position: absolute;
+      inset: 0;
+      border: 1.5px solid rgba(158, 217, 204, .4);
+      border-radius: 50%;
+      animation: ripple 5s ease-out infinite
+    }
+
+    .rings i:nth-child(2) {
+      animation-delay: 1.2s
+    }
+
+    .rings i:nth-child(3) {
+      animation-delay: 2.4s
+    }
+
+    .rings i:nth-child(4) {
+      animation-delay: 3.6s
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(.35);
+        opacity: .9
+      }
+
+      100% {
+        transform: scale(1.15);
+        opacity: 0
+      }
+    }
+
+    .hero-in {
+      position: relative;
+      z-index: 2;
+      max-width: 760px
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 12.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal-soft);
+      margin-bottom: 26px
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.1;
+      margin-bottom: 20px
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      color: #F7965A
+    }
+
+    .hero p.lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(255, 255, 255, .82);
+      max-width: 600px;
+      margin-bottom: 34px
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 44px
+    }
+
+    .hero-chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 7px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 14px;
+      padding: 12px 18px;
+      backdrop-filter: blur(6px)
+    }
+
+    .chip b {
+      font-size: 21px;
+      color: #F7965A;
+      font-variant-numeric: tabular-nums
+    }
+
+    .chip span {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, .75)
+    }
+
+    /* ---------- stats ---------- */
+    .stats {
+      background: #fff;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0
+    }
+
+    .stat {
+      padding: 38px 26px;
+      border-left: 1px solid var(--line)
+    }
+
+    .stat:first-child {
+      border-left: none
+    }
+
+    .stat b {
+      display: block;
+      font-family: var(--head);
+      font-size: clamp(28px, 3.2vw, 40px);
+      color: var(--primary);
+      font-variant-numeric: tabular-nums
+    }
+
+    .stat>span {
+      font-size: 13.5px;
+      color: var(--muted);
+      display: block;
+      margin: 4px 0 8px
+    }
+
+    /* ---------- generic sections ---------- */
+    .sec {
+      padding: 96px 0
+    }
+
+    .sec.alt {
+      background: #fff
+    }
+
+    .sec-head {
+      margin-bottom: 52px
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow)
+    }
+
+    .ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: var(--tint);
+      color: var(--primary)
+    }
+
+    .ico.acc {
+      background: var(--accent-soft);
+      color: var(--accent)
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px
+    }
+
+    .card p {
+      font-size: 14.5px;
+      color: var(--muted)
+    }
+
+    /* ---------- services ---------- */
+    .svc-head-row {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      padding: 0 26px 12px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .svc {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      align-items: center;
+      padding: 22px 26px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      margin-bottom: 12px;
+      transition: .25s
+    }
+
+    .svc:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px)
+    }
+
+    .svc .name b {
+      display: block;
+      font-size: 16.5px
+    }
+
+    .svc .name span {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .svc .p {
+      text-align: right;
+      font-variant-numeric: tabular-nums
+    }
+
+    .svc .p b {
+      font-size: 17px;
+      color: var(--ink)
+    }
+
+    .svc .p small {
+      display: block;
+      font-size: 11.5px;
+      color: var(--muted)
+    }
+
+    .svc .p.home b {
+      color: var(--accent)
+    }
+
+    /* ---------- why ---------- */
+    .why {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    .why-visual {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: var(--dark);
+      color: #fff;
+      padding: 46px 40px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end
+    }
+
+    .why-visual::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(158, 217, 204, .5), transparent 70%);
+      top: -80px;
+      right: -60px
+    }
+
+    .why-visual::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247, 150, 90, .45), transparent 70%);
+      bottom: -60px;
+      left: -50px
+    }
+
+    .wv-quote {
+      position: relative;
+      z-index: 1;
+      font-family: var(--head);
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.4
+    }
+
+    .wv-author {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--teal-soft)
+    }
+
+    .num-row {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 18px
+    }
+
+    .num-row b {
+      font-family: var(--head);
+      font-size: 30px;
+      color: var(--primary);
+      min-width: 64px;
+      font-variant-numeric: tabular-nums
+    }
+
+    .num-row h3 {
+      font-size: 18px
+    }
+
+    .num-row p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    /* ---------- packs ---------- */
+    .packs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch
+    }
+
+    .pack {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 22px;
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      transition: .3s;
+      position: relative
+    }
+
+    .pack:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow)
+    }
+
+    .pack.hot {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark)
+    }
+
+    .pack .tag {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px
+    }
+
+    .pack.hot .tag {
+      color: var(--teal-soft)
+    }
+
+    .pack .price {
+      font-family: var(--head);
+      font-size: 34px;
+      margin-bottom: 2px
+    }
+
+    .pack .price small {
+      font-size: 14px;
+      font-family: var(--body);
+      color: var(--muted);
+      margin-left: 8px
+    }
+
+    .pack.hot .price small {
+      color: var(--teal-soft)
+    }
+
+    .pack ul {
+      list-style: none;
+      margin: 20px 0 26px;
+      flex: 1
+    }
+
+    .pack li {
+      padding: 9px 0;
+      font-size: 14.5px;
+      color: var(--muted);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    .pack.hot li {
+      color: #D5EAE4
+    }
+
+    .pack li svg {
+      flex: none;
+      margin-top: 3px;
+      color: var(--primary)
+    }
+
+    .pack.hot li svg {
+      color: var(--teal-soft)
+    }
+
+    .pack .who {
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line)
+    }
+
+    .pack.hot .who {
+      color: var(--teal-soft);
+      border-color: rgba(255, 255, 255, .2)
+    }
+
+    .pack .btn {
+      justify-content: center
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -13px;
+      right: 22px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-transform: uppercase
+    }
+
+    /* ---------- process ---------- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      counter-reset: step
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 24px;
+      position: relative;
+      transition: .25s
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm)
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      font-family: var(--head);
+      font-size: 40px;
+      color: var(--teal-soft);
+      display: block;
+      margin-bottom: 10px
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 8px
+    }
+
+    .step p {
+      font-size: 13.5px;
+      color: var(--muted)
+    }
+
+    .safety {
+      margin-top: 30px;
+      background: var(--accent-soft);
+      border-radius: 16px;
+      padding: 20px 26px;
+      font-size: 14.5px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start
+    }
+
+    .safety svg {
+      flex: none;
+      color: var(--accent);
+      margin-top: 2px
+    }
+
+    /* ---------- testimonials ---------- */
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .quote {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-sm)
+    }
+
+    .quote .stars {
+      color: var(--accent);
+      display: flex;
+      gap: 3px;
+      margin-bottom: 14px
+    }
+
+    .quote p {
+      font-size: 14.5px;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 18px
+    }
+
+    .quote .who {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .quote .who i {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--tint);
+      color: var(--primary);
+      font-style: normal;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px
+    }
+
+    .quote .who b {
+      display: block;
+      font-size: 14px
+    }
+
+    .quote .who span {
+      font-size: 12.5px;
+      color: var(--muted)
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq {
+      max-width: 780px;
+      margin: 0 auto
+    }
+
+    .faq details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: .25s
+    }
+
+    .faq details[open] {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm)
+    }
+
+    .faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: 15.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none
+    }
+
+    .faq summary::after {
+      content: "+";
+      font-size: 24px;
+      color: var(--primary);
+      transition: .3s;
+      line-height: 1
+    }
+
+    .faq details[open] summary::after {
+      transform: rotate(45deg)
+    }
+
+    .faq .ans {
+      padding: 0 24px 22px;
+      font-size: 14.5px;
+      color: var(--muted)
+    }
+
+    /* ---------- booking ---------- */
+    .book {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 30px;
+      padding: 64px 56px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(158, 217, 204, .35), transparent 70%);
+      top: -120px;
+      right: -80px
+    }
+
+    .book-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 56px;
+      align-items: center
+    }
+
+    .book h2 {
+      font-size: clamp(28px, 3.6vw, 42px);
+      margin-bottom: 14px
+    }
+
+    .book p.sub {
+      color: rgba(255, 255, 255, .78);
+      margin-bottom: 26px
+    }
+
+    .book .contact-line {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 15px
+    }
+
+    .book .contact-line svg {
+      color: var(--teal-soft);
+      flex: none
+    }
+
+    .book form {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 18px;
+      padding: 28px;
+      backdrop-filter: blur(6px)
+    }
+
+    .book label {
+      display: block;
+      font-size: 13px;
+      color: var(--teal-soft);
+      margin-bottom: 6px;
+      font-weight: 600
+    }
+
+    .book input,
+    .book select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-family: var(--body);
+      font-size: 14.5px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: .2s
+    }
+
+    .book input:focus,
+    .book select:focus {
+      border-color: var(--teal-soft)
+    }
+
+    .book input::placeholder {
+      color: rgba(255, 255, 255, .4)
+    }
+
+    .book select option {
+      color: var(--ink)
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+      transition: .45s cubic-bezier(.22, .61, .36, 1);
+      z-index: 200;
+      opacity: 0
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      background: #082E28;
+      color: #9EC9BF;
+      padding: 64px 0 34px;
+      font-size: 14px
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 44px;
+      margin-bottom: 40px
+    }
+
+    footer h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 16px;
+      font-family: var(--body);
+      font-weight: 600
+    }
+
+    footer a {
+      color: #9EC9BF;
+      text-decoration: none;
+      transition: .2s
+    }
+
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline
+    }
+
+    footer ul {
+      list-style: none
+    }
+
+    footer li {
+      margin-bottom: 9px
+    }
+
+    .foot-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: #6E9C92
+    }
+
+    /* ---------- reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.22, .61, .36, 1);
+      transition-delay: var(--d, 0ms)
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      .hero::before,
+      .hero::after,
+      .rings i {
+        animation: none
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2.5px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 6px
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .stat:nth-child(3) {
+        border-left: none
+      }
+
+      .stat {
+        border-top: 1px solid var(--line)
+      }
+
+      .stat:nth-child(-n+2) {
+        border-top: none
+      }
+
+      .grid-3,
+      .packs,
+      .quotes {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .why {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      .book-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+    }
+
+    @media (max-width:720px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(320px, 84vw);
+        height: 100vh;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 90px 34px;
+        gap: 22px;
+        transform: translateX(100%);
+        transition: .35s cubic-bezier(.22, .61, .36, 1)
+      }
+
+      .nav-links.open {
+        transform: none
+      }
+
+      .nav-links a {
+        color: #fff;
+        font-size: 17px
+      }
+
+      .burger {
+        display: block;
+        position: relative;
+        z-index: 120
+      }
+
+      .nav.scrolled .burger span {
+        background: var(--dark)
+      }
+
+      body.menu-open .burger span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg)
+      }
+
+      body.menu-open .burger span:nth-child(2) {
+        opacity: 0
+      }
+
+      body.menu-open .burger span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg)
+      }
+
+      body.menu-open .burger span {
+        background: #fff !important
+      }
+
+      .grid-3,
+      .packs,
+      .quotes,
+      .steps {
+        grid-template-columns: 1fr
+      }
+
+      .svc {
+        grid-template-columns: 1fr;
+        gap: 8px
+      }
+
+      .svc .p {
+        text-align: left
+      }
+
+      .svc .p small {
+        display: inline;
+        margin-left: 8px
+      }
+
+      .svc-head-row {
+        display: none
+      }
+
+      .sec {
+        padding: 64px 0
+      }
+
+      .hero {
+        padding: 130px 0 80px
+      }
+
+      .rings {
+        display: none
+      }
+
+      .book {
+        padding: 44px 26px
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+        gap: 30px
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ================= NAV ================= -->
-<nav class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="CareTouch — về đầu trang">
-      <span class="logo-mark"><i></i><i></i></span> CareTouch
-    </a>
-    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#dich-vu">Dịch vụ</a>
-      <a href="#bang-gia">Bảng giá</a>
-      <a href="#vi-sao">Vì sao CareTouch</a>
-      <a href="#quy-trinh">Quy trình</a>
-      <a href="#hoi-dap">Hỏi đáp</a>
-      <a href="slide/" class="btn btn-outline" style="padding:9px 18px;font-size:13.5px">Hồ sơ dự án ↗</a>
-      <a href="#dat-lich" class="btn btn-primary" style="padding:10px 22px;font-size:14px">Đặt lịch</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<header class="hero" id="top">
-  <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-  <div class="wrap hero-in">
-    <div class="hero-badge reveal">Gội đầu dưỡng sinh · Massage trị liệu · Bấm huyệt · Chườm thảo dược</div>
-    <h1 class="reveal" style="--d:100ms">Chạm đúng chỗ,<br>giảm đau <em>đúng gốc.</em></h1>
-    <p class="lead reveal" style="--d:200ms">CareTouch mang liệu trình y học cổ truyền có kiểm chứng đến tận giường, tận nhà — dành cho người trung niên và cao tuổi. Mỗi buổi bắt đầu bằng khảo sát thể trạng: <strong style="color:#fff">không an toàn thì không thực hiện.</strong></p>
-    <div class="hero-cta reveal" style="--d:300ms">
-      <a href="#dat-lich" class="btn btn-primary">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Đặt lịch trải nghiệm
+  <!-- ================= NAV ================= -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="#top" aria-label="CareTouch — về đầu trang">
+        <span class="logo-mark"><i></i><i></i></span> CareTouch
       </a>
-      <a href="slide/" class="btn btn-ghost">Xem hồ sơ dự án đầu tư ↗</a>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#dich-vu">Dịch vụ</a>
+        <a href="#bang-gia">Bảng giá</a>
+        <a href="#vi-sao">Vì sao CareTouch</a>
+        <a href="#quy-trinh">Quy trình</a>
+        <a href="#hoi-dap">Hỏi đáp</a>
+        <a href="slide/" class="btn btn-outline" style="padding:9px 18px;font-size:13.5px">Hồ sơ dự án ↗</a>
+        <a href="#dat-lich" class="btn btn-primary" style="padding:10px 22px;font-size:14px">Đặt lịch</a>
+      </div>
     </div>
-    <div class="hero-chips reveal" style="--d:420ms">
-      <div class="chip"><b data-count="16.1" data-dec="1">16,1</b><span>triệu người Việt trên 60 tuổi (2025)</span></div>
-      <div class="chip"><b>120–320</b><span>nghìn đ/phiên, niêm yết công khai</span></div>
-      <div class="chip"><b>0 đ</b><span>phí di chuyển trong bán kính 5 km</span></div>
-    </div>
-    <p class="src reveal" style="--d:520ms;color:rgba(255,255,255,.55);margin-top:16px">Nguồn số liệu dân số: <a style="color:var(--teal-soft)" href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm" target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a></p>
-  </div>
-</header>
+  </nav>
 
-<!-- ================= STATS ================= -->
-<div class="stats" aria-label="Số liệu thị trường">
-  <div class="wrap" style="padding:0">
-    <div class="stats-grid">
-      <div class="stat reveal"><b data-count="16.1" data-dec="1">16,1</b> triệu<span>người Việt trên 60 tuổi (2025) — hơn 16% dân số</span><span class="src"><a href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm" target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a></span></div>
-      <div class="stat reveal" style="--d:90ms"><b data-count="94.4" data-dec="1">94,4</b> triệu<span>lượt khám BHYT 6 tháng đầu 2026 — hệ thống chạy hết công suất</span><span class="src">Nhóm tổng hợp, 2026</span></div>
-      <div class="stat reveal" style="--d:180ms"><b>+<span data-count="15.6" data-dec="1">15,6</span>%</b>/năm<span>tăng trưởng wellness của Việt Nam — cao nhất châu Á</span><span class="src"><a href="https://globalwellnessinstitute.org/wp-content/uploads/2024/11/WellnessEconMonitor2024PDF.pdf" target="_blank" rel="noopener">GWI, 2024</a></span></div>
-      <div class="stat reveal" style="--d:270ms"><b data-count="1.4" data-dec="1">1,4</b> tỷ USD<span>doanh thu spa Việt Nam 2023 — top 20 thị trường toàn cầu</span><span class="src"><a href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia" target="_blank" rel="noopener">Nikkei Asia, 1/2025</a></span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ================= PROBLEM ================= -->
-<section class="sec" id="van-de">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Vì sao là bây giờ</span>
-      <h2 class="sec-title">Đau nhức không chờ ai —<br>nhưng đi viện thì tốn cả buổi</h2>
-      <p class="sec-sub">Ba nhóm khách hàng chiếm nhu cầu lớn nhất của chạm trị liệu định kỳ, đều chung một rào cản: thiếu thời gian và khó di chuyển.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a5 5 0 1 0-7 7l-3.2 3.2a2 2 0 0 0 0 2.8l.2.2a2 2 0 0 0 2.8 0L10.7 16a5 5 0 0 0 7-7"/></svg></div>
-        <h3>Người lao động nặng</h3><p>Đau lưng, thoái hóa khớp sau nhiều năm. Thói quen tự xử lý bằng dầu nóng, miếng dán — vì đi viện tốn thời gian.</p></div>
-      <div class="card reveal" style="--d:120ms"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20"/></svg></div>
-        <h3>Dân văn phòng</h3><p>Đau cổ vai gáy nghề nghiệp, tê bì tay, mất ngủ chức năng do ngồi 8–10 tiếng/ngày. Bận rộn — cần dịch vụ nhanh, tiện.</p></div>
-      <div class="card reveal" style="--d:240ms"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
-        <h3>Người cao tuổi</h3><p>Bình quân 3,5–4 bệnh mạn tính cùng lúc, tin dùng y học cổ truyền nhưng đi lại khó khăn — cần người đến tận nơi.</p></div>
-    </div>
-    <p class="src reveal" style="margin-top:22px">Nguồn: <a href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm" target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a> · <a href="https://tuoitre.vn/nld/viet-nam-dang-co-toc-do-gia-hoa-nhanh-nhat-chau-a-196250531143638561.htm" target="_blank" rel="noopener">Tuổi Trẻ — già hóa nhanh nhất châu Á</a> · Lượt khám BHYT: nhóm tổng hợp, 2026</p>
-  </div>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="sec alt" id="dich-vu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Dịch vụ & giá</span>
-      <h2 class="sec-title">Năm liệu trình chuẩn — giá niêm yết, không phát sinh</h2>
-      <p class="sec-sub">Bảng giá đề xuất tại cơ sở và tận nhà (VNĐ/phiên). Khảo sát thể trạng 5 phút đầu luôn miễn phí và bắt buộc.</p>
-    </div>
-    <div class="reveal">
-      <div class="svc-head-row"><span>Dịch vụ</span><span style="text-align:right">Tại cơ sở</span><span style="text-align:right">Tận nhà</span></div>
-      <div class="svc"><div class="name"><b>Gội đầu dưỡng sinh thảo dược</b><span>45 phút · gội thảo dược, day ấn huyệt đầu mặt</span></div><div class="p"><b>120.000</b><small>/ phiên</small></div><div class="p home"><b>200.000</b><small>/ phiên</small></div></div>
-      <div class="svc"><div class="name"><b>Massage cổ – vai – gáy trị liệu</b><span>60 phút · thư giãn vùng nghề nghiệp</span></div><div class="p"><b>180.000</b><small>/ phiên</small></div><div class="p home"><b>270.000</b><small>/ phiên</small></div></div>
-      <div class="svc"><div class="name"><b>Massage toàn thân thư giãn</b><span>70 phút · phục hồi toàn diện</span></div><div class="p"><b>220.000</b><small>/ phiên</small></div><div class="p home"><b>320.000</b><small>/ phiên</small></div></div>
-      <div class="svc"><div class="name"><b>Bấm huyệt – đả thông kinh lạc</b><span>60 phút · theo bài chuẩn y học cổ truyền</span></div><div class="p"><b>200.000</b><small>/ phiên</small></div><div class="p home"><b>290.000</b><small>/ phiên</small></div></div>
-      <div class="svc"><div class="name"><b>Chườm thảo dược – xông hơi đông y</b><span>60 phút · chỉ thực hiện tại cơ sở</span></div><div class="p"><b>180.000</b><small>/ phiên</small></div><div class="p home"><b>—</b><small>&nbsp;</small></div></div>
-      <p class="src" style="margin-top:20px">Giá đề xuất của nhóm, căn theo khảo sát thị trường công khai: <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank" rel="noopener">Massagenha — massage người lớn tuổi, 7/2025</a> (thị trường tại nhà cho người lớn tuổi 350.000–620.000 đ/phiên tại TP.HCM). Con số sẽ hiệu chỉnh theo địa bàn triển khai thực tế.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= WHY ================= -->
-<section class="sec" id="vi-sao">
-  <div class="wrap">
-    <div class="why">
-      <div>
-        <div class="sec-head reveal" style="margin-bottom:34px">
-          <span class="kicker">Vì sao CareTouch</span>
-          <h2 class="sec-title">An toàn là tính năng của dịch vụ,<br>không phải khẩu hiệu</h2>
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="wrap hero-in">
+      <div class="hero-badge reveal">Gội đầu dưỡng sinh · Massage trị liệu · Bấm huyệt · Chườm thảo dược · Châm cứu
+      </div>
+      <h1 class="reveal" style="--d:100ms">Chạm đúng chỗ,<br>giảm đau <em>đúng gốc.</em></h1>
+      <p class="lead reveal" style="--d:200ms">CareTouch mang liệu trình y học cổ truyền có kiểm chứng đến tận giường,
+        tận nhà — dành cho người trung niên và cao tuổi. Mỗi buổi bắt đầu bằng khảo sát thể trạng: <strong
+          style="color:#fff">không an toàn thì không thực hiện.</strong></p>
+      <div class="hero-cta reveal" style="--d:300ms">
+        <a href="#dat-lich" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="3" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          Đặt lịch trải nghiệm
+        </a>
+        <a href="slide/" class="btn btn-ghost">Xem hồ sơ dự án đầu tư ↗</a>
+      </div>
+      <div class="hero-chips reveal" style="--d:420ms">
+        <div class="chip"><b data-count="16.1" data-dec="1">16,1</b><span>triệu người Việt trên 60 tuổi (2025)</span>
         </div>
-        <div class="num-row reveal"><b>01</b><div><h3>Tận giường – tận nhà</h3><p>Mang theo đệm, dầu xoa, khăn sạch; khách cao tuổi không cần ai đưa đón.</p></div></div>
-        <div class="num-row reveal" style="--d:100ms"><b>02</b><div><h3>Khảo sát thể trạng trước buổi trị liệu</h3><p>Hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định — không an toàn thì không thực hiện.</p></div></div>
-        <div class="num-row reveal" style="--d:200ms"><b>03</b><div><h3>Giá niêm yết minh bạch</h3><p>Bảng giá công khai, không phát sinh; combo tiết kiệm 15–20%.</p></div></div>
-        <div class="num-row reveal" style="--d:300ms"><b>04</b><div><h3>Sổ sức khỏe cá nhân</h3><p>Ghi nhận phản ứng sau mỗi buổi — liệu trình liên tục, không rời rạc.</p></div></div>
+        <div class="chip"><b>120–320</b><span>nghìn đ/phiên, niêm yết công khai</span></div>
+        <div class="chip"><b>0 đ</b><span>phí di chuyển trong bán kính 5 km</span></div>
       </div>
-      <div class="why-visual reveal" style="--d:150ms">
-        <p class="wv-quote">"Nguyên tắc cốt lõi: không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám."</p>
-        <p class="wv-author">— Quy trình vận hành CareTouch · cơ sở mua bảo hiểm trách nhiệm dịch vụ</p>
+      <p class="src reveal" style="--d:520ms;color:rgba(255,255,255,.55);margin-top:16px">Nguồn số liệu dân số: <a
+          style="color:var(--teal-soft)"
+          href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm"
+          target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a></p>
+    </div>
+  </header>
+
+  <!-- ================= STATS ================= -->
+  <div class="stats" aria-label="Số liệu thị trường">
+    <div class="wrap" style="padding:0">
+      <div class="stats-grid">
+        <div class="stat reveal"><b data-count="16.1" data-dec="1">16,1</b> triệu<span>người Việt trên 60 tuổi (2025) —
+            hơn 16% dân số</span><span class="src"><a
+              href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm"
+              target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a></span></div>
+        <div class="stat reveal" style="--d:90ms"><b data-count="94.4" data-dec="1">94,4</b> triệu<span>lượt khám BHYT 6
+            tháng đầu 2026 — hệ thống chạy hết công suất</span><span class="src">Nhóm tổng hợp, 2026</span></div>
+        <div class="stat reveal" style="--d:180ms"><b>+<span data-count="15.6"
+              data-dec="1">15,6</span>%</b>/năm<span>tăng trưởng wellness của Việt Nam — cao nhất châu Á</span><span
+            class="src"><a
+              href="https://globalwellnessinstitute.org/wp-content/uploads/2024/11/WellnessEconMonitor2024PDF.pdf"
+              target="_blank" rel="noopener">GWI, 2024</a></span></div>
+        <div class="stat reveal" style="--d:270ms"><b data-count="1.4" data-dec="1">1,4</b> tỷ USD<span>doanh thu spa
+            Việt Nam 2023 — top 20 thị trường toàn cầu</span><span class="src"><a
+              href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia"
+              target="_blank" rel="noopener">Nikkei Asia, 1/2025</a></span></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ================= PACKS ================= -->
-<section class="sec alt" id="bang-gia">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Gói liệu trình</span>
-      <h2 class="sec-title">Thiết kế cho việc quay lại định kỳ — không phải mua một lần rồi thôi</h2>
-      <p class="sec-sub">Liệu trình y học cổ truyền thường cần 5–10 buổi. Chọn gói phù hợp để giảm giá và giữ lịch cố định.</p>
-    </div>
-    <div class="packs">
-      <div class="pack reveal">
-        <div class="tag">Mua lẻ</div>
-        <div class="price">120–290<small>nghìn đ/phiên</small></div>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Không ràng buộc, giá niêm yết</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tích điểm thành viên từ phiên đầu</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dành cho khách trải nghiệm lần đầu</li>
-        </ul>
-        <a href="#dat-lich" class="btn btn-outline">Đặt phiên đầu</a>
+  <!-- ================= PROBLEM ================= -->
+  <section class="sec" id="van-de">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Vì sao là bây giờ</span>
+        <h2 class="sec-title">Đau nhức không chờ ai —<br>nhưng đi viện thì tốn cả buổi</h2>
+        <p class="sec-sub">Ba nhóm khách hàng chiếm nhu cầu lớn nhất của chạm trị liệu định kỳ, đều chung một rào cản:
+          thiếu thời gian và khó di chuyển.</p>
       </div>
-      <div class="pack hot reveal" style="--d:120ms">
-        <div class="ribbon">Phổ biến nhất</div>
-        <div class="tag">Combo 5 buổi</div>
-        <div class="price">890.000<small>đ · tiết kiệm ~15%</small></div>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tự chọn kết hợp 3 dịch vụ</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Đặt lịch linh hoạt trong 3 tháng</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 buổi tổng kết liệu trình</li>
-        </ul>
-        <a href="#dat-lich" class="btn btn-primary">Chọn Combo 5</a>
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a5 5 0 1 0-7 7l-3.2 3.2a2 2 0 0 0 0 2.8l.2.2a2 2 0 0 0 2.8 0L10.7 16a5 5 0 0 0 7-7" />
+            </svg></div>
+          <h3>Người lao động nặng</h3>
+          <p>Đau lưng, thoái hóa khớp sau nhiều năm. Thói quen tự xử lý bằng dầu nóng, miếng dán — vì đi viện tốn thời
+            gian.</p>
+        </div>
+        <div class="card reveal" style="--d:120ms">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="13" rx="2" />
+              <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20" />
+            </svg></div>
+          <h3>Dân văn phòng</h3>
+          <p>Đau cổ vai gáy nghề nghiệp, tê bì tay, mất ngủ chức năng do ngồi 8–10 tiếng/ngày. Bận rộn — cần dịch vụ
+            nhanh, tiện.</p>
+        </div>
+        <div class="card reveal" style="--d:240ms">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+            </svg></div>
+          <h3>Người cao tuổi</h3>
+          <p>Bình quân 3,5–4 bệnh mạn tính cùng lúc, tin dùng y học cổ truyền nhưng đi lại khó khăn — cần người đến tận
+            nơi.</p>
+        </div>
       </div>
-      <div class="pack reveal" style="--d:240ms">
-        <div class="tag">CarePlus 10 buổi</div>
-        <div class="price">1.590.000<small>đ · ~20%</small></div>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Giá cố định 12 tháng</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tích điểm 5% · ưu đãi tháng sinh nhật</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cho người thân dùng chung</li>
-        </ul>
-        <a href="#dat-lich" class="btn btn-outline">Chọn CarePlus</a>
+      <p class="src reveal" style="margin-top:22px">Nguồn: <a
+          href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm"
+          target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025</a> · <a
+          href="https://tuoitre.vn/nld/viet-nam-dang-co-toc-do-gia-hoa-nhanh-nhat-chau-a-196250531143638561.htm"
+          target="_blank" rel="noopener">Tuổi Trẻ — già hóa nhanh nhất châu Á</a> · Lượt khám BHYT: nhóm tổng hợp, 2026
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="sec alt" id="dich-vu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Dịch vụ & giá</span>
+        <h2 class="sec-title">Năm liệu trình chuẩn — giá niêm yết, không phát sinh</h2>
+        <p class="sec-sub">Bảng giá đề xuất tại cơ sở và tận nhà (VNĐ/phiên). Khảo sát thể trạng 5 phút đầu luôn miễn
+          phí và bắt buộc.</p>
+      </div>
+      <div class="reveal">
+        <div class="svc-head-row"><span>Dịch vụ</span><span style="text-align:right">Tại cơ sở</span><span
+            style="text-align:right">Tận nhà</span></div>
+        <div class="svc">
+          <div class="name"><b>Gội đầu dưỡng sinh thảo dược</b><span>45 phút · gội thảo dược, day ấn huyệt đầu
+              mặt</span></div>
+          <div class="p"><b>120.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>200.000</b><small>/ phiên</small></div>
+        </div>
+        <div class="svc">
+          <div class="name"><b>Massage cổ – vai – gáy trị liệu</b><span>60 phút · thư giãn vùng nghề nghiệp</span></div>
+          <div class="p"><b>180.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>270.000</b><small>/ phiên</small></div>
+        </div>
+        <div class="svc">
+          <div class="name"><b>Massage toàn thân thư giãn</b><span>70 phút · phục hồi toàn diện</span></div>
+          <div class="p"><b>220.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>320.000</b><small>/ phiên</small></div>
+        </div>
+        <div class="svc">
+          <div class="name"><b>Bấm huyệt – đả thông kinh lạc</b><span>60 phút · theo bài chuẩn y học cổ truyền</span>
+          </div>
+          <div class="p"><b>200.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>290.000</b><small>/ phiên</small></div>
+        </div>
+        <div class="svc">
+          <div class="name"><b>Chườm thảo dược – xông hơi đông y</b><span>60 phút · chỉ thực hiện tại cơ sở</span></div>
+          <div class="p"><b>180.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>—</b><small>&nbsp;</small></div>
+        </div>
+        <div class="svc">
+          <div class="name"><b>Châm cứu – cứu ngải</b><span>45 phút · chỉ thực hiện tại cơ sở</span></div>
+          <div class="p"><b>250.000</b><small>/ phiên</small></div>
+          <div class="p home"><b>—</b><small>&nbsp;</small></div>
+        </div>
+        <p class="src" style="margin-top:20px">Giá đề xuất của nhóm, căn theo khảo sát thị trường công khai: <a
+            href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank" rel="noopener">Massagenha —
+            massage người lớn tuổi, 7/2025</a> (giá niêm yết toàn quốc, hiệu chỉnh theo mặt bằng Hà Nội: thị trường tại
+          nhà cho người lớn tuổi 350.000–620.000 đ/phiên). Con số sẽ chốt theo khảo sát địa bàn triển khai.</p>
       </div>
     </div>
-    <p class="src reveal" style="margin-top:22px">Gói chủ lực CarePlus dành cho liệu trình chuẩn & gia đình. Ước tính nội bộ của nhóm (dự phóng minh họa): 60% doanh thu tháng thứ 12 đến từ gói combo và thẻ thành viên.</p>
-  </div>
-</section>
+  </section>
 
-<!-- ================= PROCESS ================= -->
-<section class="sec" id="quy-trinh">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Quy trình một buổi</span>
-      <h2 class="sec-title">Bốn bước chuẩn — buổi sau luôn tốt hơn buổi trước</h2>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><h3>Khảo sát</h3><p>5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định.</p></div>
-      <div class="step reveal" style="--d:110ms"><h3>Đánh giá</h3><p>Xác định vùng đau, tư thế sai lệch để trị liệu nhắm đúng chỗ.</p></div>
-      <div class="step reveal" style="--d:220ms"><h3>Trị liệu</h3><p>Massage – bấm huyệt – chườm thảo dược theo bài chuẩn 45–70 phút.</p></div>
-      <div class="step reveal" style="--d:330ms"><h3>Theo dõi</h3><p>Dặn bài tập nhẹ, ghi sổ sức khỏe — buổi sau điều chỉnh tốt hơn.</p></div>
-    </div>
-    <div class="safety reveal">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-      <span><strong>Nguyên tắc cốt lõi:</strong> không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TESTIMONIALS ================= -->
-<section class="sec alt" id="cam-nhan">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Cảm nhận khách hàng</span>
-      <h2 class="sec-title">Niềm tin bắt đầu từ buổi đầu tiên</h2>
-      <p class="sec-sub">Ba cảm nhận minh họa cho trải nghiệm CareTouch — sẽ được thay bằng đánh giá thực tế sau giai đoạn kiểm chứng.</p>
-    </div>
-    <div class="quotes">
-      <div class="quote reveal"><div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
-        <p>"Mẹ tôi 78 tuổi, đi lại khó. Các kỹ thuật viên đến tận giường, đo huyết áp trước rồi mới làm. Sau 3 buổi mẹ ngủ ngon hơn hẳn."</p>
-        <div class="who"><i>CH</i><div><b>Chị Hương</b><span>con của khách hàng · Q.7, TP.HCM</span></div></div></div>
-      <div class="quote reveal" style="--d:120ms"><div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
-        <p>"Ngồi máy 9 tiếng mỗi ngày, cổ vai gáy cứng đờ. Gói Combo 5 buổi đúng bài — giờ đứng dậy cuối ngày nhẹ người hẳn."</p>
-        <div class="who"><i>MT</i><div><b>Anh Minh</b><span>nân viên văn phòng · Quận 3</span></div></div></div>
-      <div class="quote reveal" style="--d:240ms"><div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
-        <p>"Cái tôi thích nhất là sổ sức khỏe: buổi nào đau ở đâu, phản ứng ra sao đều được ghi lại. Giống đi khám thật, nhưng tại nhà."</p>
-        <div class="who"><i>BT</i><div><b>Cô Bích</b><span>khách hàng liệu trình · Bình Thạnh</span></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section class="sec" id="hoi-dap">
-  <div class="wrap">
-    <div class="sec-head reveal" style="text-align:center">
-      <span class="kicker">Hỏi đáp</span>
-      <h2 class="sec-title">Thắc mắc thường gặp</h2>
-    </div>
-    <div class="faq reveal">
-      <details open><summary>Phục vụ tận nhà có tính phụ thu gì?</summary><div class="ans">Miễn phí trong bán kính 5 km tính từ cơ sở. Xa hơn: phụ thu 20.000 đ mỗi 5 km. Khách đặt tận nhà đặt tối thiểu 2 buổi mỗi lượt để đảm bảo hiệu quả liệu trình và thời gian di chuyển của kỹ thuật viên.</div></details>
-      <details><summary>Ai trực tiếp thực hiện trị liệu?</summary><div class="ans">Kỹ thuật viên được đào tạo theo giáo trình chuẩn nội bộ và thi chứng chỉ nghề; bác sĩ y học cổ truyền cộng tác tham gia xây dựng bài trị liệu. Danh tính kỹ thuật viên được thông báo trước mỗi buổi.</div></details>
-      <details><summary>"Khảo sát thể trạng" là gì? Có mất phí không?</summary><div class="ans">Là 5 phút đầu mỗi buổi: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định. Hoàn toàn miễn phí và bắt buộc — nếu không an toàn, chúng tôi sẽ từ chối thực hiện hoặc khuyên bạn đi khám. Dịch vụ của CareTouch là chăm sóc – thư giãn – hỗ trợ vận động, không phải khám chữa bệnh (theo Luật Khám bệnh, chữa bệnh 2023 và Nghị định 96/2023/NĐ-CP).</div></details>
-      <details><summary>Tận nhà giá cao hơn tại cơ sở là sao?</summary><div class="ans">Chênh lệch 80–100 nghìn đ bù cho 45–60 phút di chuyển mỗi chiều của kỹ thuật viên (một phiên tận nhà chiếm khoảng 1,5–2 giờ). Tổng chi phí vẫn thấp hơn phân khúc thị trường tại nhà hiện nay (350.000–620.000 đ/phiên — <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank" rel="noopener">Massagenha, 7/2025</a>).</div></details>
-      <details><summary>Đặt lịch và thanh toán thế nào?</summary><div class="ans">Đặt qua hotline, Zalo hoặc biểu mẫu dưới đây; kỹ thuật viên xác nhận lại lịch trước buổi trị liệu. Thanh toán tiền mặt hoặc chuyển khoản sau mỗi buổi; gói combo và CarePlus thanh toán trước, giá cố định.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- ================= BOOKING ================= -->
-<section class="sec" id="dat-lich" style="padding-top:20px">
-  <div class="wrap">
-    <div class="book reveal">
-      <div class="book-grid">
+  <!-- ================= WHY ================= -->
+  <section class="sec" id="vi-sao">
+    <div class="wrap">
+      <div class="why">
         <div>
-          <span class="kicker" style="color:var(--teal-soft)">Đặt lịch</span>
-          <h2>Để CareTouch chạm đến nhà bạn</h2>
-          <p class="sub">Để lại thông tin, nhóm CareTouch sẽ liên hệ xác nhận lịch trong ngày. Phiên đầu tiên có khảo sát thể trạng miễn phí.</p>
-          <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Hotline: <b>&nbsp;(sắp cập nhật)</b></div>
-          <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>Zalo OA: <b>&nbsp;(sắp cập nhật)</b></div>
-          <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Giờ phục vụ: 7:00 – 20:00, cả thứ bảy & chủ nhật</div>
+          <div class="sec-head reveal" style="margin-bottom:34px">
+            <span class="kicker">Vì sao CareTouch</span>
+            <h2 class="sec-title">An toàn là tính năng của dịch vụ,<br>không phải khẩu hiệu</h2>
+          </div>
+          <div class="num-row reveal"><b>01</b>
+            <div>
+              <h3>Dịch vụ trị liệu tại nhà chuẩn mực</h3>
+              <p>Trang bị trọn gói từ đệm trị liệu, khăn sạch đến thảo dược; giúp người cao tuổi an tâm thụ hưởng ngay
+                tại không gian sống quen thuộc.</p>
+            </div>
+          </div>
+          <div class="num-row reveal" style="--d:100ms"><b>02</b>
+            <div>
+              <h3>Khảo sát thể trạng trước buổi trị liệu</h3>
+              <p>Hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định — không an toàn thì không thực hiện.</p>
+            </div>
+          </div>
+          <div class="num-row reveal" style="--d:200ms"><b>03</b>
+            <div>
+              <h3>Giá niêm yết minh bạch</h3>
+              <p>Bảng giá công khai, không phát sinh; combo tiết kiệm 15–20%.</p>
+            </div>
+          </div>
+          <div class="num-row reveal" style="--d:300ms"><b>04</b>
+            <div>
+              <h3>Sổ sức khỏe cá nhân</h3>
+              <p>Ghi nhận phản ứng sau mỗi buổi — liệu trình liên tục, không rời rạc.</p>
+            </div>
+          </div>
         </div>
-        <form id="bookForm" aria-label="Biểu mẫu đặt lịch">
-          <label for="fName">Họ tên</label>
-          <input id="fName" name="name" type="text" placeholder="Nguyễn Văn A" required>
-          <label for="fPhone">Số điện thoại</label>
-          <input id="fPhone" name="phone" type="tel" placeholder="09xx xxx xxx" pattern="[0-9+ ]{8,15}" required>
-          <label for="fSvc">Dịch vụ quan tâm</label>
-          <select id="fSvc" name="service">
-            <option>Gội đầu dưỡng sinh thảo dược</option>
-            <option>Massage cổ – vai – gáy trị liệu</option>
-            <option>Massage toàn thân thư giãn</option>
-            <option>Bấm huyệt – đả thông kinh lạc</option>
-            <option>Chườm thảo dược – xông hơi đông y</option>
-            <option>Gói Combo 5 buổi / CarePlus 10 buổi</option>
-          </select>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Gửi yêu cầu đặt lịch</button>
-        </form>
+        <div class="why-visual reveal" style="--d:150ms">
+          <p class="wv-quote">"Nguyên tắc cốt lõi: không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ
+            chối hoặc khuyên đi khám."</p>
+          <p class="wv-author">— Quy trình vận hành CareTouch · cơ sở mua bảo hiểm trách nhiệm dịch vụ</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="logo" href="#top" style="margin-bottom:16px"><span class="logo-mark"><i></i><i></i></span> CareTouch</a>
-        <p style="margin-top:14px;max-width:340px">Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược. Tại cơ sở và tận nhà, cho người trung niên và cao tuổi.</p>
-        <p style="margin-top:14px;font-style:italic;color:#6E9C92;font-size:13px">Healing Touch, Healthy Life.</p>
+  <!-- ================= PACKS ================= -->
+  <section class="sec alt" id="bang-gia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Gói liệu trình</span>
+        <h2 class="sec-title">Thiết kế cho việc quay lại định kỳ — không phải mua một lần rồi thôi</h2>
+        <p class="sec-sub">Liệu trình y học cổ truyền thường cần 5–10 buổi. Chọn gói phù hợp để giảm giá và giữ lịch cố
+          định.</p>
       </div>
-      <div>
-        <h4>Trang</h4>
-        <ul>
-          <li><a href="#dich-vu">Dịch vụ & giá</a></li>
-          <li><a href="#bang-gia">Gói liệu trình</a></li>
-          <li><a href="#quy-trinh">Quy trình an toàn</a></li>
-          <li><a href="#hoi-dap">Hỏi đáp</a></li>
-          <li><a href="slide/">Hồ sơ dự án đầu tư (slides) ↗</a></li>
-        </ul>
+      <div class="packs">
+        <div class="pack reveal">
+          <div class="tag">Mua lẻ</div>
+          <div class="price">120–290<small>nghìn đ/phiên</small></div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Không ràng buộc, giá niêm yết</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Tích điểm thành viên từ phiên đầu</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Dành cho khách trải nghiệm lần đầu</li>
+          </ul>
+          <a href="#dat-lich" class="btn btn-outline">Đặt phiên đầu</a>
+        </div>
+        <div class="pack hot reveal" style="--d:120ms">
+          <div class="ribbon">Phổ biến nhất</div>
+          <div class="tag">Combo 5 buổi</div>
+          <div class="price">890.000<small>đ · Tiết kiệm ~15%</small></div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Tự chọn kết hợp 3 dịch vụ</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Đặt lịch linh hoạt trong 3 tháng</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>1 buổi tổng kết liệu trình</li>
+          </ul>
+          <a href="#dat-lich" class="btn btn-primary">Chọn Combo 5</a>
+        </div>
+        <div class="pack reveal" style="--d:240ms">
+          <div class="tag">CarePlus 10 buổi</div>
+          <div class="price">1.590.000<small>đ · Tiết kiệm ~20%</small></div>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Giá cố định 12 tháng</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Tích điểm 5% · ưu đãi tháng sinh nhật</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>Cho người thân dùng chung</li>
+          </ul>
+          <a href="#dat-lich" class="btn btn-outline">Chọn CarePlus</a>
+        </div>
       </div>
-      <div>
-        <h4>Nguồn & tài liệu tham chiếu</h4>
-        <ul style="font-size:13px">
-          <li><a href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm" target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025 — 16% dân số là người cao tuổi</a></li>
-          <li><a href="https://tuoitre.vn/nld/viet-nam-dang-co-toc-do-gia-hoa-nhanh-nhat-chau-a-196250531143638561.htm" target="_blank" rel="noopener">Tuổi Trẻ — Việt Nam già hóa nhanh nhất châu Á</a></li>
-          <li><a href="https://globalwellnessinstitute.org/wp-content/uploads/2024/11/WellnessEconMonitor2024PDF.pdf" target="_blank" rel="noopener">Global Wellness Institute — Wellness Economy Monitor 2024</a></li>
-          <li><a href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia" target="_blank" rel="noopener">Nikkei Asia, 1/2025 — thị trường spa Việt Nam</a></li>
-          <li><a href="https://vnexpress.net/chi-phi-cho-y-te-cua-nguoi-viet-nam-tang-thang-dung-4997605.html" target="_blank" rel="noopener">VnExpress, 24/12/2025 — chi tiêu y tế Việt Nam</a></li>
-          <li><a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank" rel="noopener">Massagenha, 7/2025 — khảo sát giá massage người lớn tuổi</a></li>
-          <li><a href="https://www.gso.gov.vn/" target="_blank" rel="noopener">Tổng cục Thống kê — thu nhập bình quân 2025</a></li>
-        </ul>
+      <p class="src reveal" style="margin-top:22px">Gói chủ lực CarePlus dành cho liệu trình chuẩn & gia đình. Ước tính
+        nội bộ của nhóm (dự phóng minh họa): 60% doanh thu tháng thứ 12 đến từ gói combo và thẻ thành viên.</p>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="sec" id="quy-trinh">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Quy trình một buổi</span>
+        <h2 class="sec-title">Bốn bước chuẩn — buổi sau luôn tốt hơn buổi trước</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Khảo sát</h3>
+          <p>5 phút đầu: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định.</p>
+        </div>
+        <div class="step reveal" style="--d:110ms">
+          <h3>Đánh giá</h3>
+          <p>Xác định vùng đau, tư thế sai lệch để trị liệu nhắm đúng chỗ.</p>
+        </div>
+        <div class="step reveal" style="--d:220ms">
+          <h3>Trị liệu</h3>
+          <p>Massage – bấm huyệt – chườm thảo dược – châm cứu theo bài chuẩn 45–70 phút.</p>
+        </div>
+        <div class="step reveal" style="--d:330ms">
+          <h3>Theo dõi</h3>
+          <p>Dặn bài tập nhẹ, ghi sổ sức khỏe — buổi sau điều chỉnh tốt hơn.</p>
+        </div>
+      </div>
+      <div class="safety reveal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+        <span><strong>Nguyên tắc cốt lõi:</strong> không an toàn → không thực hiện. Khách có chống chỉ định sẽ được từ
+          chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.</span>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© <span id="year">2026</span> CareTouch — Nhóm 3 · Tổ 14 · Lớp A1K79 (Trịnh Hương Thảo · Bạch Thùy Trâm · Bùi Thị Anh Trâm · Phạm Quốc Việt · Viengkeo Shengchan)</span>
-      <span>Bản prototype học phần Thực tập NCKH — Đổi mới sáng tạo Khởi nghiệp</span>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="sec alt" id="cam-nhan">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Cảm nhận khách hàng</span>
+        <h2 class="sec-title">Niềm tin bắt đầu từ buổi đầu tiên</h2>
+        <p class="sec-sub">Ba cảm nhận minh họa cho trải nghiệm CareTouch — sẽ được thay bằng đánh giá thực tế sau giai
+          đoạn kiểm chứng.</p>
+      </div>
+      <div class="quotes">
+        <div class="quote reveal">
+          <div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
+          <p>"Mẹ tôi 78 tuổi, đi lại khó. Các kỹ thuật viên đến tận giường, đo huyết áp trước rồi mới làm. Sau 3 buổi mẹ
+            ngủ ngon hơn hẳn."</p>
+          <div class="who"><i>CH</i>
+            <div><b>Chị Hương</b><span>con của khách hàng · Cầu Giấy, Hà Nội</span></div>
+          </div>
+        </div>
+        <div class="quote reveal" style="--d:120ms">
+          <div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
+          <p>"Ngồi máy 9 tiếng mỗi ngày, cổ vai gáy cứng đờ. Gói Combo 5 buổi đúng bài — giờ đứng dậy cuối ngày nhẹ
+            người hẳn."</p>
+          <div class="who"><i>MT</i>
+            <div><b>Anh Minh</b><span>nhân viên văn phòng · Đống Đa, Hà Nội</span></div>
+          </div>
+        </div>
+        <div class="quote reveal" style="--d:240ms">
+          <div class="stars" aria-label="5 trên 5 sao">★★★★★</div>
+          <p>"Cái tôi thích nhất là sổ sức khỏe: buổi nào đau ở đâu, phản ứng ra sao đều được ghi lại. Giống đi khám
+            thật, nhưng tại nhà."</p>
+          <div class="who"><i>BT</i>
+            <div><b>Cô Bích</b><span>khách hàng liệu trình · Thanh Xuân, Hà Nội</span></div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<div class="toast" id="toast" role="status" aria-live="polite">Đã gửi! (prototype — thông tin chỉ hiển thị trên máy bạn)</div>
+  <!-- ================= FAQ ================= -->
+  <section class="sec" id="hoi-dap">
+    <div class="wrap">
+      <div class="sec-head reveal" style="text-align:center">
+        <span class="kicker">Hỏi đáp</span>
+        <h2 class="sec-title">Thắc mắc thường gặp</h2>
+      </div>
+      <div class="faq reveal">
+        <details open>
+          <summary>Phục vụ tận nhà có tính phụ thu gì?</summary>
+          <div class="ans">Miễn phí trong bán kính 5 km tính từ cơ sở. Xa hơn: phụ thu 20.000 đ mỗi 5 km. Khách đặt tận
+            nhà đặt tối thiểu 2 buổi mỗi lượt để đảm bảo hiệu quả liệu trình và thời gian di chuyển của kỹ thuật viên.
+          </div>
+        </details>
+        <details>
+          <summary>Ai trực tiếp thực hiện trị liệu?</summary>
+          <div class="ans">Kỹ thuật viên được đào tạo theo giáo trình chuẩn nội bộ và thi chứng chỉ nghề; bác sĩ y học
+            cổ truyền cộng tác tham gia xây dựng bài trị liệu. Danh tính kỹ thuật viên được thông báo trước mỗi buổi.
+          </div>
+        </details>
+        <details>
+          <summary>"Khảo sát thể trạng" là gì? Có mất phí không?</summary>
+          <div class="ans">Là 5 phút đầu mỗi buổi: hỏi bệnh nền, đo huyết áp, kiểm tra chống chỉ định. Hoàn toàn miễn
+            phí và bắt buộc — nếu không an toàn, chúng tôi sẽ từ chối thực hiện hoặc khuyên bạn đi khám. Dịch vụ của
+            CareTouch là chăm sóc – thư giãn – hỗ trợ vận động, không phải khám chữa bệnh (theo Luật Khám bệnh, chữa
+            bệnh 2023 và Nghị định 96/2023/NĐ-CP).</div>
+        </details>
+        <details>
+          <summary>Tận nhà giá cao hơn tại cơ sở là sao?</summary>
+          <div class="ans">Chênh lệch 80–100 nghìn đ bù cho 45–60 phút di chuyển mỗi chiều của kỹ thuật viên (một phiên
+            tận nhà chiếm khoảng 1,5–2 giờ). Tổng chi phí vẫn thấp hơn phân khúc thị trường tại nhà hiện nay
+            (350.000–620.000 đ/phiên — <a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank"
+              rel="noopener">Massagenha, 7/2025</a>).</div>
+        </details>
+        <details>
+          <summary>Đặt lịch và thanh toán thế nào?</summary>
+          <div class="ans">Đặt qua hotline, Zalo hoặc biểu mẫu dưới đây; kỹ thuật viên xác nhận lại lịch trước buổi trị
+            liệu. Thanh toán tiền mặt hoặc chuyển khoản sau mỗi buổi; gói combo và CarePlus thanh toán trước, giá cố
+            định.</div>
+        </details>
+      </div>
+    </div>
+  </section>
 
-<script>
-/* ---- nav ---- */
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
-nav.classList.toggle('scrolled', scrollY > 40);
-const burger = document.getElementById('burger'), links = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  const open = links.classList.toggle('open');
-  document.body.classList.toggle('menu-open', open);
-  burger.setAttribute('aria-expanded', open);
-});
-links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  links.classList.remove('open'); document.body.classList.remove('menu-open');
-  burger.setAttribute('aria-expanded', 'false');
-}));
+  <!-- ================= BOOKING ================= -->
+  <section class="sec" id="dat-lich" style="padding-top:20px">
+    <div class="wrap">
+      <div class="book reveal">
+        <div class="book-grid">
+          <div>
+            <span class="kicker" style="color:var(--teal-soft)">Đặt lịch</span>
+            <h2>Để CareTouch chạm đến nhà bạn</h2>
+            <p class="sub">Để lại thông tin, nhóm CareTouch sẽ liên hệ xác nhận lịch trong ngày. Phiên đầu tiên có khảo
+              sát thể trạng miễn phí.</p>
+            <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>Hotline: <b>&nbsp;(sắp cập nhật)</b></div>
+            <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z" />
+              </svg>Zalo OA: <b>&nbsp;(sắp cập nhật)</b></div>
+            <div class="contact-line"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>Giờ phục vụ: 7:00 – 20:00, cả thứ bảy & chủ nhật</div>
+          </div>
+          <form id="bookForm" aria-label="Biểu mẫu đặt lịch">
+            <label for="fName">Họ tên</label>
+            <input id="fName" name="name" type="text" placeholder="Nguyễn Văn A" required>
+            <label for="fPhone">Số điện thoại</label>
+            <input id="fPhone" name="phone" type="tel" placeholder="09xx xxx xxx" pattern="[0-9+ ]{8,15}" required>
+            <label for="fSvc">Dịch vụ quan tâm</label>
+            <select id="fSvc" name="service">
+              <option>Gội đầu dưỡng sinh thảo dược</option>
+              <option>Massage cổ – vai – gáy trị liệu</option>
+              <option>Massage toàn thân thư giãn</option>
+              <option>Bấm huyệt – đả thông kinh lạc</option>
+              <option>Chườm thảo dược – xông hơi đông y</option>
+              <option>Châm cứu – cứu ngải</option>
+              <option>Gói Combo 5 buổi / CarePlus 10 buổi</option>
+            </select>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Gửi yêu cầu đặt
+              lịch</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* ---- reveal + counter: kiểm tra vị trí trực tiếp (không bỏ sót kể cả cuộn nhanh) ---- */
-let toWatch = [...document.querySelectorAll('.reveal, [data-count]')];
-const fmt = (v, dec) => dec ? v.toFixed(dec).replace('.', ',') : Math.round(v).toLocaleString('vi-VN');
-function startCount(el){
-  const t = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0');
-  const t0 = performance.now(), dur = 1300;
-  (function tick(now){
-    const p = Math.min(1, (now - t0) / dur), ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = fmt(t * ease, dec);
-    if (p < 1) requestAnimationFrame(tick);
-  })(t0);
-}
-function watchCheck(){
-  if (!toWatch.length) return;
-  const vh = innerHeight;
-  toWatch = toWatch.filter(el => {
-    if (el.getBoundingClientRect().top >= vh - 30) return true;
-    if (el.hasAttribute('data-count')) startCount(el);
-    else el.classList.add('in');
-    return false;
-  });
-}
-let rafPending = false;
-addEventListener('scroll', watchCheck, {passive:true});
-addEventListener('resize', watchCheck, {passive:true});
-watchCheck();
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="logo" href="#top" style="margin-bottom:16px"><span class="logo-mark"><i></i><i></i></span>
+            CareTouch</a>
+          <p style="margin-top:14px;max-width:340px">Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị
+            liệu, bấm huyệt, chườm thảo dược. Tại cơ sở và tận nhà, cho người trung niên và cao tuổi.</p>
+          <p style="margin-top:14px;font-style:italic;color:#6E9C92;font-size:13px">Healing Touch, Healthy Life.</p>
+        </div>
+        <div>
+          <h4>Trang</h4>
+          <ul>
+            <li><a href="#dich-vu">Dịch vụ & giá</a></li>
+            <li><a href="#bang-gia">Gói liệu trình</a></li>
+            <li><a href="#quy-trinh">Quy trình an toàn</a></li>
+            <li><a href="#hoi-dap">Hỏi đáp</a></li>
+            <li><a href="slide/">Hồ sơ dự án đầu tư (slides) ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Nguồn & tài liệu tham chiếu</h4>
+          <ul style="font-size:13px">
+            <li><a
+                href="https://tuoitre.vn/nam-2025-viet-nam-co-16-dan-so-la-nguoi-cao-tuoi-1-nguoi-ganh-3-4-benh-man-tinh-20250531122410678.htm"
+                target="_blank" rel="noopener">Tuổi Trẻ, 31/5/2025 — 16% dân số là người cao tuổi</a></li>
+            <li><a
+                href="https://tuoitre.vn/nld/viet-nam-dang-co-toc-do-gia-hoa-nhanh-nhat-chau-a-196250531143638561.htm"
+                target="_blank" rel="noopener">Tuổi Trẻ — Việt Nam già hóa nhanh nhất châu Á</a></li>
+            <li><a href="https://globalwellnessinstitute.org/wp-content/uploads/2024/11/WellnessEconMonitor2024PDF.pdf"
+                target="_blank" rel="noopener">Global Wellness Institute — Wellness Economy Monitor 2024</a></li>
+            <li><a
+                href="https://asia.nikkei.com/Business/Health-Care/Vietnam-fires-up-wellness-tourism-to-rival-Thailand-Indonesia"
+                target="_blank" rel="noopener">Nikkei Asia, 1/2025 — thị trường spa Việt Nam</a></li>
+            <li><a href="https://vnexpress.net/chi-phi-cho-y-te-cua-nguoi-viet-nam-tang-thang-dung-4997605.html"
+                target="_blank" rel="noopener">VnExpress, 24/12/2025 — chi tiêu y tế Việt Nam</a></li>
+            <li><a href="https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" target="_blank"
+                rel="noopener">Massagenha, 7/2025 — khảo sát giá massage người lớn tuổi</a></li>
+            <li><a href="https://www.gso.gov.vn/" target="_blank" rel="noopener">Tổng cục Thống kê — thu nhập bình quân
+                2025</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year">2026</span> CareTouch — Nhóm 3 · Tổ 14 · Lớp A1K79 (Trịnh Hương Thảo · Bạch Thùy Trâm ·
+          Bùi Thị Anh Trâm · Phạm Quốc Việt · Viengkeo Shengchan)</span>
+        <span>Bản prototype học phần Thực tập NCKH — Đổi mới sáng tạo Khởi nghiệp</span>
+      </div>
+    </div>
+  </footer>
 
-/* ---- booking toast ---- */
-const form = document.getElementById('bookForm');
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3400);
-  form.reset();
-});
+  <div class="toast" id="toast" role="status" aria-live="polite">Đã gửi! (prototype — thông tin chỉ hiển thị trên máy
+    bạn)</div>
 
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script src="edit-core.js"></script>
-<script>
-/* Nội dung do nhóm sửa trên trang admin (nếu có) — nạp trước khi hiển thị.
-   Thiếu file hoặc file rỗng thì giữ nguyên bản gốc. */
-CareTouchEdit.load(function (data) {
-  if (Object.keys(data).length) CareTouchEdit.applyTo(document, data);
-});
-</script>
+  <script>
+    /* ---- nav ---- */
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    nav.classList.toggle('scrolled', scrollY > 40);
+    const burger = document.getElementById('burger'), links = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      document.body.classList.toggle('menu-open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open'); document.body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+
+    /* ---- reveal + counter: kiểm tra vị trí trực tiếp (không bỏ sót kể cả cuộn nhanh) ---- */
+    let toWatch = [...document.querySelectorAll('.reveal, [data-count]')];
+    const fmt = (v, dec) => dec ? v.toFixed(dec).replace('.', ',') : Math.round(v).toLocaleString('vi-VN');
+    function startCount(el) {
+      const t = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0');
+      const t0 = performance.now(), dur = 1300;
+      (function tick(now) {
+        const p = Math.min(1, (now - t0) / dur), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(t * ease, dec);
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
+    function watchCheck() {
+      if (!toWatch.length) return;
+      const vh = innerHeight;
+      toWatch = toWatch.filter(el => {
+        if (el.getBoundingClientRect().top >= vh - 30) return true;
+        if (el.hasAttribute('data-count')) startCount(el);
+        else el.classList.add('in');
+        return false;
+      });
+    }
+    let rafPending = false;
+    addEventListener('scroll', watchCheck, { passive: true });
+    addEventListener('resize', watchCheck, { passive: true });
+    watchCheck();
+
+    /* ---- booking toast ---- */
+    const form = document.getElementById('bookForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3400);
+      form.reset();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="edit-core.js"></script>
+  <script>
+    /* Nội dung do nhóm sửa trên trang admin (nếu có) — nạp trước khi hiển thị.
+       Thiếu file hoặc file rỗng thì giữ nguyên bản gốc. */
+    CareTouchEdit.load(function (data) {
+      if (Object.keys(data).length) CareTouchEdit.applyTo(document, data);
+    });
+  </script>
 </body>
+
 </html>

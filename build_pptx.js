@@ -82,16 +82,16 @@ const bu = () => ({ code: "25B8", indent: 12 });
     fontFace: "Georgia", margin: 0,
   });
   s.addText(
-    "Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.",
+    "Chạm trị liệu y học cổ truyền — gội đầu dưỡng sinh, massage trị liệu, bấm huyệt, chườm thảo dược, châm cứu. Phục vụ tại cơ sở và tận nhà cho người trung niên và cao tuổi.",
     { x: 0.9, y: 3.95, w: 7.2, h: 1.1, fontSize: 15, color: "CFE6DF", fontFace: FONT, margin: 0, lineSpacingMultiple: 1.25 }
   );
   s.addShape("line", { x: 0.9, y: 5.9, w: 3.2, h: 0, line: { color: TEALMID, width: 1.5 } });
   s.addText([
     { text: "Nhóm 3 · Tổ 14 · Lớp A1K79", options: { bold: true, color: "FFFFFF", breakLine: true } },
     { text: "Thực tập Nghiên cứu khoa học — Đổi mới sáng tạo Khởi nghiệp", options: { color: "9EC9BF", breakLine: true } },
-    { text: "Tiền thân: An Khang Đường", options: { color: "9EC9BF", italic: true } },
+    { text: "Healing Touch, Healthy Life", options: { color: "9EC9BF", italic: true } },
   ], { x: 0.9, y: 6.05, w: 8, h: 1.1, fontSize: 13, fontFace: FONT, margin: 0, paraSpaceAfter: 4 });
-  s.addNotes("Chào thầy/cô và các nhà đầu tư. CareTouch — tên mới của dự án An Khang Đường — dịch vụ chạm trị liệu y học cổ truyền tại cơ sở và tận nhà.");
+  s.addNotes("Chào thầy/cô và các nhà đầu tư. CareTouch — dịch vụ chạm trị liệu y học cổ truyền tại cơ sở và tận nhà.");
 }
 
 /* ============================== S2 · VẤN ĐỀ ============================== */
@@ -289,7 +289,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   motif(s); pageNo(s, 6);
 
   const head = ["Dịch vụ", "Thời lượng", "Tại cơ sở", "Tại nhà"].map(t => ({
-    text: t, options: { fill: { color: PRIMARY }, color: "FFFFFF", bold: true, fontSize: 13.5, align: t === "Dịch vụ" ? "left" : "center", valign: "middle" },
+    text: t, options: { fill: { color: PRIMARY }, color: "FFFFFF", bold: true, fontSize: 12.5, align: t === "Dịch vụ" ? "left" : "center", valign: "middle" },
   }));
   const rowsData = [
     ["Gội đầu dưỡng sinh thảo dược", "45 phút", "120.000", "200.000"],
@@ -297,37 +297,42 @@ const bu = () => ({ code: "25B8", indent: 12 });
     ["Massage toàn thân thư giãn", "70 phút", "220.000", "320.000"],
     ["Bấm huyệt – đả thông kinh lạc", "60 phút", "200.000", "290.000"],
     ["Chườm thảo dược – xông hơi đông y", "60 phút", "180.000", "—"],
+    ["Châm cứu – cứu ngải", "45 phút", "250.000", "—"],
   ];
   const body = rowsData.map((r, i) => r.map((c, j) => ({
     text: c,
     options: {
-      fill: { color: i % 2 ? TINT2 : "FFFFFF" }, fontSize: 13,
+      fill: { color: i % 2 ? TINT2 : "FFFFFF" }, fontSize: 12.5,
       color: j === 2 ? PRIMARY : (j === 3 ? ACCENT : TEXT), bold: j >= 2 && c !== "—",
       align: j === 0 ? "left" : "center", valign: "middle", italic: c === "—",
     },
   })));
   s.addTable([head, ...body], {
-    x: M, y: 2.0, w: 8.1, colW: [3.6, 1.3, 1.6, 1.6], rowH: [0.5, 0.62, 0.62, 0.62, 0.62, 0.62],
-    border: { pt: 0.75, color: BORDER }, fontFace: FONT, margin: 0.08,
+    x: M, y: 1.98, w: 8.1, colW: [3.6, 1.3, 1.6, 1.6], rowH: [0.46, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55],
+    border: { pt: 0.75, color: BORDER }, fontFace: FONT, margin: 0.06,
   });
 
-  // right column
-  card(s, 9.0, 2.0, 3.78, 2.2, DARK, true, 0.1);
-  s.addText("PHỤC VỤ TẬN NHÀ", { x: 9.3, y: 2.24, w: 3.2, h: 0.3, fontSize: 11, bold: true, charSpacing: 2, color: TEALSOFT, fontFace: FONT, margin: 0 });
+  card(s, 9.0, 2.0, 3.78, 1.55, DARK, true, 0.1);
+  s.addText("PHỤC VỤ TẬN NHÀ", { x: 9.3, y: 2.16, w: 3.2, h: 0.28, fontSize: 10.5, bold: true, charSpacing: 2, color: TEALSOFT, fontFace: FONT, margin: 0 });
   s.addText([
-    { text: "Miễn phí trong bán kính 5 km", options: { bold: true, fontSize: 15, color: "FFFFFF", breakLine: true } },
-    { text: "Xa hơn: phụ thu 20.000 đ mỗi 5 km; khách đặt tối thiểu 2 buổi mỗi lượt. Kỹ thuật viên mang theo đầy đủ đệm, dầu xoa, khăn sạch.", options: { fontSize: 11.5, color: "B9D8D0" } },
-  ], { x: 9.3, y: 2.58, w: 3.2, h: 1.5, fontFace: FONT, margin: 0, paraSpaceAfter: 6, lineSpacingMultiple: 1.15 });
-  card(s, 9.0, 4.45, 3.78, 2.1, ACCENTSOFT, true, 0.1);
+    { text: "Miễn phí trong bán kính 5 km", options: { bold: true, fontSize: 13, color: "FFFFFF", breakLine: true } },
+    { text: "Xa hơn: phụ thu 20.000 đ mỗi 5 km; tối thiểu 2 buổi mỗi lượt.", options: { fontSize: 10.5, color: "B9D8D0" } },
+  ], { x: 9.3, y: 2.48, w: 3.2, h: 1.0, fontFace: FONT, margin: 0, paraSpaceAfter: 4, lineSpacingMultiple: 1.12 });
+  card(s, 9.0, 3.7, 3.78, 1.32, TINT, true, 0.1);
   s.addText([
-    { text: "Định vị giá", options: { bold: true, fontSize: 14, color: ACCENT, breakLine: true } },
-    { text: "Thị trường tại nhà cho người lớn tuổi: 350.000–620.000 đ/phiên (TP.HCM). CareTouch ở khoảng 200.000–320.000 đ — chênh lệch 80–100 nghìn đ bù thời gian di chuyển, vẫn dưới phân khúc spa.", options: { fontSize: 11.5, color: TEXT } },
-  ], { x: 9.3, y: 4.65, w: 3.2, h: 1.7, fontFace: FONT, margin: 0, paraSpaceAfter: 6, lineSpacingMultiple: 1.15 });
+    { text: "Tại cơ sở", options: { bold: true, fontSize: 12.5, color: PRIMARY, breakLine: true } },
+    { text: "Không gian riêng cho từng chỗ trị liệu, khảo sát thể trạng trước mỗi buổi, có phòng dành cho châm cứu.", options: { fontSize: 10.5, color: TEXT } },
+  ], { x: 9.3, y: 3.86, w: 3.2, h: 1.05, fontFace: FONT, margin: 0, paraSpaceAfter: 4, lineSpacingMultiple: 1.12 });
+  card(s, 9.0, 5.17, 3.78, 1.38, ACCENTSOFT, true, 0.1);
+  s.addText([
+    { text: "Định vị giá", options: { bold: true, fontSize: 12.5, color: ACCENT, breakLine: true } },
+    { text: "Thị trường tại nhà cho người lớn tuổi 350.000–620.000 đ/phiên. CareTouch ở 120.000–320.000 đ — vẫn dưới phân khúc spa.", options: { fontSize: 10.5, color: TEXT } },
+  ], { x: 9.3, y: 5.34, w: 3.2, h: 1.12, fontFace: FONT, margin: 0, paraSpaceAfter: 4, lineSpacingMultiple: 1.12 });
 
   src(s, [{ t: "Giá đề xuất của nhóm, căn theo khảo sát thị trường: " },
     { t: "Massagenha.com, 7/2025", url: "https://massagenha.com/dich-vu/massage-nguoi-lon-tuoi/" },
-    { t: " — con số sẽ hiệu chỉnh theo địa bàn triển khai thực tế." }]);
-  s.addNotes("Năm dịch vụ cốt lõi. Giá tại nhà cao hơn tại cơ sở 60–70 nghìn để bù chi phí đi lại. Chọn phân khúc giá ngay dưới spa, trên quán nhỏ.");
+    { t: " — đã hiệu chỉnh theo mặt bằng Hà Nội; con số sẽ chốt theo khảo sát địa bàn triển khai." }]);
+  s.addNotes("Sáu dịch vụ, giá tại nhà cao hơn tại cơ sở để bù chi phí đi lại. Chọn phân khúc giá ngay dưới spa, trên quán nhỏ.");
 }
 
 /* ============================== S7 · GÓI & DOANH THU LẶP LẠI ============================== */
@@ -335,7 +340,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Mô hình doanh thu");
-  title(s, "Thiết kế doanh thu lặp lại — liệu trình 5–10 buổi, khách quay lại là mặc định");
+  title(s, "Doanh thu lặp lại: liệu trình 5–10 buổi, khách quay lại theo chu kỳ");
   motif(s); pageNo(s, 7);
 
   const packs = [
@@ -370,7 +375,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Quy trình vận hành");
-  title(s, "Một buổi trị liệu chuẩn — an toàn là tính năng của dịch vụ, không phải khẩu hiệu");
+  title(s, "Một buổi trị liệu chuẩn: an toàn được kiểm soát ở từng bước");
   motif(s); pageNo(s, 8);
 
   const steps = [
@@ -429,7 +434,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     x: M, y: 1.98, w: 12.23, colW: [4.63, 1.9, 1.9, 1.9, 1.9], rowH: [0.55, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
     border: { pt: 0.75, color: BORDER }, fontFace: FONT, margin: 0.07,
   });
-  src(s, [{ t: "So sánh do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai tại TP.HCM, 2025–2026 (spa: KKday, Jackfruit Adventure; home care: Massagenha)." }]);
+  src(s, [{ t: "So sánh do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai (giá niêm yết toàn quốc, hiệu chỉnh theo mặt bằng Hà Nội), 2025–2026 (spa: KKday, Jackfruit Adventure; home care: Massagenha)." }]);
   s.addNotes("Bảng so sánh: chỉ CareTouch đạt đồng thời cả 6 tiêu chí. Spa cao cấp bỏ lại nhóm trung niên vì giá; quán nhỏ thiếu an toàn; home care rời rạc thiếu quy trình.");
 }
 
@@ -438,13 +443,13 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Tài chính dự phóng");
-  title(s, "Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong khoảng 12 tháng");
+  title(s, "Hòa vốn vận hành từ tháng thứ 5 — hoàn vốn đầy đủ trong 19–20 tháng");
   motif(s); pageNo(s, 10);
 
   card(s, M, 1.95, 7.35, 4.75, "FFFFFF", true);
   s.addText("Doanh thu dự phóng 12 tháng đầu (triệu đồng/tháng)", { x: M + 0.32, y: 2.14, w: 6.6, h: 0.32, fontSize: 13.5, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
   const months = ["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12"];
-  const rev = [22, 30, 38, 44, 50, 56, 62, 68, 73, 78, 83, 88];
+  const rev = [30, 42, 55, 68, 77, 85, 91, 96, 100, 103, 105, 107];
   const cols = ["9ED9CC","9ED9CC","9ED9CC","9ED9CC","E8590C","0E7C6B","0E7C6B","0E7C6B","0E7C6B","0E7C6B","0E7C6B","0E7C6B"];
   s.addChart([
     {
@@ -454,7 +459,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     },
     {
       type: pres.charts.LINE,
-      data: [{ name: "Chi phí cố định 48 tr./tháng", labels: months, values: months.map(() => 48) }],
+      data: [{ name: "Chi phí cố định 73 tr./tháng", labels: months, values: months.map(() => 73) }],
       options: { chartColors: [TEXT], lineSize: 1.75, lineDash: "dash", lineDataSymbol: "none" },
     },
   ], {
@@ -462,51 +467,163 @@ const bu = () => ({ code: "25B8", indent: 12 });
     chartArea: { fill: { color: "FFFFFF" } },
     catAxisLabelColor: MUTED, catAxisLabelFontSize: 10.5, catAxisLabelFontFace: FONT,
     valAxisLabelColor: MUTED, valAxisLabelFontSize: 10.5, valAxisLabelFontFace: FONT,
-    valAxisMaxVal: 100, valAxisMinVal: 0,
+    valAxisMaxVal: 125, valAxisMinVal: 0,
     valGridLine: { color: "EAF3F0", size: 0.5 }, catGridLine: { style: "none" },
     showLegend: true, legendPos: "b", legendFontSize: 10.5, legendFontFace: FONT, legendColor: MUTED,
     showValue: false,
   });
 
   const fin = [
-    ["165 tr.", "tổng vốn khởi đầu = 95 tr. đầu tư ban đầu + 70 tr. vốn lưu động bù lỗ 4 tháng đầu", TINT, PRIMARY],
-    ["48 tr./th.", "chi phí cố định: thuê 12tr + lương 4 kỹ thuật viên 32tr + điện nước, vật tư, khấu hao", TINT, PRIMARY],
-    ["88 tr./th.", "doanh thu tháng 12 — tương đương ~350 khách/tháng", TINT, PRIMARY],
+    ["436 tr.", "tổng vốn khởi đầu = 306 tr. đầu tư (gồm cọc + trả trước 3 tháng thuê nhà) + 130 tr. vốn lưu động", TINT, PRIMARY],
+    ["73 tr./th.", "chi phí cố định: thuê 35tr + lương cứng 4 KTV 24tr + điện nước, vật tư, marketing; chưa gồm hoa hồng ca", TINT, PRIMARY],
+    ["107 tr./th.", "doanh thu tháng 12 — tương đương ~460 khách/tháng", TINT, PRIMARY],
     ["≥ 55%", "tỷ lệ khách quay lại để hoàn vốn đúng hạn — đo từ tháng đầu tiên", ACCENTSOFT, ACCENT],
   ];
   let fy = 1.95;
   fin.forEach((f) => {
     card(s, 8.3, fy, 4.48, 1.08, f[2], true, 0.08);
-    s.addText(f[0], { x: 8.58, y: fy + 0.12, w: 1.62, h: 0.85, fontSize: f[0] === "165 tr." ? 19 : 21, bold: true, color: f[3], fontFace: FONT, margin: 0, valign: "middle" });
+    s.addText(f[0], { x: 8.58, y: fy + 0.12, w: 1.62, h: 0.85, fontSize: f[0] === "436 tr." ? 19 : 21, bold: true, color: f[3], fontFace: FONT, margin: 0, valign: "middle" });
     s.addText(f[1], { x: 10.24, y: fy + 0.1, w: 2.4, h: 0.9, fontSize: 10.5, color: MUTED, fontFace: FONT, margin: 0, valign: "middle", lineSpacingMultiple: 1.08 });
     fy += 1.24;
   });
   s.addText([
-    { text: "T4: 44 < 48 < T5: 50  →  ", options: { color: MUTED } },
+    { text: "T4: 68 < 73 < T5: 77  →  ", options: { color: MUTED } },
     { text: "hòa vốn ngay tháng thứ 5", options: { color: ACCENT, bold: true } },
   ], { x: M + 0.32, y: 6.2, w: 6.6, h: 0.3, fontSize: 10.5, italic: true, fontFace: FONT, margin: 0 });
   src(s, [
-    { t: "Phép tính: lỗ lũy kế T1–T4 = 26 + 18 + 10 + 4 = 58 triệu → dự trù vốn lưu động 70 triệu; lãi ròng lũy kế T5–T12 = 174 triệu ≥ 165 triệu → hoàn vốn đủ trong ~12 tháng (thận trọng 55%: 12–14 tháng)." },
+    { t: "Phép tính: lỗ lũy kế T1–T4 = 43 + 31 + 18 + 5 = 97 triệu → dự trù vốn lưu động 130 triệu; lãi ròng lũy kế T5–T12 = 180 triệu → CAPEX 306 triệu thu hồi ~tháng 16, toàn bộ vốn trong 19–20 tháng (thận trọng 55%: 21–23 tháng)." },
   ], 6.74);
   src(s, [
-    { t: "Giả định minh họa của nhóm: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên (lương cứng ~8 tr. + phụ cấp ca tại nhà), nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6)." },
+    { t: "Giả định minh họa tại Hà Nội: 1 cơ sở 5 chỗ trị liệu (3 giường massage + 2 ghế gội đầu, chi tiết slide 11); 4 kỹ thuật viên lương cứng 6 tr. + hoa hồng ca; bác sĩ YHCT cộng tác; giá theo bảng giá đề xuất (slide 6)." },
   ]);
-  s.addNotes("Tổng vốn khởi đầu 165 triệu = 95 triệu đầu tư + 70 triệu vốn lưu động bù lỗ 4 tháng đầu (26+18+10+4=58 triệu, dự trù dư 12 triệu). Doanh thu vượt chi phí cố định 48 triệu từ tháng 5; lãi ròng lũy kế T5-T12 = 174 triệu ≥ 165 triệu nên hoàn vốn đủ trong khoảng 12 tháng. Kịch bản thận trọng (quay lại 55%): 12-14 tháng. Nhân sự: 4 KTV + nhóm sáng lập điều phối.");
+  s.addNotes("Tổng vốn khởi đầu 436 triệu tại Hà Nội = 306 triệu đầu tư (cọc 1 + trả trước 3 tháng tiền thuê 140 triệu, cải tạo mặt bằng 50 triệu, thiết bị & nội thất 46 triệu) + 130 triệu vốn lưu động (lỗ lũy kế 4 tháng 97 triệu + đệm an toàn 33 triệu). Chi phí cố định 73 triệu/tháng: thuê 35 + lương cứng 24 + điện nước 5 + giặt sấy vật tư 4 + marketing 5; chưa gồm hoa hồng biến phí theo ca. Hòa vốn vận hành từ tháng 5; CAPEX thu hồi khoảng tháng 16, toàn bộ vốn trong 19–20 tháng.");
   // Nhãn mốc chi phí trên đường nét đứt (thêm cuối để giữ nguyên shape id các shape khác)
-  s.addText("48 tr./tháng", { x: 1.30, y: 3.79, w: 1.25, h: 0.2, fontSize: 10, color: TEXT, fontFace: FONT, margin: 0 });
+  s.addText("73 tr./tháng", { x: 1.30, y: 3.55, w: 1.25, h: 0.2, fontSize: 10, color: TEXT, fontFace: FONT, margin: 0 });
 }
 
-/* ============================== S11 · LỘ TRÌNH ============================== */
+/* ============================== S11 · SỬ DỤNG VỐN ============================== */
+{
+  const s = pres.addSlide();
+  s.background = { color: "FFFFFF" };
+  kicker(s, "Nhu cầu & sử dụng vốn");
+  title(s, "436 triệu đồng khởi đầu — đầu tư 306 triệu, vốn lưu động 130 triệu");
+  motif(s); pageNo(s, 11);
+
+  card(s, M, 1.9, 6.45, 4.42, "FFFFFF", true);
+  s.addText("Bóc tách chi phí đầu tư ban đầu (CAPEX) — 306 triệu đồng", { x: M + 0.22, y: 2.03, w: 6.0, h: 0.3, fontSize: 12.5, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
+  const invHead = ["Hạng mục", "SL", "Triệu đ"].map((t, j) => ({
+    text: t, options: { fill: { color: PRIMARY }, color: "FFFFFF", bold: true, fontSize: 10, align: j === 0 ? "left" : "center", valign: "middle" },
+  }));
+  const invRows = [
+    ["Thuê & cọc nhà (cọc 1 + trả trước 3 tháng)", "4 th", "140,0"],
+    ["Cải tạo mặt bằng & điện nước chuyên dụng", "—", "50,0"],
+    ["Thiết bị trị liệu & nội thất", "—", "46,0"],
+    ["Vật tư & kit trị liệu tận nhà", "—", "20,0"],
+    ["Đồng phục, ấm phẩm & nhận diện", "—", "10,0"],
+    ["Marketing khai trương & pháp lý ban đầu", "—", "15,0"],
+    ["Dự phòng phát sinh", "—", "25,0"],
+    ["Tổng đầu tư ban đầu (CAPEX)", "", "306,0"],
+  ];
+  const invBody = invRows.map((r, i) => r.map((c, j) => ({
+    text: c,
+    options: {
+      fill: { color: i === invRows.length - 1 ? TINT : (i % 2 ? TINT2 : "FFFFFF") },
+      fontSize: 10, color: i === invRows.length - 1 ? PRIMARY : TEXT, bold: i === invRows.length - 1,
+      align: j === 0 ? "left" : "center", valign: "middle",
+    },
+  })));
+  s.addTable([invHead, ...invBody], {
+    x: M + 0.18, y: 2.36, w: 6.1, colW: [4.15, 0.55, 1.4],
+    rowH: [0.3, ...invRows.map(() => 0.36)],
+    border: { pt: 0.75, color: BORDER }, fontFace: FONT, margin: 0.04,
+  });
+
+  // --- Donut chart (PNG, đồng bộ với DOCX): cơ cấu 436 triệu ---
+  card(s, 7.2, 1.9, 5.58, 4.42, "FFFFFF", true);
+  s.addText("Cơ cấu tổng vốn khởi đầu 436 triệu đồng", { x: 7.42, y: 2.03, w: 5.1, h: 0.3, fontSize: 12.5, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
+  s.addImage({ path: A("chart_capital.png"), x: 7.55, y: 2.38, w: 4.88, h: 3.58 });
+
+  band(s, [
+    { text: "Tổng vốn khởi đầu 436 triệu = ", options: { bold: true } },
+    { text: "306 triệu đầu tư (cọc 1 + trả trước 3 tháng thuê nhà 140 triệu, cải tạo 50 triệu, thiết bị & nội thất 46 triệu) + 130 triệu vốn lưu động (lỗ 4 tháng 97 triệu + đệm an toàn 33 triệu).", options: {} },
+  ], 6.46, 0.58);
+
+  src(s, [{ t: "Đơn giá là mức tham khảo thị trường Hà Nội, 2025–2026 (nhóm tổng hợp từ báo giá công khai); chốt theo báo giá nhà cung cấp khi triển khai." }]);
+  s.addNotes("Bóc tách 306 triệu CAPEX tại Hà Nội theo quy mô 5 chỗ trị liệu. Khoản lớn nhất là tiền thuê trả trước 140 triệu (cọc 1 tháng + trả trước 3 tháng ở mức 35 triệu/tháng) và cải tạo mặt bằng 50 triệu. Cộng 130 triệu vốn lưu động (lỗ 4 tháng 97 triệu + 33 triệu đệm an toàn) = tổng vốn 436 triệu.");
+}
+
+/* ============================== S12 · CHI PHÍ VẬN HÀNH ============================== */
+{
+  const s = pres.addSlide();
+  s.background = { color: "FFFFFF" };
+  kicker(s, "Chi phí vận hành tại Hà Nội");
+  title(s, "Cơ cấu chi phí hàng tháng & mặt bằng giá thuê");
+  motif(s); pageNo(s, 12);
+
+  card(s, M, 1.95, 6.3, 4.5, "FFFFFF", true);
+  s.addText("Chi phí cố định hàng tháng — 73 triệu đồng", { x: M + 0.2, y: 2.1, w: 5.9, h: 0.3, fontSize: 13, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
+  const oxHead = ["Khoản mục", "Triệu đ/tháng"].map((t, j) => ({
+    text: t, options: { fill: { color: PRIMARY }, color: "FFFFFF", bold: true, fontSize: 11, align: j === 0 ? "left" : "center", valign: "middle" },
+  }));
+  const oxRows = [
+    ["Tiền thuê nhà (tầng 1, khu đông dân cư)", "35,0"],
+    ["Lương cứng 4 kỹ thuật viên (6 tr./người)", "24,0"],
+    ["Điện, nước, internet", "5,0"],
+    ["Giặt sấy & vật tư tiêu hao", "4,0"],
+    ["Marketing duy trì (Zalo OA, quảng cáo)", "5,0"],
+    ["Tổng chi phí cố định", "73,0"],
+  ];
+  const oxBody = oxRows.map((r, i) => r.map((c, j) => ({
+    text: c,
+    options: {
+      fill: { color: i === oxRows.length - 1 ? TINT : (i % 2 ? TINT2 : "FFFFFF") },
+      fontSize: 11, color: i === oxRows.length - 1 ? PRIMARY : TEXT, bold: i === oxRows.length - 1,
+      align: j === 0 ? "left" : "center", valign: "middle",
+    },
+  })));
+  s.addTable([oxHead, ...oxBody], {
+    x: M + 0.18, y: 2.46, w: 5.95, colW: [4.35, 1.6],
+    rowH: [0.36, ...oxRows.map(() => 0.42)],
+    border: { pt: 0.75, color: BORDER }, fontFace: FONT, margin: 0.05,
+  });
+  s.addText("Chưa gồm hoa hồng biến phí theo ca: 20.000 đ/ca tại cơ sở, 60.000 đ/ca tại nhà.", { x: M + 0.18, y: 5.42, w: 5.95, h: 0.5, fontSize: 10, italic: true, color: MUTED, fontFace: FONT, margin: 0, lineSpacingMultiple: 1.1 });
+
+  card(s, 7.05, 1.95, 5.73, 4.5, TINT2, true);
+  s.addText("Mặt bằng giá thuê nhà tại Hà Nội", { x: 7.25, y: 2.1, w: 5.3, h: 0.3, fontSize: 13, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
+  const rent = [
+    ["Tầng 1 nhà riêng, khu đông dân cư", "60–75 m²", "32–40 tr"],
+    ["Tầng 1 chung cư hướng ra ngoài", "65–80 m²", "30–38 tr"],
+    ["Nhà riêng trong ngõ, xa trung tâm hơn", "65–75 m²", "20–28 tr"],
+  ];
+  let ry = 2.52;
+  rent.forEach((r) => {
+    card(s, 7.25, ry, 5.33, 0.86, "FFFFFF", false, 0.07);
+    s.addText(r[0], { x: 7.45, y: ry + 0.08, w: 3.3, h: 0.34, fontSize: 10.5, bold: true, color: TEXT, fontFace: FONT, margin: 0 });
+    s.addText(r[1], { x: 7.45, y: ry + 0.44, w: 3.3, h: 0.3, fontSize: 10, color: MUTED, fontFace: FONT, margin: 0 });
+    s.addText(r[2], { x: 10.85, y: ry + 0.2, w: 1.6, h: 0.46, fontSize: 13.5, bold: true, color: PRIMARY, align: "right", valign: "middle", fontFace: FONT, margin: 0 });
+    ry += 0.94;
+  });
+  card(s, 7.25, 5.36, 5.33, 0.92, ACCENTSOFT, true, 0.08);
+  s.addText([
+    { text: "Vị trí chọn: ", options: { bold: true, color: ACCENT } },
+    { text: "tầng 1 nhà riêng hoặc chung cư hướng ra ngoài tại khu đông dân cư; chỉ thuê một tầng, không thuê nguyên căn. Ngân sách 30–40 triệu/tháng, lấy mức 35 triệu để dự phóng.", options: { color: TEXT } },
+  ], { x: 7.45, y: 5.46, w: 4.95, h: 0.74, fontSize: 10, fontFace: FONT, margin: 0, lineSpacingMultiple: 1.12 });
+
+  src(s, [{ t: "Mặt bằng giá thuê do nhóm khảo sát tại Hà Nội, 2025–2026; chi phí vận hành là giả định minh họa phục vụ mục đích học tập." }]);
+  s.addNotes("Chi phí cố định 73 triệu/tháng tại Hà Nội: thuê 35 + lương cứng 24 (6 triệu/người) + điện nước 5 + giặt sấy vật tư 4 + marketing 5. Chưa gồm hoa hồng biến phí theo ca. Tiền thuê chiếm gần một nửa chi phí cố định — đánh đổi để có vị trí đắc địa, rút ngắn thời gian lấp đầy công suất. Mặt bằng giá thuê ba loại hình, chọn mức 35 triệu.");
+}
+
+/* ============================== S13 · LỘ TRÌNH ============================== */
 {
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Lộ trình triển khai");
   title(s, "Từ một cơ sở kiểm chứng đến chuỗi CareTouch");
-  motif(s); pageNo(s, 11);
+  motif(s); pageNo(s, 13);
 
   const ph = [
     ["GĐ 1 · Tháng 1–6", "Kiểm chứng", "Vận hành cơ sở đầu tiên; chuẩn hóa quy trình khảo sát thể trạng & đào tạo; đo tỷ lệ khách quay lại từ tháng đầu."],
-    ["GĐ 2 · Tháng 7–12", "Tăng trưởng", "Đạt 88 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý & chứng chỉ nghề."],
+    ["GĐ 2 · Tháng 7–12", "Tăng trưởng", "Đạt 107 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý & chứng chỉ nghề."],
     ["GĐ 3 · Năm 2", "Mở rộng", "Cơ sở thứ 2; nền tảng đặt lịch đa kênh & CRM (kênh đầu tiên: Zalo Mini App); huy động vốn mở rộng."],
     ["GĐ 4 · Năm 3", "Chuỗi hóa", "Nhượng quyền 3–5 cơ sở vệ tinh; chuẩn CareTouch Academy đào tạo kỹ thuật viên."],
   ];
@@ -528,17 +645,17 @@ const bu = () => ({ code: "25B8", indent: 12 });
   s.addNotes("Lộ trình 4 giai đoạn, mỗi giai đoạn có điều kiện vượt qua rõ ràng. Năm 3 là năm nhượng quyền — bản chất franchising của mô hình dịch vụ chuẩn hóa.");
 }
 
-/* ============================== S12 · RỦI RO ============================== */
+/* ============================== S14 · RỦI RO ============================== */
 {
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Quản trị rủi ro");
-  title(s, "Nhìn thẳng rủi ro — và giải pháp ứng phó cho từng cái");
-  motif(s); pageNo(s, 12);
+  title(s, "Rủi ro trọng yếu và giải pháp ứng phó");
+  motif(s); pageNo(s, 14);
 
   const risks = [
     ["Ranh giới pháp lý với “khám chữa bệnh”", "CAO",
-      "Định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác; kỹ thuật viên thi chứng chỉ nghề."],
+      "Định vị chăm sóc – thư giãn – hỗ trợ vận động; không khám bệnh, không kê thuốc, không thực hiện kỹ thuật thuộc phạm vi khám chữa bệnh (Luật Khám bệnh, chữa bệnh 2023; Nghị định 96/2023/NĐ-CP); bác sĩ y học cổ truyền cộng tác đảm nhận chuyên môn; kỹ thuật viên thi chứng chỉ nghề."],
     ["Sự cố với khách có bệnh nền", "CAO",
       "Khảo sát bắt buộc buổi đầu (hỏi bệnh nền, đo huyết áp); từ chối hoặc khuyên đi khám khi có chống chỉ định; mua bảo hiểm trách nhiệm dịch vụ."],
     ["Nhân lực và tay nghề", "TRUNG BÌNH",
@@ -563,13 +680,13 @@ const bu = () => ({ code: "25B8", indent: 12 });
   s.addNotes("Hai rủi ro mức cao đều thuộc pháp lý - an toàn. Chiến lược: định vị 'chăm sóc - thư giãn - hỗ trợ vận động', không xâm phạm phạm vi khám chữa bệnh theo Luật KBBC 2023 và NĐ 96/2023/NĐ-CP. Nhân sự vận hành: 4 KTV lương cứng + nhóm sáng lập trực tiếp điều phối giai đoạn đầu; năm 2 tuyển thêm điều phối viên toàn thời gian.");
 }
 
-/* ============================== S13 · ĐỘI NGŨ ============================== */
+/* ============================== S15 · ĐỘI NGŨ ============================== */
 {
   const s = pres.addSlide();
   s.background = { color: "FFFFFF" };
   kicker(s, "Nhóm sáng lập");
   title(s, "Nhóm 3 — Tổ 14 — Lớp A1K79");
-  motif(s); pageNo(s, 13);
+  motif(s); pageNo(s, 15);
 
   const team = [
     ["Trịnh Hương Thảo", "2401634"],
@@ -596,7 +713,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   s.addNotes("Dự án được phát triển trong môn Thực tập NCKH Đổi mới sáng tạo Khởi nghiệp — Buổi thực tập: ca chiều 1, thứ 7, ngày 26/9/2026.");
 }
 
-/* ============================== S14 · CLOSING ============================== */
+/* ============================== S16 · CLOSING ============================== */
 {
   const s = pres.addSlide();
   s.background = { path: A("bg_close.png") };
@@ -609,33 +726,32 @@ const bu = () => ({ code: "25B8", indent: 12 });
   // ask card
   s.addShape("roundRect", { x: 0.9, y: 4.42, w: 7.6, h: 2.08, rectRadius: 0.12, fill: { color: "0E4A41", transparency: 18 }, line: { color: TEALMID, width: 1 } });
   s.addText([
-    { text: "Vốn gọi đề xuất (minh họa): 500 triệu đồng", options: { bold: true, fontSize: 17, color: "FFFFFF", breakLine: true } },
-    { text: "mở cơ sở thứ 2 và xây nền tảng đặt lịch đa kênh & CRM — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
+    { text: "Vốn gọi đề xuất (minh họa): 636 triệu đồng", options: { bold: true, fontSize: 17, color: "FFFFFF", breakLine: true } },
+    { text: "436 triệu khởi động cơ sở đầu tiên tại Hà Nội, phần còn lại mở cơ sở thứ 2 và xây nền tảng đặt lịch đa kênh & CRM — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
   ], { x: 1.2, y: 4.58, w: 7.0, h: 0.78, fontFace: FONT, margin: 0, paraSpaceAfter: 5 });
-  // thanh phân bổ vốn (200/80/100/120 = 500)
+  // thanh phân bổ vốn (436/80/120 = 636)
   const funds = [
-    [200, "F7965A"], [80, "0E7C6B"], [100, "9ED9CC"], [120, "CFE6DF"],
+    [436, "F7965A"], [80, "0E7C6B"], [120, "9ED9CC"],
   ];
   let fx = 1.2;
   const fw = 7.0;
   funds.forEach((f) => {
-    const w = fw * f[0] / 500;
+    const w = fw * f[0] / 636;
     s.addShape("rect", { x: fx, y: 5.44, w: w - 0.03, h: 0.16, fill: { color: f[1] }, line: { type: "none" } });
     fx += w;
   });
   s.addText([
-    { text: "200 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " cơ sở thứ 2      ", options: { color: "CFE6DF" } },
+    { text: "436 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " cơ sở 1 tại Hà Nội (CAPEX + vốn lưu động)      ", options: { color: "CFE6DF" } },
     { text: "80 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " nền tảng đặt lịch & CRM      ", options: { color: "CFE6DF" } },
-    { text: "100 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " marketing & nhân sự      ", options: { color: "CFE6DF" } },
-    { text: "120 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " vốn lưu động", options: { color: "CFE6DF" } },
+    { text: "120 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " cơ sở 2, marketing & dự phòng", options: { color: "CFE6DF" } },
   ], { x: 1.2, y: 5.66, w: 7.0, h: 0.24, fontSize: 10, fontFace: FONT, margin: 0 });
-  s.addText("Hình thức huy động: góp vốn đổi cổ phần — 500 triệu ≈ 12–15% (tỷ lệ minh họa, định giá xác lập khi đàm phán).",
+  s.addText("Hình thức huy động: góp vốn đổi cổ phần — 636 triệu ≈ 15–18% (tỷ lệ minh họa, định giá xác lập khi đàm phán).",
     { x: 1.2, y: 5.98, w: 7.0, h: 0.26, fontSize: 10.5, italic: true, color: "9EC9BF", fontFace: FONT, margin: 0 });
   s.addText([
     { text: "Nhóm 3 · Tổ 14 · Lớp A1K79", options: { bold: true, color: "FFFFFF", breakLine: true } },
     { text: "Trịnh Hương Thảo · Bạch Thùy Trâm · Bùi Thị Anh Trâm · Phạm Quốc Việt · Viengkeo Shengchan", options: { color: "9EC9BF" } },
   ], { x: 0.9, y: 6.66, w: 11.5, h: 0.8, fontSize: 12, fontFace: FONT, margin: 0, paraSpaceAfter: 4 });
-  s.addNotes("Kết: 500 triệu (minh họa) phân bổ 200 cơ sở thứ 2, 80 nền tảng đặt lịch & CRM, 100 marketing & nhân sự, 120 vốn lưu động; hình thức góp vốn đổi cổ phần ~12-15% minh họa. Cảm ơn thầy/cô và nhà đầu tư.");
+  s.addNotes("Kết: 636 triệu (minh họa) phân bổ 436 khởi động cơ sở 1 tại Hà Nội, 80 nền tảng đặt lịch & CRM, 120 cho cơ sở 2, marketing và dự phòng; hình thức góp vốn đổi cổ phần ~15-18% minh họa. Cảm ơn thầy/cô và nhà đầu tư.");
 }
 
 pres.writeFile({ fileName: path.join(__dirname, "CareTouch-deck.pptx") }).then(() => console.log("PPTX written OK"));

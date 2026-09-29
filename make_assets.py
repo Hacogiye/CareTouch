@@ -201,20 +201,20 @@ plt.close(fig)
 # --- Chart 4: 12-month revenue projection ---
 fig, ax = plt.subplots(figsize=(8.6, 4.0), dpi=DPI)
 months = [f"T{i}" for i in range(1, 13)]
-rev = [22, 30, 38, 44, 50, 56, 62, 68, 73, 78, 83, 88]
-fixed = 48
+rev = [30, 42, 55, 68, 77, 85, 91, 96, 100, 103, 105, 107]
+fixed = 73
 colors = ["#E8590C" if i == 4 else ("#0E7C6B" if v >= fixed else "#9ED9CC") for i, v in enumerate(rev)]
 bars = ax.bar(months, rev, width=0.62, color=colors, zorder=3)
 ax.axhline(fixed, color="#16302B", linewidth=1.6, linestyle=(0, (5, 3)), zorder=4)
-ax.text(11.45, fixed + 1.6, "Chi phí cố định 48 tr./tháng", ha="right", fontsize=11,
+ax.text(11.45, fixed + 1.6, "Chi phí cố định 73 tr./tháng", ha="right", fontsize=11,
         color="#16302B", fontweight="bold")
 for b, v in zip(bars, rev):
     ax.text(b.get_x() + b.get_width()/2, v + 1.6, str(v), ha="center",
             fontsize=10.5, color="#5C7370")
-ax.annotate("Hòa vốn\n(tháng 5)", xy=(4, 50), xytext=(2.1, 74),
+ax.annotate("Hòa vốn\n(tháng 5)", xy=(4, 57), xytext=(2.1, 76),
             fontsize=12, fontweight="bold", color="#E8590C", ha="center",
             arrowprops=dict(arrowstyle="->", color="#E8590C", lw=1.8))
-ax.set_ylim(0, 100)
+ax.set_ylim(0, 125)
 ax.set_ylabel("Triệu đồng/tháng", fontsize=11)
 style_ax(ax)
 fig.tight_layout(pad=0.6)
@@ -222,3 +222,27 @@ fig.savefig(os.path.join(ASSETS, "chart_revenue.png"), bbox_inches="tight")
 plt.close(fig)
 
 print("charts done:", os.listdir(ASSETS))
+
+# --- Chart 5: capital structure donut (436 triệu đồng) ---
+fig, ax = plt.subplots(figsize=(6.2, 4.6), dpi=DPI)
+cap_labels = ["Vốn lưu động\n(bù lỗ giai đoạn đầu)", "Thuê & cọc nhà\n(cọc 1 + trả trước 3 tháng)",
+              "Cải tạo mặt bằng\n& điện nước", "Thiết bị & nội thất\n(3 giường, 2 bồn gội)",
+              "Vật tư & kit tận nhà", "Nhận diện, marketing,\npháp lý & dự phòng"]
+cap_vals = [130, 140, 50, 46, 20, 50]
+cap_colors = ["#0E7C6B", "#2AA88F", "#9ED9CC", "#E8590C", "#F7965A", "#F5C09A"]
+wedges, _ = ax.pie(cap_vals, colors=cap_colors, startangle=90, counterclock=False,
+                   wedgeprops=dict(width=0.42, edgecolor="white", linewidth=2.2))
+ax.text(0, 0.12, "436", ha="center", va="center", fontsize=34, fontweight="bold", color="#16302B")
+ax.text(0, -0.20, "triệu đồng", ha="center", va="center", fontsize=12, color="#5C7370")
+for w, v in zip(wedges, cap_vals):
+    ang = math.radians((w.theta1 + w.theta2) / 2)
+    x, y = math.cos(ang), math.sin(ang)
+    ax.text(x * 1.17, y * 1.17, f"{v} tr.\n({v/300*100:.0f}%)", ha="center", va="center",
+            fontsize=10.5, fontweight="bold", color="#16302B", linespacing=1.35)
+ax.legend(wedges, cap_labels, loc="center left", bbox_to_anchor=(0.98, 0.5), frameon=False, fontsize=9.5)
+ax.set_aspect("equal")
+fig.tight_layout(pad=0.4)
+fig.savefig(os.path.join(ASSETS, "chart_capital.png"), bbox_inches="tight")
+plt.close(fig)
+
+print("capital chart done")

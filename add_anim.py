@@ -1,51 +1,21 @@
 # -*- coding: utf-8 -*-
-"""Chèn hiệu ứng trình chiếu vào CareTouch-deck.pptx:
-- Entrance "fade (+nhích lên)" theo nhóm: mỗi lần bấm chuột hiện 1 khối
-- S1 bìa / S14 kết: tự chạy khi mở slide
-- Chuyển slide: fade 600ms
+"""Chèn hiệu ứng trình chiếu vào CareTouch-deck.pptx.
+
+- Entrance "fade (+ nhích lên)" theo NHÓM: mỗi lần bấm chuột hiện 1 khối.
+- Slide bìa & slide kết: tự chạy khi mở (một nhóm, cascade).
+- Chuyển slide: fade 600ms.
+
+PLAN được TỰ SINH từ shape thật của file PPTX (không hard-code id), nên
+build lại deck bao nhiêu lần cũng không sinh spid "treo" -> không còn lỗi
+PowerPoint repair.
+
 Cách dùng:
-  python add_anim.py                       -> chèn cả timing + transition vào CareTouch-deck.pptx
-  python -c "import add_anim; add_anim.make('A.pptx','B.pptx', timing=True, transition=False, rise=True)"
+  python add_anim.py                       # chèn vào CareTouch-deck.pptx
+  python add_anim.py --dry                 # chỉ in PLAN, không ghi file
 """
-import zipfile, shutil, re
+import zipfile, shutil, re, sys
 
 SRC = "CareTouch-deck.pptx"
-
-# Plan: slide -> ("auto" | "click"), groups = [ [(spid, delay_ms), ...], ... ]
-# Shape tĩnh (kicker, tiêu đề, motif, số trang, dòng nguồn) KHÔNG nằm trong plan -> luôn hiển thị.
-PLAN = {
-    1: ("auto", [[(2,0),(3,200),(4,450),(5,650),(6,850),(7,1050)]]),
-    2: ("click", [[(7,0),(8,100),(9,200)], [(10,0),(11,100),(12,200),(13,300)],
-                  [(14,0),(15,100),(16,200),(17,300)],
-                  [(18,0),(19,150),(20,300),(21,380),(22,460),(23,540),(24,620),(25,700)]]),
-    3: ("click", [[(7,0),(8,100),(9,200)], [(10,0),(11,100),(12,200)],
-                  [(13,0),(14,100),(15,200)], [(16,0),(17,100),(18,200)]]),
-    4: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400)], [(12,0),(13,100),(14,200),(15,300),(16,400)],
-                  [(17,0),(18,100),(19,200),(20,300),(21,400)], [(22,0),(23,100)]]),
-    5: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400)],
-                  [(12,0),(13,100),(14,200),(15,300),(16,400),(17,500)],
-                  [(18,0),(19,100),(20,250)],
-                  [(21,0),(22,100),(23,200),(24,300),(25,400),(26,500)],
-                  [(27,0),(28,100),(29,200),(30,300),(31,400),(32,500)]]),
-    6: ("click", [[(7,0)], [(8,0),(9,100),(10,200)], [(11,0),(12,100)]]),
-    7: ("click", [[(7,0),(8,100),(9,200),(10,300)], [(11,0),(12,100),(13,200),(14,300)],
-                  [(15,0),(16,100),(17,200),(18,300)], [(19,0),(20,100)]]),
-    8: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400)], [(12,0),(13,100),(14,200),(15,300),(16,400)],
-                  [(17,0),(18,100),(19,200),(20,300),(21,400)], [(22,0),(23,100),(24,200),(25,300)],
-                  [(26,0),(27,100)]]),
-    9: ("click", [[(10,0)]]),
-    10: ("click", [[(7,0),(8,100),(9,200),(26,300)], [(22,0)],
-                   [(10,0),(11,80),(12,160),(13,240),(14,320),(15,400),(16,480),(17,560),(18,640),(19,720),(20,800),(21,880)]]),
-    11: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400),(12,500)], [(13,0),(14,100),(15,200),(16,300),(17,400)],
-                   [(18,0),(19,100),(20,200),(21,300),(22,400)], [(23,0),(24,100),(25,200),(26,300),(27,400)],
-                   [(28,0),(29,100)]]),
-    12: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400)], [(12,0),(13,100),(14,200),(15,300),(16,400)],
-                   [(17,0),(18,100),(19,200),(20,300),(21,400)], [(22,0),(23,100),(24,200),(25,300),(26,400)]]),
-    13: ("click", [[(7,0),(8,100),(9,200),(10,300),(11,400)], [(12,0),(13,100),(14,200),(15,300),(16,400)],
-                   [(17,0),(18,100),(19,200),(20,300),(21,400)], [(22,0),(23,100),(24,200),(25,300),(26,400)],
-                   [(27,0),(28,100),(29,200),(30,300),(31,400)]]),
-    14: ("auto", [[(2,0),(3,400),(4,700),(5,850),(6,1050),(7,1130),(8,1210),(9,1290),(10,1400),(11,1500),(12,1650)]]),
-}
 
 TRANSITION = (
     '<mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">'
@@ -55,10 +25,107 @@ TRANSITION = (
     '</mc:AlternateContent>'
 )
 
+EMU = 914400.0
+
+
+# ---------------------------------------------------------------- static parts
+def _is_static(sh, slide_w, slide_h):
+    """kicker, tiêu đề, motif, số trang, dòng nguồn -> luôn hiển thị."""
+    x, y = sh.left / EMU, sh.top / EMU
+    w, h = sh.width / EMU, sh.height / EMU
+    xc, yc = x + w / 2, y + h / 2
+    if yc < 1.72:                                   # dải trên: kicker + tiêu đề
+        return True
+    if xc > 12.2 and yc < 1.0:                      # motif 2 vòng tròn
+        return True
+    if xc > 12.4 and yc > 6.9:                      # số trang
+        return True
+    if yc > 6.6:                                    # dòng nguồn / thanh tổng kết
+        return True
+    return False
+
+
+def _cluster(vals, tol):
+    """Gom giá trị đã sort thành cụm: cắt khi khe hở >= tol."""
+    out, cur = [], [vals[0]]
+    for v in vals[1:]:
+        if v - cur[-1] >= tol:
+            out.append(cur); cur = []
+        cur.append(v)
+    out.append(cur)
+    return out
+
+
+def _bbox(sh):
+    return (sh.left, sh.top, sh.left + sh.width,
+            sh.top + max(sh.height, 91440))          # dòng kẻ cao 0 vẫn có hộp
+
+
+def _overlap(a, b, pad):
+    al, at, ar, ab = a
+    bl, bt, br, bb = b
+    return not (ar < bl - pad or br < al - pad or ab < bt - pad or bb < at - pad)
+
+
+def _components(shapes, pad=0.2):
+    """Gom shape thành CỤM theo hộp bao chồng nhau (union-find).
+
+    Mỗi cụm ≈ một "thẻ" nội dung (khung + số + chữ bên trong) nên một lần
+    bấm chuột hiện trọn thẻ — giống bản PLAN chỉnh tay trước đây nhưng tự
+    sinh, không phụ thuộc id cứng."""
+    shapes = list(shapes)
+    n = len(shapes)
+    par = list(range(n))
+
+    def find(x):
+        while par[x] != x:
+            par[x] = par[par[x]]
+            x = par[x]
+        return x
+
+    boxes = [_bbox(s) for s in shapes]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if _overlap(boxes[i], boxes[j], pad):
+                par[find(i)] = find(j)
+    groups = {}
+    for i in range(n):
+        groups.setdefault(find(i), []).append(shapes[i])
+    return list(groups.values())
+
+
+def build_plan(prs):
+    """Sinh PLAN: {slide_no: (mode, [[(spid, delay), ...], ...])}.
+
+    Mọi slide đều ở chế độ "auto": nội dung tự hiện khi mở slide, không cần
+    bấm chuột. Thứ tự hiện theo hàng-dải đọc (trên xuống, trái sang), mỗi
+    khối so le một nhịp; nhịp được co lại khi slide nhiều khối để tổng thời
+    gian hiện không quá ~3 giây."""
+    plan = {}
+    for idx, slide in enumerate(prs.slides, 1):
+        W = prs.slide_width / EMU
+        H = prs.slide_height / EMU
+        anim = [sh for sh in slide.shapes if not _is_static(sh, W, H)]
+        if not anim:
+            continue
+        # Dải đọc: gom theo hàng (band 0,6in), trong hàng đi trái→phải;
+        # shape lớn (nền thẻ) hiện trước nội dung của nó nhờ -area.
+        anim.sort(key=lambda s: (
+            round((s.top + s.height / 2) / 0.6),
+            s.left,
+            -(s.width * s.height),
+        ))
+        stagger = int(min(180, 2800 / len(anim)))
+        plan[idx] = ("auto", [[(s.shape_id, i * stagger) for i, s in enumerate(anim)]])
+    return plan
+
+
+# ---------------------------------------------------------------- timing XML
 _id = [1]
 def nid():
     _id[0] += 1
     return _id[0]
+
 
 def effect_par(spid, delay, ntype, rise=True):
     a = nid()
@@ -86,6 +153,7 @@ def effect_par(spid, delay, ntype, rise=True):
     parts.append('</p:childTnLst></p:cTn></p:par>')
     return "".join(parts)
 
+
 def click_group(group, mode, rise=True):
     g1, g2 = nid(), nid()
     start = '<p:cond delay="0"/>' if mode == "auto" else '<p:cond delay="indefinite"/>'
@@ -104,9 +172,9 @@ def click_group(group, mode, rise=True):
         f'</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:par>'
     )
 
-def timing_xml(slide_no, tables_charts, rise=True, with_bld=True):
+
+def timing_xml(mode, groups, tables_charts, rise=True, with_bld=True):
     _id[0] = 1
-    mode, groups = PLAN[slide_no]
     click_blocks = "".join(click_group(g, mode, rise) for g in groups)
     anim_spids = sorted({spid for g in groups for spid, _ in g})
     bld_part = ""
@@ -130,16 +198,67 @@ def timing_xml(slide_no, tables_charts, rise=True, with_bld=True):
         + bld_part + '</p:timing>'
     )
 
-def make(src, dst, timing=True, transition=True, rise=True, with_bld=True):
-    """Đọc src, chèn timing/transition, ghi ra dst (dst == src thì ghi tạm rồi thay)."""
-    from pptx import Presentation
-    prs = Presentation(src)
-    gf_ids = {}
-    for i, slide in enumerate(prs.slides, 1):
-        gf_ids[i] = {sh.shape_id for sh in slide.shapes
-                     if getattr(sh, "has_table", False) or getattr(sh, "has_chart", False)}
-    tmp = dst + ".building"
+
+# ---------------------------------------------------------------- main
+def _normalize_ids(src, dst):
+    """pptxgenjs cấp id bảng và id ảnh từ hai bộ đếm riêng nên có thể trùng
+    (vd slide 11: bảng id 12 và ảnh id 12). Trùng cNvPr id làm PowerPoint
+    báo repair và làm hiệu ứng trỏ sai shape -> đánh lại id cho duy nhất."""
+    import re as _re
     zin = zipfile.ZipFile(src, "r")
+    zout = zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED)
+    pat = _re.compile(r"ppt/slides/slide\d+\.xml$")
+    fixed = 0
+    for item in zin.infolist():
+        data = zin.read(item.filename)
+        if pat.match(item.filename):
+            xml = data.decode("utf-8")
+            ids = [int(i) for i in _re.findall(r'<p:cNvPr id="(\d+)"', xml)]
+            if len(ids) != len(set(ids)):
+                used = set(ids)
+                nxt = max(ids) + 1
+                seen = set()
+                def _sub(m):
+                    nonlocal nxt, fixed
+                    i = int(m.group(1))
+                    if i in seen:
+                        while nxt in used:
+                            nxt += 1
+                        used.add(nxt); seen.add(nxt); fixed += 1
+                        return f'<p:cNvPr id="{nxt}"'
+                    seen.add(i)
+                    return m.group(0)
+                xml = _re.sub(r'<p:cNvPr id="(\d+)"', _sub, xml)
+                data = xml.encode("utf-8")
+        zout.writestr(item, data)
+    zout.close(); zin.close()
+    return fixed
+
+
+def make(src, dst, timing=True, transition=True, rise=True, with_bld=True, dry=False):
+    from pptx import Presentation
+    norm = src + ".norm"
+    nfix = _normalize_ids(src, norm)
+    if nfix:
+        print(f"Đã sửa {nfix} shape id trùng.")
+    prs = Presentation(norm)
+    plan = build_plan(prs)
+    gf = {}
+    for i, slide in enumerate(prs.slides, 1):
+        gf[i] = {sh.shape_id for sh in slide.shapes
+                 if getattr(sh, "has_table", False) or getattr(sh, "has_chart", False)}
+
+    if dry:
+        for n in sorted(plan):
+            mode, groups = plan[n]
+            print(f"S{n:02d} [{mode}] " + " | ".join(
+                ",".join(str(s) for s, _ in g) for g in groups))
+        import os
+        os.remove(norm)
+        return plan
+
+    tmp = dst + ".building"
+    zin = zipfile.ZipFile(norm, "r")
     zout = zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED)
     pat = re.compile(r"ppt/slides/slide(\d+)\.xml$")
     injected = 0
@@ -148,12 +267,14 @@ def make(src, dst, timing=True, transition=True, rise=True, with_bld=True):
         m = pat.match(item.filename)
         if m:
             n = int(m.group(1))
-            if n in PLAN:
+            if n in plan:
                 xml = data.decode("utf-8")
                 root = re.search(r"<(\w+):sld\b", xml)
                 assert root, "không tìm thấy root <sld>"
                 pfx = root.group(1)
-                inject = (TRANSITION if transition else "") + (timing_xml(n, gf_ids[n], rise, with_bld) if timing else "")
+                mode, groups = plan[n]
+                inject = (TRANSITION if transition else "") + (
+                    timing_xml(mode, groups, gf[n], rise, with_bld) if timing else "")
                 if inject:
                     inject = inject.replace("p:", pfx + ":")
                     xml = re.sub(rf"<{pfx}:timing>.*?</{pfx}:timing>", "", xml, flags=re.S)
@@ -163,12 +284,15 @@ def make(src, dst, timing=True, transition=True, rise=True, with_bld=True):
                 data = xml.encode("utf-8")
         zout.writestr(item, data)
     zout.close(); zin.close()
-    if dst == src:
-        shutil.move(tmp, src)
-    else:
-        shutil.move(tmp, dst)
+    import os
+    os.remove(norm)
+    shutil.move(tmp, src if dst == src else dst)
     return injected
 
+
 if __name__ == "__main__":
-    n = make(SRC, SRC)
-    print(f"Đã chèn timing + transition cho {n} slide.")
+    if "--dry" in sys.argv:
+        make(SRC, SRC, dry=True)
+    else:
+        n = make(SRC, SRC)
+        print(f"Đã chèn timing + transition cho {n} slide.")

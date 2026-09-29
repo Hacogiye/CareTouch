@@ -5,14 +5,14 @@
 ## 1. Dự án
 - Khởi nghiệp sinh viên — môn **Thực tập NCKH Đổi mới sáng tạo Khởi nghiệp, Bài 3: Lựa chọn ý tưởng kinh doanh**. Buổi thực tập: ca chiều 1, thứ 7, 26/9/2026.
 - Dịch vụ: massage – xoa bóp, bấm huyệt, gội đầu dưỡng sinh, chườm thảo dược (YHCT) — tại cơ sở + tận nhà, khách chính trung niên 40–60.
-- **Đổi thương hiệu: An Khang Đường → CareTouch** — "Healing Touch, Healthy Life" (lý do ở Phụ lục B báo cáo).
+- Thương hiệu: **CareTouch** — "Healing Touch, Healthy Life". **An Khang Đường KHÔNG còn tồn tại** (user chốt 29/9: là dự án rác, đã xóa khỏi cả 3 nguồn; Phụ lục B báo cáo đã bỏ).
 - Thành viên: Trịnh Hương Thảo 2401634, Bạch Thùy Trâm 2401679, Bùi Thị Anh Trâm 2401681, Phạm Quốc Việt 2401742, Viengkeo Shengchan 2401761.
 
 ## 2. Sản phẩm bàn giao (trong thư mục làm việc)
 | File | Nội dung |
 |---|---|
 | `CareTouch-deck.pptx` | 14 slide pitch nhà đầu tư, brand riêng, có speaker notes |
-| `CareTouch-bao-cao.docx` | 12 chương + Nguồn tham khảo (9 nguồn hyperlink) + Phụ lục A (lựa chọn ý tưởng) + Phụ lục B (đổi thương hiệu) |
+| `CareTouch-bao-cao.docx` | 12 chương + Nguồn tham khảo (9 nguồn hyperlink) + Phụ lục A (lựa chọn ý tưởng) |
 | `index.html` (trước là CareTouch-slides.html — đã đổi để host GitHub Pages) | HTML deck tự chứa (Chart.js inline 245KB+), dựa trên bản ở `C:\Users\Tu_DZ\Downloads\CareTouch-slides.html` (bản user ưng nhất) |
 | `save.php` + `content.json` | đi kèm HTML khi up cPanel — lưu chỉnh sửa chung cho nhóm |
 | `assets/` | bg_cover, bg_close, logo, 4 chart PNG, chart.umd.min.js |
@@ -35,11 +35,11 @@
 ## 5. Nội dung đã đồng bộ v1.1 (theo phản biện AI + yêu cầu user)
 - Thuật ngữ: "massage" thống nhất (bỏ "matxa"); "Tự chọn kết hợp 3 dịch vụ"; "Tại nhà tự phát"; "dịch vụ chăm sóc chuyên nghiệp"; bỏ ký hiệu "K" → số đầy đủ `120.000–290.000 đ` / `890.000 đ` / `1.590.000 đ (~20%)`.
 - "sàng lọc y khoa" → **"khảo sát thể trạng an toàn"**; pháp lý nêu Luật KBBC 2023 + NĐ 96/2023/NĐ-CP; định vị "chăm sóc – thư giãn – hỗ trợ vận động".
-- **Tài chính (phép tính hiển thị)**: lỗ lũy kế T1–T4 = 26+18+10+4 = 58 tr → vốn lưu động 70 tr → **tổng vốn khởi đầu 165 tr** (=95 đầu tư + 70 VC); lãi ròng T5–T12 lũy kế 174 tr ≥ 165 → hoàn vốn đủ ~12 tháng (thận trọng 55%: 12–14 tháng). Doanh thu T12 = 88 tr (~350 khách), chi phí cố định 48 tr, hòa vốn T5 (T4: 44 < 48 < T5: 50).
-- **Giá tận nhà nâng**: 200/270/320/290k (chênh lệch 80–100k bù 1,5–2 tiếng/ca: 45–60' trị liệu + 30–45' di chuyển); tối thiểu 2 buổi/lượt.
-- **Nhân sự**: 4 KTV lương cứng ~8tr + phụ cấp ca tại nhà; 5 sáng lập trực tiếp điều phối (chưa rút lương điều phối); năm 2 tuyển thêm điều phối viên. Trần công suất ~20 lượt/ngày ≈ 450–500 lượt/tháng; T12 dùng 70–80%.
+- **Tài chính v3 (Hà Nội, số liệu nhóm cập nhật 29/9)**: **tổng vốn khởi đầu 436 tr** = CAPEX 306 tr + vốn lưu động 130 tr. CAPEX: thuê & cọc 1+3 tháng (140) + cải tạo mặt bằng & điện nước (50) + thiết bị & nội thất (46, gồm máy móc 12,8) + vật tư & kit tận nhà (20) + đồng phục/ấm phẩm/nhận diện (10) + marketing khai trương & pháp lý (15) + dự phòng (25). OPEX cố định **73 tr/tháng**: thuê 35 + lương cứng 4 KTV 24 (6 tr/người) + điện nước 5 + giặt sấy & vật tư 4 + marketing 5; **chưa gồm hoa hồng ca** (20k/ca cơ sở, 60k/ca tận nhà). Doanh thu: 30/42/55/68/77/85/91/96/100/103/105/107 tr; lỗ T1–T4 = 43+31+18+5 = 97 tr; hòa vốn vận hành T5 (T4: 68 < 73 < T5: 77); lãi ròng T5–T12 lũy kế 180 tr → CAPEX thu hồi ~T16, toàn bộ vốn **19–20 tháng** (thận trọng 55%: 21–23 tháng). Vốn gọi minh họa 636 tr. Giường thứ 3: đầu tư thêm ~11 tr, 3 khách/ngày → +15,6 tr doanh thu, +12,8 tr lợi nhuận gộp/tháng.
+- **Giá tận nhà nâng**: 200/270/320/290k (chênh lệch 80–100k bù 1,5–2 tiếng/ca: 45–60' trị liệu + 30–45' di chuyển); tối thiểu 2 buổi/lượt. **Châm cứu – cứu ngải 250k, chỉ tại cơ sở** (không tận nhà).
+- **Nhân sự**: 4 KTV lương cứng 6 tr + hoa hồng ca (20k cơ sở / 60k tận nhà); 5 sáng lập trực tiếp điều phối (chưa rút lương); bác sĩ YHCT cộng tác làm châm cứu; năm 2 tuyển thêm điều phối viên. Cơ sở **5 chỗ**: 3 giường massage + 2 ghế gội đầu. Trần công suất ~20–24 lượt/ngày ≈ 500–600 lượt/tháng; T12 dùng 65–75%.
 - "Hóa giải" → **"Giải pháp ứng phó"** (giữ chữ "Rủi ro").
-- DOCX: chương đổi tên chuyển thành Phụ lục B; đánh số lại 1–12; Bảng 1–8; phụ lục A = Bảng 7, phụ lục B = Bảng 8.
+- DOCX: đánh số 1–12; **Bảng 1–10** (5=mặt bằng giá thuê HN, 6=giả định tài chính, 7=CAPEX, 8=OPEX, 9=rủi ro, 10=ý tưởng); Hình 1–5 (4=cơ cấu vốn 436tr, 5=doanh thu). Phụ lục B đã xóa.
 
 ## 6. HTML (CareTouch-slides.html) — tính năng & cách test
 - Engine: v1.0 đơn giản (showSlide toggle active, auto-reveal bằng CSS `.reveal d1-d6`), chart lazy-init qua CHART_BUILDERS + animateIn.
@@ -79,21 +79,35 @@
 - Visual-judge subagent KHÔNG khả dụng (provider error) → tự inspect ảnh.
 
 ## 10. Việc còn treo / lưu ý
-- v1.2 đã rà soát đồng bộ HTML↔PPTX theo CẢ ẢNH (14 cặp, render LibreOffice vs screenshot Playwright): pass.
+- **v1.5 (29/9/2026) — BẢN HIỆN HÀNH**: xóa sạch An Khang Đường; mọi slide PPTX chuyển sang hiệu ứng TỰ ĐỘNG; số liệu mới từ nhóm; châm cứu thành dịch vụ bình thường; thêm châm cứu lên web.
+  - **Hiệu ứng PPTX = AUTO toàn bộ**: mọi slide tự hiện khi mở, KHÔNG cần bấm chuột (giống bìa/kết). `add_anim.py` build_plan giờ luôn trả `("auto", [nhóm])`, thứ tự theo dải đọc (top→bottom, left→right), shape nền thẻ hiện trước nội dung, nhịp co lại khi nhiều khối (`stagger = min(180, 2800/n)`). Kiểm chứng: clickEffect=0, afterEffect=16.
+  - **An Khang Đường đã xóa hoàn toàn** khỏi build_docx.py / build_pptx.js / slide/index.html / index.html (bìa, mục lục, ch.1, Phụ lục B, PPTX cover, HTML cover). User chốt: "dự án rác, không tồn tại". Phụ lục B báo cáo đã bỏ → Bảng cuối là Bảng 10.
+  - **Số liệu nhóm cung cấp (29/9)**: thuê mặt bằng **35 tr/tháng** (khoảng 30–40, thuê 1 tầng không nguyên căn, khu đông dân cư / tầng 1 chung cư hướng ra ngoài); máy móc thiết bị **12,8 tr**; đồng phục + ấm phẩm **10 tr**; dự phòng phát sinh **25 tr**; quảng bá + lân cận **15 tr**.
+  - **Tài chính v3**: CAPEX **306 tr** (thuê&cọc 140 / cải tạo 50 / thiết bị&nội thất 46 / vật tư&kit 20 / đồng phục 10 / marketing&pháp lý 15 / dự phòng 25) + vốn lưu động **130 tr** = **tổng 436 tr**. OPEX cố định **73 tr/tháng** (thuê 35 + lương cứng 24 + điện nước 5 + giặt sấy 4 + marketing 5). Doanh thu 30/42/55/68/77/85/91/96/100/103/105/107; lỗ T1–T4 = 43+31+18+5 = 97 tr; hòa vốn T5 (T4: 68 < 73 < T5: 77); lãi ròng T5–T12 = 180 tr → CAPEX thu hồi ~T16, toàn bộ vốn **19–20 tháng** (thận trọng 55%: 21–23 tháng). Vốn gọi minh họa đổi 500 → **636 tr** (436 + 80 CRM + 120 cơ sở 2).
+  - **Châm cứu là dịch vụ BÌNH THƯỜNG** (250.000 đ, 45 phút, chỉ tại cơ sở): đã bỏ hết cách nói "bao gồm châm cứu", "nhóm chuyên môn riêng", ghi chú pháp lý riêng, card `*` trên slide. Chỉ còn 3 chỗ hợp lệ: dòng trong Bảng 2, dòng trong bảng giá slide 6, mục dịch vụ. Đã thêm vào **web landing** (index.html): hero badge, bảng giá, form đặt lịch.
+  - **Ngôn từ slide sửa**: "khách quay lại là mặc định" → "khách quay lại theo chu kỳ"; "an toàn là tính năng của dịch vụ, không phải khẩu hiệu" → "an toàn được kiểm soát ở từng bước"; "giải pháp ứng phó cho từng cái" → "Rủi ro trọng yếu và giải pháp ứng phó".
+  - **Landing sửa thêm**: câu chuyện khách hàng đổi từ TP.HCM (Q.7/Quận 3/Bình Thạnh) sang Hà Nội (Cầu Giấy/Đống Đa/Thanh Xuân); sửa typo "nân viên" → "nhân viên".
+  - Donut `chart_capital.png`: 436 tr (130 vốn lưu động / 140 thuê & cọc / 50 cải tạo / 46 thiết bị / 20 vật tư & kit / 50 nhận diện–marketing–pháp lý–dự phòng).
+- **Quy mô cơ sở chốt: 5 chỗ trị liệu** = 3 giường massage khoét lỗ mặt + 2 ghế/giường gội đầu dưỡng sinh (giường thứ 3 theo yêu cầu user: đầu tư thêm ~11 tr, hoàn vốn trong tháng đầu ở 2–3 khách/ngày). Đã sửa đồng bộ: DOCX ch.7+ch.9, PPTX S10/S11, HTML slide 10/11.
+- Ảnh user gửi (slide "800 triệu" theme olive có Thú cưng/Máy móc coffee + bảng giá dụng cụ spa + chat với Thảo về số giường) chỉ là **mẫu tham khảo cách làm slide** — KHÔNG thuộc CareTouch, không dùng số liệu trong đó.
+- Script tạo chart: `make_assets.py` (mục cuối "capital chart"). Chart màu: 0E7C6B/2AA88F/9ED9CC/E8590C/F7965A.
+- ⚠️ Build PPTX có thể lỗi `EBUSY` nếu PowerPoint đang mở `CareTouch-deck.pptx` → đóng file rồi build lại.
+- v1.5 đã render lại PPTX 16 trang + DOCX (kiểm tra không tràn trang) + test COM mở OK; HTML deck 16 slide không tràn, không lỗi console.
 - HTML slide 10: legend Chart.js tự vẽ bằng HTML (span line + dashed) vì legend gốc render ô đen.
 - Counter slide 2 HTML: đặt sẵn text đích (16,1 / 94,4), JS vẫn đếm từ 0 khi mở slide.
-- Slide 14 (kết): sửa câu Zalo ("mở rộng lên 2 cơ sở + Zalo Mini App" → "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch"), thêm thanh phân bổ vốn 200/80/100/120 (=500) + dòng hình thức huy động đổi cổ phần ~12–15% (minh họa) — đồng bộ PPTX/HTML/DOCX. CHỜ USER: SĐT/email liên hệ để chèn footer slide 14.
-- Thuật ngữ mới (yêu cầu user): "Nền tảng đặt lịch đa kênh & CRM" thay "Zalo Mini App đặt lịch" ở S14 + S11 (S11 giữ "(kênh đầu tiên: Zalo Mini App)"); DOCX có đoạn giải thích nền tảng ở phần khuyến nghị.
+- Slide kết (nay là S16): sửa câu Zalo ("mở rộng lên 2 cơ sở + Zalo Mini App" → "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch"), thêm thanh phân bổ vốn 200/80/100/120 (=500) + dòng hình thức huy động đổi cổ phần ~12–15% (minh họa) — đồng bộ PPTX/HTML/DOCX. Thanh phân bổ vốn nay là 300/80/120 (=500). CHỜ USER: SĐT/email liên hệ để chèn footer slide kết.
+- Thuật ngữ mới (yêu cầu user): "Nền tảng đặt lịch đa kênh & CRM" thay "Zalo Mini App đặt lịch" ở slide kết + slide lộ trình (S11 giữ "(kênh đầu tiên: Zalo Mini App)"); DOCX có đoạn giải thích nền tảng ở phần khuyến nghị.
 - NGUYÊN NHÂN PowerPoint repair ĐÃ TÌM RA: script hiệu ứng cũ trỏ spid=25 cho nhãn 48 nhưng id thật là 26 (pptxgenjs bỏ id 25) → dangling spid → repair. PLAN đã sửa (26); kiểm tra dangling-spid=0.
 - Đã test bằng PowerPoint COM trên máy user (render_sync/animtest/test_pp.ps1: Presentations.Open, WithWindow=0, DisplayAlerts=2): 4 biến thể + file cuối đều OK.
 - add_anim.py đã refactor: make(src, dst, timing, transition, rise, with_bld); PLAN cập nhật id slide 10 (26) và slide 14 (6–9 segment, 10 legend, 11 equity, 12 team).
-- PPTX hiện KHÔNG còn hiệu ứng (user rollback sau khi PowerPoint báo repair); add_anim.py vẫn giữ để sau này chạy lại nếu muốn.
+- **PPTX hiệu ứng = AUTO toàn bộ** (v1.5): 16/16 slide tự hiện khi mở, KHÔNG cần bấm chuột. Nguyên nhân mất hiệu ứng trước đây đã fix tận gốc (id trùng) — xem mục v1.5.
 - LIVE: https://hacogiye.github.io/CareTouch/ (trang chủ) + /slide/ (deck) + /admin.html (quản trị) — GitHub Pages đã bật, xác nhận HTTP 200.
 - TRANG QUẢN TRỊ (admin.html, mã 1234321): 107 khối chữ sửa được trên landing. Kiến trúc: edit-core.js (dùng chung, SEL + units() gán data-ct-eid theo thứ tự + applyTo() + clean() chống XSS) → content.json là nguồn nội dung, index.html tự fetch khi mở. 2 nơi lưu: localStorage (Lưu máy này) và GitHub API (token fine-grained giới hạn repo, quyền Contents: Read and write → ghi content.json, Pages rebuild ~1 phút). Có Xuất/Nhập JSON + Về bản gốc.
 - Bẫy đã gặp: (1) <option> không có ô hiển thị (w=h=0) nên không bấm được → sửa cả <select> qua bảng nhập từng dòng; (2) quy tắc "bỏ phần tử có id" loại mất #fSvc → chỉ chặn id do JS quản lý (PROTECTED = year/bookForm/toast); (3) iframe load event đã nổ trước khi login → phải kiểm tra readyState; (4) khi test bằng Playwright phải tắt scroll-behavior:smooth trong iframe nếu không boundingBox trả về.
 - "Nguyên tắc bất di bất dịch" đã đổi thành "Nguyên tắc cốt lõi" đồng bộ PPTX S8 / slide deck / landing (theo yêu cầu user).
 - Repo GitHub: https://github.com/Hacogiye/CareTouch (origin). File HTML chính là index.html (landing); deck ở slide/index.html. Chỉnh sửa trên GitHub Pages chỉ lưu localStorage.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.
-- File gốc nhóm (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`, `Tài liệu không có tiêu đề.docx`) là read-only, KHÔNG được sửa.
-- PPTX slides chú ý: slide 2 panel tối (3 stats), slide 10 annotation "T4: 44 < 48 < T5: 50", speaker notes đã cập nhật số 165tr/4 KTV.
+- File gốc nhóm `Tài liệu không có tiêu đề.docx` là read-only, KHÔNG được sửa. Hai file An Khang Đường (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`) đã bị USER XÓA khỏi repo ngày 29/9 (theo yêu cầu "dự án rác, không tồn tại") — không khôi phục lại.
+- **User tự sửa trực tiếp** `CareTouch-deck.pptx` + `index.html` (định dạng lại landing) rồi mới nhờ push → **KHÔNG build lại PPTX/HTML sau đó** kẻo ghi đè. Muốn sửa tiếp phải hỏi user bản nào là chuẩn.
+- PPTX slides chú ý: slide 2 panel tối (3 stats), slide 10 annotation "T4: 50 < 52 < T5: 55", speaker notes đã cập nhật số 300tr/4 KTV/5 chỗ.
 - Mã bảo mật sửa chữ mặc định: **1234321** (user chọn); khuyên đổi trong save.php khi up host thật.

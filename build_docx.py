@@ -168,10 +168,8 @@ para("BÁO CÁO DỰ ÁN KHỞI NGHIỆP", size=13, color=MUTED, align=WD_ALIGN_
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 rich(p, [("Care", dict(color=DARK, bold=True, size=30)), ("Touch", dict(color=ACCENT, bold=True, size=30)),
          ("  —  Healing Touch, Healthy Life", dict(color=MUTED, italic=True, size=15))])
-para("Dịch vụ massage – xoa bóp, bấm huyệt, gội đầu dưỡng sinh và chườm thảo dược theo phương pháp y học cổ truyền — hỗ trợ thư giãn cơ khớp; tại cơ sở và tận nhà",
+para("Dịch vụ massage – xoa bóp, bấm huyệt, gội đầu dưỡng sinh, chườm thảo dược và châm cứu theo phương pháp y học cổ truyền — hỗ trợ thư giãn cơ khớp; tại cơ sở và tận nhà",
      size=12.5, color=TEXT, align=WD_ALIGN_PARAGRAPH.CENTER, space_before=8, space_after=18)
-p = para(align=WD_ALIGN_PARAGRAPH.CENTER, space_after=24)
-rich(p, [("Đổi thương hiệu từ “An Khang Đường” sang ", dict(color=MUTED, size=11)), ("CareTouch", dict(color=ACCENT, bold=True, size=11))])
 
 info = doc.add_table(rows=5, cols=2)
 info_data = [
@@ -212,7 +210,6 @@ toc_items = [
     "12. Kết luận và khuyến nghị",
     "Nguồn tham khảo",
     "Phụ lục A. Ghi chú quá trình lựa chọn ý tưởng",
-    "Phụ lục B. Ghi chú đổi thương hiệu: từ An Khang Đường đến CareTouch",
 ]
 for t in toc_items:
     p = para(t, size=11, space_after=4)
@@ -224,10 +221,10 @@ doc.add_page_break()
 
 # ================= 1. TÓM TẮT =================
 doc.add_heading("1. Tóm tắt điều hành", level=1)
-para("CareTouch là dịch vụ chăm sóc sức khỏe bằng phương pháp chạm trị liệu của y học cổ truyền Việt Nam — gội đầu dưỡng sinh thảo dược, massage trị liệu, day ấn bấm huyệt và chườm thảo dược — hỗ trợ thư giãn, giảm mỏi cơ khớp; phục vụ khách hàng tại cơ sở và tận nhà. Dự án được phát triển từ ý tưởng “An Khang Đường” của Nhóm 3, Lớp A1K79, và được đổi thương hiệu thành CareTouch với định vị quốc tế hơn: Healing Touch, Healthy Life (lý do và so sánh chi tiết tại Phụ lục B).")
+para("CareTouch là dịch vụ chăm sóc sức khỏe bằng phương pháp chạm trị liệu của y học cổ truyền Việt Nam — gội đầu dưỡng sinh thảo dược, massage trị liệu, day ấn bấm huyệt, chườm thảo dược và châm cứu — hỗ trợ thư giãn, giảm mỏi cơ khớp; phục vụ khách hàng tại cơ sở và tận nhà. Dự án do Nhóm 3, Lớp A1K79 phát triển với định vị Healing Touch, Healthy Life.")
 para("Dự án nhắm vào một khoảng trống rất cụ thể của thị trường: người trung niên và cao tuổi — nhóm dân số tăng nhanh nhất và sẵn chi trả nhất cho việc chăm sóc sức khỏe — chưa được các dịch vụ chạm trị liệu phục vụ một cách bài bản, an toàn và thuận tiện. Spa cao cấp hướng tới khách trẻ với giá cao; các quán massage nhỏ thì thiếu quy trình và niềm tin. CareTouch đặt mình vào chính khoảng giữa đó: trị liệu cổ truyền có kiểm chứng về an toàn, giá minh bạch 120.000–320.000 đồng mỗi phiên, và phục vụ tận giường, tận nhà.")
 para("Ba con số nói lên tiềm năng của thị trường: Việt Nam có 16,1 triệu người trên 60 tuổi (hơn 16% dân số) năm 2025 — nhóm nước già hóa nhanh nhất châu Á; tổng chi tiêu y tế đạt 27,5 tỷ USD năm 2025 và dự báo 34,1 tỷ USD vào 2028; riêng ngành spa Việt Nam đã đạt 1,4 tỷ USD doanh thu năm 2023, thuộc top 20 thế giới. Global Wellness Institute xếp Việt Nam là thị trường wellness tăng trưởng nhanh nhất châu Á với tốc độ 15,6% mỗi năm.")
-para("Về mặt vận hành, tổng nhu cầu vốn khởi đầu khoảng 165 triệu đồng, gồm 95 triệu đồng đầu tư ban đầu và 70 triệu đồng vốn lưu động bù lỗ giai đoạn đầu (phép tính chi tiết tại chương 9). Doanh thu vượt chi phí cố định từ tháng thứ năm; theo kịch bản cơ sở, toàn bộ 165 triệu đồng vốn được thu hồi trong khoảng 12 tháng, kịch bản thận trọng với tỷ lệ khách quay lại 55% hoàn vốn trong 12–14 tháng. Bên dưới là bốn trụ cột tạo nên khác biệt của CareTouch:")
+para("Về mặt vận hành, tổng nhu cầu vốn khởi đầu khoảng 436 triệu đồng tại Hà Nội, gồm 306 triệu đồng đầu tư ban đầu (đã tính cọc 1 tháng và trả trước 3 tháng tiền thuê nhà, cùng chi phí cải tạo mặt bằng thực tế) và 130 triệu đồng vốn lưu động bù lỗ giai đoạn đầu (phép tính chi tiết tại chương 9). Doanh thu vượt chi phí cố định từ tháng thứ năm; theo kịch bản cơ sở, phần đầu tư ban đầu được thu hồi trong khoảng 16 tháng và toàn bộ vốn trong 19–20 tháng; kịch bản thận trọng với tỷ lệ khách quay lại 55% hoàn vốn trong 21–23 tháng. Bên dưới là bốn trụ cột tạo nên khác biệt của CareTouch:")
 for t in [
     [("Tận giường – tận nhà: ", dict(bold=True)), ("mang theo đệm, dầu xoa, khăn sạch; khách cao tuổi không cần ai đưa đón.", dict())],
     [("An toàn được kiểm soát ngay từ đầu: ", dict(bold=True)), ("mọi buổi đều bắt đầu bằng khảo sát thể trạng (hỏi bệnh nền, đo huyết áp); không an toàn thì không thực hiện.", dict())],
@@ -235,8 +232,6 @@ for t in [
     [("Sổ sức khỏe cá nhân: ", dict(bold=True)), ("ghi nhận phản ứng sau mỗi buổi để liệu trình liền mạch, có căn cứ điều chỉnh.", dict())],
 ]:
     bullet(t)
-
-# (Nội dung đổi thương hiệu đã chuyển xuống Phụ lục B)
 
 # ================= 2. VẤN ĐỀ & NHU CẦU =================
 doc.add_heading("2. Vấn đề và nhu cầu thị trường", level=1)
@@ -285,8 +280,9 @@ rich(p, [("). Với mức giá 120.000–320.000 đồng một phiên — tươn
 # ================= 4. GIẢI PHÁP =================
 doc.add_heading("4. Giải pháp: dịch vụ, giá và quy trình", level=1)
 doc.add_heading("4.1. Danh mục dịch vụ và giá đề xuất", level=2)
-para("Giá đề xuất căn theo mặt bằng thị trường đã khảo sát: dịch vụ massage tận nhà cho người lớn tuổi tại TP.HCM phổ biến 350.000–620.000 đồng mỗi phiên; spa tầm trung 350.000–400.000 đồng. CareTouch định vị ngay dưới phân khúc spa — vừa túi tiền nhóm trung niên, vẫn đảm bảo chất lượng chuyên nghiệp.")
-t = doc.add_table(rows=6, cols=4)
+para("Giá đề xuất căn theo mặt bằng thị trường đã khảo sát: dịch vụ massage tận nhà cho người lớn tuổi tại Hà Nội phổ biến 350.000–620.000 đồng mỗi phiên; spa tầm trung 350.000–400.000 đồng. CareTouch định vị ngay dưới phân khúc spa — vừa túi tiền nhóm trung niên, vẫn đảm bảo chất lượng chuyên nghiệp.")
+para("Danh mục gồm sáu dịch vụ, phục vụ tại cơ sở và tận nhà:", space_after=2)
+t = doc.add_table(rows=7, cols=4)
 rows = [
     ("Dịch vụ", "Thời lượng", "Tại cơ sở (đ)", "Tại nhà (đ)"),
     ("Gội đầu dưỡng sinh thảo dược", "45 phút", "120.000", "200.000"),
@@ -294,12 +290,13 @@ rows = [
     ("Massage toàn thân thư giãn", "70 phút", "220.000", "320.000"),
     ("Bấm huyệt – đả thông kinh lạc", "60 phút", "200.000", "290.000"),
     ("Chườm thảo dược – xông hơi đông y", "60 phút", "180.000", "—"),
+    ("Châm cứu – cứu ngải hỗ trợ giảm đau", "45 phút", "250.000", "—"),
 ]
 for i, r in enumerate(rows):
     for j, v in enumerate(r):
         t.rows[i].cells[j].paragraphs[0].add_run(v)
 style_table(t, col_widths=[6.4, 2.8, 2.9, 2.9])
-caption("Bảng 2. Danh mục dịch vụ và giá đề xuất (VNĐ/phiên). Nguồn tham chiếu giá thị trường: Massagenha, 7/2025.")
+caption("Bảng 2. Danh mục dịch vụ và giá đề xuất (VNĐ/phiên). Nguồn tham chiếu giá thị trường: Massagenha, 7/2025 (đã hiệu chỉnh theo mặt bằng Hà Nội).")
 para("Phục vụ tận nhà miễn phí trong bán kính 5 km; xa hơn phụ thu 20.000 đồng mỗi 5 km, và khách được khuyến nghị đặt tối thiểu 2 buổi mỗi lượt. Mức chênh lệch 80.000–100.000 đồng giữa dịch vụ tận nhà và tại cơ sở được tính từ thời gian thực tế của một ca tại nhà: 45–60 phút trị liệu cộng 30–45 phút di chuyển và chuẩn bị, tức khoảng 1,5–2 tiếng mỗi ca — nhờ đó thu nhập trên mỗi giờ làm việc của kỹ thuật viên không bị suy giảm so với phục vụ tại cơ sở. Các con số sẽ được hiệu chỉnh theo địa bàn triển khai thực tế.")
 
 doc.add_heading("4.2. Quy trình một buổi trị liệu chuẩn", level=2)
@@ -311,7 +308,7 @@ for i, s in enumerate([
     [("Theo dõi: ", dict(bold=True)), ("dặn dò bài tập nhẹ và ghi nhận phản ứng vào sổ sức khỏe riêng của từng khách để buổi sau điều chỉnh tốt hơn.", dict())],
 ], start=1):
     bullet(s)
-para("Nguyên tắc xuyên suốt: an toàn là tính năng của dịch vụ, không phải khẩu hiệu. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.")
+para("Nguyên tắc xuyên suốt: an toàn được kiểm soát ở từng bước, không dừng ở khẩu hiệu. Khách có chống chỉ định sẽ được từ chối hoặc khuyên đi khám; cơ sở mua bảo hiểm trách nhiệm dịch vụ.")
 
 # ================= 5. GÓI =================
 doc.add_heading("5. Gói dịch vụ và mô hình doanh thu lặp lại", level=1)
@@ -348,7 +345,7 @@ for i, r in enumerate(rows):
         cell.paragraphs[0].add_run(v)
         cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER if j > 0 else WD_ALIGN_PARAGRAPH.LEFT
 style_table(t, col_widths=[5.4, 2.7, 2.7, 2.7, 2.7])
-caption("Bảng 4. So sánh với các nhóm dịch vụ hiện có (do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai tại TP.HCM, 2025–2026)")
+caption("Bảng 4. So sánh với các nhóm dịch vụ hiện có (do nhóm thực hiện trên cơ sở khảo sát dịch vụ công khai — giá niêm yết toàn quốc, hiệu chỉnh theo mặt bằng Hà Nội, 2025–2026)")
 para("Bốn giá trị khác biệt làm nên CareTouch: (1) tiện lợi đúng chỗ — phục vụ tận giường, tận nhà; (2) cổ truyền có kiểm chứng — khảo sát thể trạng an toàn là quy trình bắt buộc; (3) giá minh bạch — niêm yết công khai, không phát sinh; (4) sổ sức khỏe cá nhân — liệu trình được theo dõi liên tục thay vì từng buổi rời rạc.")
 
 # ================= 7. NGUỒN LỰC & PHÁP LÝ =================
@@ -358,7 +355,21 @@ bullet([("Không khám bệnh, không kê đơn, không quảng cáo chữa bệ
 bullet([("Kỹ thuật viên thi chứng chỉ nghề ", dict(bold=True)), ("theo quy định hiện hành về massage – xoa bóp trước khi phục vụ độc lập.", dict())])
 bullet([("Bảo hiểm trách nhiệm dịch vụ ", dict(bold=True)), ("cho toàn bộ buổi trị liệu tại cơ sở và tận nhà.", dict())])
 bullet([("Khảo sát thể trạng bắt buộc: ", dict(bold=True)), ("khách có chống chỉ định sẽ bị từ chối hoặc khuyên đi khám — đây vừa là biện pháp an toàn, vừa là ranh giới chuyên môn.", dict())])
-para("Về nhân sự, giai đoạn đầu mô hình có 6 người tham gia vận hành thường xuyên: 4 kỹ thuật viên có chứng chỉ nghề (2 người phục vụ tại cơ sở hai giường, 2 người đảm nhận các ca tại nhà) và 5 thành viên sáng lập trực tiếp luân phiên đảm nhận công việc điều phối lịch, marketing và chăm sóc khách hàng. Trong giai đoạn kiểm chứng, nhóm sáng lập không rút quỹ lương điều phối mà được ưu tiên chia từ lợi nhuận sau khi hoàn vốn; kỹ thuật viên nhận lương cứng bình quân 8 triệu đồng mỗi tháng, kèm phụ cấp theo từng ca phục vụ tại nhà trích từ phần chênh lệch giá dịch vụ tận nhà. Sang năm thứ hai, khi mở cơ sở thứ hai, dự kiến tuyển thêm một điều phối viên toàn thời gian. Chi phí đầu tư chủ yếu là cải tạo mặt bằng, dụng cụ trị liệu và quảng bá khai trương — mô hình không cần thiết bị đắt tiền vì giá trị cốt lõi nằm ở tay nghề và quy trình.")
+para("Về mặt bằng, nhóm chọn thuê một tầng (không thuê nguyên căn) tại khu vực đông dân cư hoặc tầng 1 chung cư hướng ra ngoài — vị trí vừa dễ nhận diện với khách đi bộ qua lại, vừa thuận tiện cho kỹ thuật viên tỏa đi phục vụ tận nhà. Mặt bằng khoảng 65–70 m², đủ bố trí 3 giường massage và 2 ghế gội đầu. Ngân sách thuê dự kiến 30–40 triệu đồng mỗi tháng, nhóm lấy mức trung bình 35 triệu đồng để lập dự phóng. Bảng dưới đây tóm tắt mặt bằng giá tham khảo:")
+t = doc.add_table(rows=4, cols=4)
+rent_rows = [
+    ("Loại mặt bằng", "Diện tích", "Giá thuê tham khảo", "Phù hợp với CareTouch"),
+    ("Tầng 1 nhà riêng, khu đông dân cư", "60–75 m²", "32–40 triệu/tháng", "Mặt tiền dễ thấy, khách qua lại đông; thuận cả hai kênh tại cơ sở và tận nhà"),
+    ("Tầng 1 chung cư hướng ra ngoài", "65–80 m²", "30–38 triệu/tháng", "Cư dân trung niên ngay trong tòa nhà, nguồn khách quen ổn định"),
+    ("Nhà riêng trong ngõ, xa trung tâm hơn", "65–75 m²", "20–28 triệu/tháng", "Phương án tiết kiệm chi phí, đổi lại thời gian lấp đầy công suất chậm hơn"),
+]
+for i, r in enumerate(rent_rows):
+    for j, v in enumerate(r):
+        t.rows[i].cells[j].paragraphs[0].add_run(v)
+style_table(t, col_widths=[5.6, 2.4, 3.4, 5.4], font_size=9.5)
+caption("Bảng 5. Mặt bằng giá thuê nhà tại Hà Nội cho mô hình cơ sở 5 chỗ (khảo sát của nhóm, 2025–2026)")
+para("Nhóm chọn phương án tầng 1 nhà riêng hoặc tầng 1 chung cư hướng ra ngoài tại khu đông dân cư, ngân sách 35 triệu đồng/tháng. Đây là mức chi phí mặt bằng cao, chiếm gần một nửa chi phí cố định hàng tháng; bù lại, vị trí đắc địa giúp rút ngắn thời gian lấp đầy công suất và duy trì nguồn khách quen — yếu tố quyết định với mô hình dịch vụ dựa trên tần suất quay lại.", space_after=10)
+para("Về nhân sự, giai đoạn đầu mô hình có 6 người tham gia vận hành thường xuyên: 4 kỹ thuật viên có chứng chỉ nghề (2 người phục vụ tại cơ sở 5 chỗ — 3 giường massage và 2 ghế gội đầu dưỡng sinh, 2 người đảm nhận các ca tại nhà) và 5 thành viên sáng lập trực tiếp luân phiên đảm nhận công việc điều phối lịch, marketing và chăm sóc khách hàng. Trong giai đoạn kiểm chứng, nhóm sáng lập không rút quỹ lương điều phối mà được ưu tiên chia từ lợi nhuận sau khi hoàn vốn; kỹ thuật viên nhận lương cứng cơ bản 6 triệu đồng mỗi tháng cộng hoa hồng theo từng ca phục vụ (20.000 đồng/ca tại cơ sở, 60.000 đồng/ca tại nhà) — cơ chế này gắn chi phí nhân sự với doanh thu thực tế và khuyến khích kỹ thuật viên chủ động chăm sóc khách. Sang năm thứ hai, khi mở cơ sở thứ hai, dự kiến tuyển thêm một điều phối viên toàn thời gian. Chi phí đầu tư chủ yếu là tiền thuê trả trước, cải tạo mặt bằng và thiết bị trị liệu — mô hình không cần máy móc đắt tiền vì giá trị cốt lõi nằm ở tay nghề và quy trình.")
 
 # ================= 8. MARKETING =================
 doc.add_heading("8. Marketing và kênh tiếp cận khách hàng", level=1)
@@ -370,26 +381,72 @@ para("Nguyên tắc đo lường: mỗi kênh được gắn mã ưu đãi riên
 
 # ================= 9. TÀI CHÍNH =================
 doc.add_heading("9. Tài chính dự phóng", level=1)
-para("Toàn bộ số liệu trong chương này là giả định minh họa phục vụ mục đích học tập, dựng trên mô hình vận hành: một cơ sở 2 giường trị liệu với 4 kỹ thuật viên (2 người tại cơ sở, 2 người đảm nhận ca tại nhà); giá bán theo Bảng 2. Các con số sẽ được thay bằng khảo sát địa bàn thực tế khi triển khai.")
+para("Toàn bộ số liệu trong chương này là giả định minh họa phục vụ mục đích học tập, dựng trên mô hình vận hành tại Hà Nội: một cơ sở 5 chỗ trị liệu (3 giường massage có khoét lỗ mặt, 2 ghế/giường gội đầu dưỡng sinh) với 4 kỹ thuật viên (2 người tại cơ sở, 2 người đảm nhận ca tại nhà) và bác sĩ y học cổ truyền cộng tác; giá bán theo Bảng 2. Các con số sẽ được thay bằng khảo sát địa bàn thực tế khi triển khai.")
+para("So với bản dự phóng trước, chương này được cấu trúc lại theo phản biện về tính thực tế của chi phí: bổ sung tiền đặt cọc và trả trước tiền thuê nhà — khoản mà bản cũ bỏ sót hoàn toàn; nâng dự toán cải tạo mặt bằng lên mức thi công thực tế; và chuyển cơ cấu lương kỹ thuật viên sang lương cứng cơ bản cộng hoa hồng theo ca.", space_after=8)
 t = doc.add_table(rows=6, cols=3)
 rows = [
     ("Hạng mục", "Giá trị", "Ghi chú"),
-    ("Đầu tư ban đầu", "~95 triệu đồng", "Cải tạo mặt bằng, dụng cụ trị liệu, đồng phục, quảng bá khai trương"),
-    ("Vốn lưu động bù lỗ (tháng 1–4)", "~70 triệu đồng", "Lỗ lũy kế 4 tháng đầu: 26 + 18 + 10 + 4 = 58 triệu đồng; dự trù thêm 12 triệu đồng làm đệm an toàn"),
-    ("Tổng nhu cầu vốn khởi đầu", "~165 triệu đồng", "95 triệu đồng đầu tư + 70 triệu đồng vốn lưu động"),
-    ("Chi phí cố định", "~48 triệu đồng/tháng", "Thuê mặt bằng 12 triệu; lương 4 kỹ thuật viên ~32 triệu (lương cứng ~8 triệu/người, kèm phụ cấp ca tại nhà); điện nước, vật tư, khấu hao còn lại"),
-    ("Doanh thu tháng thứ 12", "~88 triệu đồng/tháng", "Tương đương ~350 khách/tháng, trong đó ~60% từ gói combo và thẻ thành viên"),
+    ("Đầu tư ban đầu (CAPEX)", "~306 triệu đồng", "Gồm cọc 1 tháng + trả trước 3 tháng tiền thuê; cải tạo mặt bằng & điện nước; thiết bị, dụng cụ trị liệu"),
+    ("Vốn lưu động bù lỗ (tháng 1–4)", "~130 triệu đồng", "Lỗ lũy kế 4 tháng đầu: 43 + 31 + 18 + 5 = 97 triệu đồng; dự trù thêm 33 triệu đồng làm đệm an toàn"),
+    ("Tổng nhu cầu vốn khởi đầu", "~436 triệu đồng", "306 triệu đồng đầu tư + 130 triệu đồng vốn lưu động"),
+    ("Chi phí cố định", "~73 triệu đồng/tháng", "Thuê nhà 35 triệu; lương cứng 4 kỹ thuật viên 24 triệu; điện nước 5 triệu; giặt sấy & vật tư 4 triệu; marketing duy trì 5 triệu — chưa gồm hoa hồng biến phí theo ca"),
+    ("Doanh thu tháng thứ 12", "~107 triệu đồng/tháng", "Tương đương ~460 khách/tháng, trong đó ~60% từ gói combo và thẻ thành viên"),
 ]
 for i, r in enumerate(rows):
     for j, v in enumerate(r):
         t.rows[i].cells[j].paragraphs[0].add_run(v)
-style_table(t, col_widths=[4.2, 4.2, 7.4])
-caption("Bảng 5. Các giả định tài chính chính")
+style_table(t, col_widths=[4.2, 3.4, 8.2])
+caption("Bảng 6. Các giả định tài chính chính")
+
+doc.add_heading("9.1. Bóc tách chi phí đầu tư ban đầu (CAPEX)", level=2)
+para("Khoản đầu tư ban đầu ~306 triệu đồng được bóc tách chi tiết ở Bảng 7 theo quy mô khởi điểm 5 chỗ trị liệu. Hai khoản chiếm tỷ trọng lớn nhất đều gắn với mặt bằng: tiền thuê trả trước (cọc 1 tháng cộng trả trước 3 tháng, tổng 140 triệu đồng) và cải tạo mặt bằng, điện nước chuyên dụng (50 triệu đồng). Với giá thuê 35 triệu đồng/tháng tại khu vực đông dân cư, đây là mức chi phí mặt bằng của phân khúc trung – cao tại Hà Nội, và là lý do chính khiến tổng vốn khởi đầu cao hơn đáng kể so với các phương án thuê xa trung tâm. Đơn giá thiết bị và thi công là mức tham khảo trên thị trường Hà Nội giai đoạn 2025–2026; con số cuối cùng sẽ chốt theo báo giá nhà cung cấp khi triển khai.")
+t = doc.add_table(rows=10, cols=4)
+inv_rows = [
+    ("Hạng mục", "SL", "Chi phí dự kiến", "Ghi chú"),
+    ("Tiền thuê & cọc nhà (cọc 1 + trả trước 3 tháng)", "4 tháng", "140,0 triệu", "Thuê 35 triệu/tháng; bắt buộc có tiền mặt trước khi thi công"),
+    ("Cải tạo mặt bằng & điện nước chuyên dụng", "—", "50,0 triệu", "Đường ống cấp/thoát nước bồn gội, bình nóng lạnh công nghiệp, rèm ngăn, đèn ấm, sàn và sơn sửa"),
+    ("Thiết bị trị liệu & nội thất", "—", "46,0 triệu", "3 giường massage khoét lỗ (15 tr); 2 bồn gội dưỡng sinh (12 tr); máy móc thiết bị: nồi thảo dược, máy xông, máy điện châm, đèn hồng ngoại (12,8 tr); bàn châm, xe đẩy, dụng cụ (6,2 tr)"),
+    ("Vật tư & kit trị liệu tận nhà", "—", "20,0 triệu", "Khăn bông dày, tinh dầu, ngải cứu, dầu gội bồ kết, túi chườm; 2 bộ kit tận nhà gồm đệm gấp gọn, túi giữ nhiệt, máy đo huyết áp"),
+    ("Đồng phục, ấm phẩm & nhận diện thương hiệu", "—", "10,0 triệu", "Đồng phục nhân viên, biển hiệu, logo, bảng giá, ấn phẩm"),
+    ("Marketing khai trương & pháp lý ban đầu", "—", "15,0 triệu", "Đăng ký hộ kinh doanh, bảo hiểm trách nhiệm, quảng cáo định vị khu vực lân cận"),
+    ("Dự phòng phát sinh", "—", "25,0 triệu", "Vật giá leo thang, phát sinh thi công, mua thêm dụng cụ thiết bị"),
+    ("Tổng đầu tư ban đầu (CAPEX)", "", "306,0 triệu", "5 chỗ trị liệu: 3 giường massage + 2 ghế gội đầu"),
+]
+for i, r in enumerate(inv_rows):
+    for j, v in enumerate(r):
+        t.rows[i].cells[j].paragraphs[0].add_run(v)
+style_table(t, col_widths=[5.0, 1.5, 2.7, 8.0], font_size=9.5)
+caption("Bảng 7. Bóc tách chi tiết chi phí đầu tư ban đầu ~306 triệu đồng (đơn giá tham khảo thị trường Hà Nội, 2025–2026)")
+
+doc.add_heading("9.2. Cơ cấu chi phí vận hành hàng tháng (OPEX)", level=2)
+para("Chi phí cố định hàng tháng được cấu trúc theo mặt bằng Hà Nội và cơ chế khoán lương theo ca. Tiền thuê 35 triệu đồng/tháng là khoản chiếm tỷ trọng lớn nhất, phản ánh mặt bằng tại khu đông dân cư hoặc tầng 1 chung cư hướng ra ngoài — vị trí thuận lợi cho cả khách đến tại cơ sở và việc tỏa đi phục vụ tận nhà. Về nhân sự, thay vì trả lương cứng cào bằng cho mọi kỹ thuật viên ngay khi mới khai trương vắng khách, mô hình áp dụng lương cứng cơ bản 6 triệu đồng cộng hoa hồng theo từng ca phục vụ — nhờ đó chi phí nhân sự gắn với doanh thu thực tế.")
+t = doc.add_table(rows=7, cols=3)
+opex_rows = [
+    ("Khoản mục", "Chi phí/tháng", "Giải trình"),
+    ("Tiền thuê nhà", "35,0 triệu", "Tầng 1 nhà riêng hoặc chung cư hướng ra ngoài, khu đông dân cư; chỉ thuê một tầng, không thuê nguyên căn"),
+    ("Nhân sự — lương cứng 4 kỹ thuật viên", "24,0 triệu", "6 triệu đồng/người; cộng hoa hồng biến phí: 20.000 đ/ca tại cơ sở, 60.000 đ/ca tại nhà"),
+    ("Điện, nước, internet", "5,0 triệu", "Bình nóng lạnh, máy sấy, máy giặt khăn, điều hòa"),
+    ("Giặt sấy & vật tư tiêu hao", "4,0 triệu", "Thảo dược, cồn sát khuẩn, dầu massage, khấu hao khăn vải"),
+    ("Marketing duy trì (Zalo OA, quảng cáo địa phương)", "5,0 triệu", "Ngân sách bắt buộc để có khách mới bù lượng khách rơi rụng"),
+    ("Tổng chi phí cố định cơ bản", "~73,0 triệu", "Chưa gồm hoa hồng biến phí ăn theo doanh thu (khoảng 20–30% doanh thu ca)"),
+]
+for i, r in enumerate(opex_rows):
+    for j, v in enumerate(r):
+        t.rows[i].cells[j].paragraphs[0].add_run(v)
+style_table(t, col_widths=[6.6, 3.0, 7.6], font_size=10)
+caption("Bảng 8. Cơ cấu chi phí vận hành hàng tháng (OPEX) tại Hà Nội")
+
+chart_img("chart_capital.png", 14.2)
+caption("Hình 4. Cơ cấu phân bổ tổng vốn khởi đầu 436 triệu đồng")
 chart_img("chart_revenue.png", 15.2)
-caption("Hình 4. Doanh thu dự phóng 12 tháng đầu vận hành (giả định minh họa của nhóm)")
-para("Phép tính vốn lưu động: trong bốn tháng đầu, doanh thu còn thấp hơn chi phí cố định nên dự án lỗ 26 triệu đồng vào tháng 1, 18 triệu đồng vào tháng 2, 10 triệu đồng vào tháng 3 và 4 triệu đồng vào tháng 4; cộng lại, lỗ lũy kế bốn tháng đầu là 58 triệu đồng. Nếu chỉ có 95 triệu đồng đầu tư ban đầu, dòng tiền của dự án sẽ âm ngay từ tháng thứ hai. Vì vậy, nhu cầu vốn khởi đầu gồm 95 triệu đồng đầu tư cộng tối thiểu 58 triệu đồng vốn lưu động, được nhóm dự trù lên 70 triệu đồng để có đệm an toàn; tổng nhu cầu vốn khởi đầu là 165 triệu đồng.")
-para("Phép tính hoàn vốn: kể từ tháng thứ năm, lãi ròng hàng tháng lần lượt là 2, 8, 14, 20, 25, 30, 35 và 40 triệu đồng (doanh thu trừ chi phí cố định 48 triệu đồng); lũy kế từ tháng 5 đến tháng 12 đạt 174 triệu đồng, lớn hơn tổng vốn 165 triệu đồng — tức toàn bộ vốn được thu hồi trong khoảng 12 tháng. Riêng phần đầu tư ban đầu 95 triệu đồng được thu hồi vào khoảng tháng thứ 10, khi lũy kế lãi ròng đạt 99 triệu đồng. Nếu tỷ lệ khách quay lại chỉ đạt ngưỡng 55%, hoàn vốn sẽ trôi về khoảng 12–14 tháng theo kịch bản thận trọng.")
-para("Điểm nghẽn đầu tiên của mô hình là công suất nhân sự. Một kỹ thuật viên phục vụ được 5–6 khách tại cơ sở hoặc tối đa 4 ca tại nhà mỗi ngày (mỗi ca tại nhà chiếm 1,5–2 tiếng); bốn kỹ thuật viên cho công suất tối đa khoảng 20 lượt mỗi ngày, tương đương 450–500 lượt mỗi tháng với 26 ngày hoạt động. Doanh thu tháng thứ 12, tương đương khoảng 350 khách, đã sử dụng 70–80% công suất này; vì vậy bước tăng trưởng tiếp theo phải đến từ tuyển thêm nhân sự hoặc mở cơ sở thứ hai — đây chính là lý do của lộ trình mở rộng ở chương 11.")
+caption("Hình 5. Doanh thu dự phóng 12 tháng đầu vận hành (giả định minh họa của nhóm)")
+
+doc.add_heading("9.3. Điểm hòa vốn và nhu cầu vốn thực tế", level=2)
+para("Phép tính vốn lưu động: trong bốn tháng đầu, doanh thu còn thấp hơn chi phí cố định 73 triệu đồng nên dự án lỗ 43 triệu đồng vào tháng 1, 31 triệu đồng vào tháng 2, 18 triệu đồng vào tháng 3 và 5 triệu đồng vào tháng 4; cộng lại, lỗ lũy kế bốn tháng đầu là 97 triệu đồng. Vì vậy nhu cầu vốn khởi đầu gồm 306 triệu đồng đầu tư cộng tối thiểu 97 triệu đồng vốn lưu động, được nhóm dự trù lên 130 triệu đồng để có đệm an toàn; tổng nhu cầu vốn khởi đầu là 436 triệu đồng.")
+para("Phép tính hòa vốn: doanh thu tháng 4 đạt 68 triệu đồng, vẫn dưới chi phí cố định 73 triệu đồng; sang tháng 5 doanh thu đạt 77 triệu đồng và vượt mốc chi phí cố định — dự án hòa vốn vận hành từ tháng thứ 5. Từ tháng 5 trở đi, lãi ròng hàng tháng lần lượt là 4, 12, 18, 23, 27, 30, 32 và 34 triệu đồng (doanh thu trừ chi phí cố định 73 triệu đồng).")
+para("Phép tính hoàn vốn: lũy kế lãi ròng từ tháng 5 đến tháng 12 đạt 180 triệu đồng. Với tổng vốn khởi đầu 436 triệu đồng, phần CAPEX 306 triệu đồng được thu hồi vào khoảng tháng thứ 16, và toàn bộ vốn được thu hồi trong khoảng 19–20 tháng. Thời gian hoàn vốn dài hơn đáng kể so với các phương án thuê mặt bằng rẻ hơn vì tiền thuê 35 triệu đồng/tháng chiếm gần một nửa chi phí cố định — đây là đánh đổi có chủ đích: mặt bằng khu đông dân cư giúp rút ngắn thời gian lấp đầy công suất và thuận lợi cho cả hai kênh tại cơ sở lẫn tận nhà. Nếu tỷ lệ khách quay lại chỉ đạt ngưỡng 55%, thời gian hoàn vốn trôi về khoảng 21–23 tháng theo kịch bản thận trọng.")
+para("Hiệu quả của giường massage thứ ba: khoản đầu tư bổ sung cho giường thứ ba (giường, chăn ga gối khăn, rèm ngăn, thiết bị phụ trợ và thi công điện) khoảng 11 triệu đồng. Với giá dịch vụ bình quân 200.000 đồng mỗi lượt và công suất khiêm tốn 3 khách/ngày (78 lượt/tháng), giường này tạo thêm khoảng 15,6 triệu đồng doanh thu mỗi tháng; sau khi trừ hoa hồng kỹ thuật viên (1,56 triệu) và vật tư tiêu hao (1,2 triệu), lợi nhuận gộp tăng thêm khoảng 12,8 triệu đồng mỗi tháng — tức hoàn vốn cho chính chiếc giường đó ngay trong tháng đầu tiên nếu đạt 2–3 khách/ngày.")
+para("Điểm nghẽn đầu tiên của mô hình là công suất nhân sự. Một kỹ thuật viên phục vụ được 5–6 khách tại cơ sở hoặc tối đa 4 ca tại nhà mỗi ngày (mỗi ca tại nhà chiếm 1,5–2 tiếng); bốn kỹ thuật viên cho công suất tối đa khoảng 20–24 lượt mỗi ngày, tương đương 500–600 lượt mỗi tháng với 26 ngày hoạt động. Doanh thu tháng thứ 12, tương đương khoảng 460 khách, đã sử dụng khoảng 75–85% công suất này. Khi lượng ca tại cơ sở kín lịch, kỹ thuật viên phụ trách ca tận nhà có thể ở lại nhận ca tại chỗ; nếu tăng trưởng tốt, nhóm dự kiến tuyển thêm một kỹ thuật viên với chi phí lương cứng 5,5–6 triệu đồng cộng hoa hồng 20.000 đồng mỗi ca. Bước tăng trưởng dài hạn vẫn đến từ việc mở cơ sở thứ hai — đây chính là lý do của lộ trình mở rộng ở chương 11.")
 
 # ================= 10. RỦI RO =================
 doc.add_heading("10. Rủi ro và giải pháp ứng phó", level=1)
@@ -405,13 +462,13 @@ for i, r in enumerate(rows):
     for j, v in enumerate(r):
         t.rows[i].cells[j].paragraphs[0].add_run(v)
 style_table(t, col_widths=[4.4, 2.2, 9.2])
-caption("Bảng 6. Danh mục rủi ro và giải pháp ứng phó")
+caption("Bảng 9. Danh mục rủi ro và giải pháp ứng phó")
 
 # ================= 11. LỘ TRÌNH =================
 doc.add_heading("11. Lộ trình triển khai", level=1)
 for i, s in enumerate([
     [("Giai đoạn 1 (tháng 1–6) — Kiểm chứng: ", dict(bold=True)), ("vận hành cơ sở đầu tiên, chuẩn hóa quy trình khảo sát thể trạng và đào tạo, đo tỷ lệ khách quay lại từ tháng đầu.", dict())],
-    [("Giai đoạn 2 (tháng 7–12) — Tăng trưởng: ", dict(bold=True)), ("đạt 88 triệu đồng/tháng doanh thu, ≥55% khách quay lại, hoàn tất hồ sơ pháp lý và chứng chỉ nghề.", dict())],
+    [("Giai đoạn 2 (tháng 7–12) — Tăng trưởng: ", dict(bold=True)), ("đạt 107 triệu đồng/tháng doanh thu, ≥55% khách quay lại, hoàn tất hồ sơ pháp lý và chứng chỉ nghề.", dict())],
     [("Giai đoạn 3 (năm 2) — Mở rộng: ", dict(bold=True)), ("mở cơ sở thứ hai, xây dựng nền tảng đặt lịch đa kênh & CRM (kênh triển khai đầu tiên: Zalo Mini App), huy động vốn mở rộng.", dict())],
     [("Giai đoạn 4 (năm 3) — Chuỗi hóa: ", dict(bold=True)), ("nhượng quyền 3–5 cơ sở vệ tinh; xây dựng chuẩn đào tạo CareTouch Academy cho kỹ thuật viên.", dict())],
 ], start=1):
@@ -421,7 +478,7 @@ para("Nguyên tắc xuyên suốt: chỉ mở cơ sở mới khi cơ sở hiện
 # ================= 12. KẾT LUẬN =================
 doc.add_heading("12. Kết luận và khuyến nghị", level=1)
 para("Ý tưởng CareTouch đứng vững trên ba nền tảng rất cụ thể. Thứ nhất, thị trường người cao tuổi Việt Nam lớn dần theo từng năm và được các định chế quốc tế (GWI) đánh giá là tăng trưởng nhanh nhất châu Á. Thứ hai, xoa bóp – bấm huyệt là phương pháp người dân đã tin dùng từ lâu; doanh nghiệp không phải tạo thói quen tiêu dùng mới. Thứ ba, dịch vụ chuyên nghiệp phục vụ tận nhà cho nhóm trung niên – cao tuổi với giá hợp lý hiện vẫn là khoảng trống cạnh tranh thực sự.")
-para("Khuyến nghị của nhóm: bắt đầu với quy mô nhỏ để kiểm chứng quy trình — mở buổi trị liệu đầu tiên, phục vụ thật tốt nhóm khách đầu tiên, đo tỷ lệ quay lại từ tháng đầu; hoàn thiện hồ sơ pháp lý và quy trình khảo sát thể trạng an toàn trước khi mở rộng. Mục tiêu năm đầu tiên là tỷ lệ khách quay lại từ 55% trở lên và doanh thu 88 triệu đồng/tháng vào tháng thứ 12 theo dự phóng. Tổng nhu cầu vốn khởi đầu 165 triệu đồng được thiết kế để dự án an toàn về dòng tiền trong suốt giai đoạn kiểm chứng. Với khoản vốn gọi đề xuất minh họa 500 triệu đồng, nhóm dự kiến mở rộng lên 2 cơ sở và xây dựng nền tảng đặt lịch đa kênh & CRM trong năm thứ hai. Phân bổ vốn đề xuất: 200 triệu đồng cho cơ sở thứ hai, 80 triệu đồng cho nền tảng đặt lịch đa kênh & CRM, 100 triệu đồng cho marketing và tuyển đào tạo kỹ thuật viên, 120 triệu đồng vốn lưu động dự phòng. Hình thức huy động đề xuất là góp vốn đổi cổ phần, với tỷ lệ minh họa khoảng 12–15% cho khoản 500 triệu đồng (định giá cụ thể được xác lập khi đàm phán).")
+para("Khuyến nghị của nhóm: bắt đầu với quy mô nhỏ để kiểm chứng quy trình — mở buổi trị liệu đầu tiên, phục vụ thật tốt nhóm khách đầu tiên, đo tỷ lệ quay lại từ tháng đầu; hoàn thiện hồ sơ pháp lý và quy trình khảo sát thể trạng an toàn trước khi mở rộng. Mục tiêu năm đầu tiên là tỷ lệ khách quay lại từ 55% trở lên và doanh thu 107 triệu đồng/tháng vào tháng thứ 12 theo dự phóng. Tổng nhu cầu vốn khởi đầu 436 triệu đồng — đã tính đủ tiền thuê trả trước và chi phí thi công thực tế tại Hà Nội — được thiết kế để dự án an toàn về dòng tiền trong suốt giai đoạn kiểm chứng. Với khoản vốn gọi đề xuất minh họa 500 triệu đồng, nhóm dự kiến mở rộng lên 2 cơ sở và xây dựng nền tảng đặt lịch đa kênh & CRM trong năm thứ hai. Phân bổ vốn đề xuất: 436 triệu đồng khởi động cơ sở đầu tiên tại Hà Nội (306 triệu CAPEX + 130 triệu vốn lưu động), 80 triệu đồng cho nền tảng đặt lịch đa kênh & CRM, và phần còn lại dự phòng cho cơ sở thứ hai, marketing và tuyển đào tạo kỹ thuật viên. Hình thức huy động đề xuất là góp vốn đổi cổ phần, với tỷ lệ minh họa khoảng 12–15% cho khoản 500 triệu đồng (định giá cụ thể được xác lập khi đàm phán).")
 para("Nền tảng đặt lịch đa kênh & CRM là lớp công nghệ mỏng của dự án: tiếp nhận yêu cầu đặt lịch từ mọi kênh tiếp xúc của khách hàng (Zalo Mini App, Zalo OA/hotline, biểu mẫu web), tự động nhắc lịch liệu trình và ghi nhận lịch sử buổi trị liệu của từng khách hàng vào hệ thống CRM. Thiết kế này giúp nhóm giữ khách theo liệu trình, đo chính xác tỷ lệ khách quay lại — chỉ số quan trọng nhất của mô hình — và không phụ thuộc vào một kênh duy nhất. Kênh triển khai đầu tiên chọn Zalo Mini App vì chi phí phát triển thấp và tiếp cận đúng nhóm khách trung niên – cao tuổi thông qua con cháu đặt lịch hộ.")
 
 # ================= NGUỒN =================
@@ -476,31 +533,8 @@ for i, r in enumerate(rows):
         cell.paragraphs[0].add_run(v)
         if j > 0: cell.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
 style_table(t, col_widths=[5.2, 3.7, 3.7, 3.6])
-caption("Bảng 7. Bảng đánh giá và so sánh 3 ý tưởng (thang điểm 5)")
+caption("Bảng 10. Bảng đánh giá và so sánh 3 ý tưởng (thang điểm 5)")
 para("Ý tưởng 3 đạt điểm cao nhất trên tổng thể và được chọn, với ba lý do chính: xu hướng chăm sóc sức khỏe chủ động giúp y học cổ truyền ngày càng được ưa chuộng nhờ an toàn, không dùng thuốc; mô hình dịch vụ có biên lợi nhuận tốt và doanh thu ổn định nhờ khách hàng dùng theo liệu trình 5–10 buổi; và rào cản chứng chỉ hành nghề cùng yếu tố chuyên môn chuẩn y khoa tạo lợi thế khác biệt bền vững so với các spa thư giãn thông thường.")
-
-# ================= PHỤ LỤC B =================
-doc.add_heading("Phụ lục B. Ghi chú đổi thương hiệu: từ An Khang Đường đến CareTouch", level=1)
-para("Tên ban đầu “An Khang Đường” mang ý nghĩa tốt đẹp — “An Khang” là mong ước sức khỏe bình an, “Đường” theo cách đặt tên các nhà thuốc, cơ sở y học cổ truyền xưa. Tuy nhiên, khi dự án bước vào giai đoạn chuẩn bị gọi vốn và mở rộng, nhóm nhận thấy tên gọi này bộc lộ ba hạn chế: khó phát âm với đối tác quốc tế và khách hàng trẻ; dài, khó nhớ trên các kênh số như Zalo, Facebook hay ứng dụng đặt lịch; và hình ảnh “cửa hàng thuốc cổ” dễ khiến khách hàng nhầm lẫn về phạm vi dịch vụ.")
-p = para("Sau khi đánh giá nhiều phương án, nhóm chọn tên ")
-rich(doc.paragraphs[-1], [("CareTouch", dict(bold=True, color=ACCENT)),
-     (" — ghép hai chữ “Care” (sự chăm sóc chu đáo) và “Touch” (cái chạm trị liệu). Tên gọi nói đúng bản chất dịch vụ: hỗ trợ thư giãn, giảm mỏi cơ khớp bằng đôi tay, đồng thời gợi cảm giác tận tâm. Slogan kèm theo: ", dict()),
-     ("“CareTouch – Healing Touch, Healthy Life”", dict(italic=True, bold=True)),
-     (" (Chạm trị liệu — Sống khỏe mỗi ngày).", dict())])
-para("Bảng dưới đây tóm tắt lý do đổi tên:")
-t = doc.add_table(rows=5, cols=3)
-rows = [
-    ("Tiêu chí", "An Khang Đường", "CareTouch"),
-    ("Khả năng ghi nhớ", "Dài, dễ nhầm với nhà thuốc", "Hai âm tiết, đọc đúng ngay lần đầu"),
-    ("Khách hàng quốc tế", "Khó phát âm, khó viết", "Tiếng Anh đơn giản, phù hợp khách du lịch chăm sóc sức khỏe"),
-    ("Hình ảnh số", "Kém phù hợp làm app/website", "Thân thiện logo, ứng dụng, mạng xã hội"),
-    ("Thông điệp", "Mong ước chung chung", "Nói đúng phương pháp: chăm sóc bằng đôi tay"),
-]
-for i, r in enumerate(rows):
-    for j, v in enumerate(r):
-        t.rows[i].cells[j].paragraphs[0].add_run(v)
-style_table(t, col_widths=[3.6, 5.6, 6.6])
-caption("Bảng 8. So sánh tên gọi cũ và mới")
 
 # footer
 footer = sec.footer
