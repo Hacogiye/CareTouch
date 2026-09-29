@@ -667,6 +667,12 @@ const CHART_BUILDERS = {
         {type:'line',label:'Chi phí cố định 48 tr./tháng',data:Array(12).fill(48),
          borderColor:'#16302B',borderDash:[7,6],borderWidth:2,pointRadius:0}
       ]},
+    plugins:[{id:'costLabel',afterDatasetsDraw(c){
+      const pt=c.getDatasetMeta(1).data[0]; if(!pt) return;
+      const x=c.ctx; x.save();
+      x.font='600 12px "Segoe UI",sans-serif'; x.fillStyle='#16302B'; x.textAlign='left';
+      x.fillText('48 tr./tháng', pt.x+8, pt.y-9); x.restore();
+    }}],
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:1200,easing:'easeOutQuart'},
       plugins:{legend:{display:false}},
       scales:{x:{grid:{display:false},ticks:{font:{size:11}}},

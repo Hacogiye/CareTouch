@@ -492,6 +492,8 @@ const bu = () => ({ code: "25B8", indent: 12 });
     { t: "Giả định minh họa của nhóm: 1 cơ sở 2 giường trị liệu; 4 kỹ thuật viên (lương cứng ~8 tr. + phụ cấp ca tại nhà), nhóm sáng lập trực tiếp điều phối; giá theo bảng giá đề xuất (slide 6)." },
   ]);
   s.addNotes("Tổng vốn khởi đầu 165 triệu = 95 triệu đầu tư + 70 triệu vốn lưu động bù lỗ 4 tháng đầu (26+18+10+4=58 triệu, dự trù dư 12 triệu). Doanh thu vượt chi phí cố định 48 triệu từ tháng 5; lãi ròng lũy kế T5-T12 = 174 triệu ≥ 165 triệu nên hoàn vốn đủ trong khoảng 12 tháng. Kịch bản thận trọng (quay lại 55%): 12-14 tháng. Nhân sự: 4 KTV + nhóm sáng lập điều phối.");
+  // Nhãn mốc chi phí trên đường nét đứt (thêm cuối để giữ nguyên shape id các shape khác)
+  s.addText("48 tr./tháng", { x: 1.30, y: 3.79, w: 1.25, h: 0.2, fontSize: 10, color: TEXT, fontFace: FONT, margin: 0 });
 }
 
 /* ============================== S11 · LỘ TRÌNH ============================== */

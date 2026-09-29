@@ -54,6 +54,7 @@
 - Chuyển slide: fade 600ms (mc:AlternateContent p14:dur + fallback).
 - LƯU Ý: fix_ppr.py đổi namespace prefix → add_anim.py tự dò prefix (`<ns0:sld>`) trước khi chèn `<p:timing>` + `<p:transition>` trước `</ns0:sld>`.
 - Chuỗi build lại PPTX: `node build_pptx.js` → `python fix_ppr.py CareTouch-deck.pptx` → `python add_anim.py`.
+- Nhãn "48 tr./tháng" trên đường chi phí slide 10: PPTX = text shape id 25 (thêm CUỐI slide 10 trong build_pptx.js để không lệch id; y=3.79, đo từ render); HTML = plugin 'costLabel' vẽ canvas tại điểm đầu dataset line (getDatasetMeta(1).data[0]). Cả hai hiện cùng nhóm hiệu ứng click 1.
 - Plan nhóm shape theo slide id nằm trong PLAN dict của add_anim.py (shape id từ python-pptx).
 
 ## 7. Git (trong thư mục làm việc, branch main) — v1.2 = 64998dc (đồng bộ) + commit hiệu ứng
