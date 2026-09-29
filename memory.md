@@ -82,6 +82,8 @@
 - v1.2 đã rà soát đồng bộ HTML↔PPTX theo CẢ ẢNH (14 cặp, render LibreOffice vs screenshot Playwright): pass.
 - HTML slide 10: legend Chart.js tự vẽ bằng HTML (span line + dashed) vì legend gốc render ô đen.
 - Counter slide 2 HTML: đặt sẵn text đích (16,1 / 94,4), JS vẫn đếm từ 0 khi mở slide.
+- Slide 14 (kết): sửa câu Zalo ("mở rộng lên 2 cơ sở + Zalo Mini App" → "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch"), thêm thanh phân bổ vốn 200/80/100/120 (=500) + dòng hình thức huy động đổi cổ phần ~12–15% (minh họa) — đồng bộ PPTX/HTML/DOCX. CHỜ USER: SĐT/email liên hệ để chèn footer slide 14.
+- PPTX hiện KHÔNG còn hiệu ứng (user rollback sau khi PowerPoint báo repair); add_anim.py vẫn giữ để sau này chạy lại nếu muốn.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.
 - File gốc nhóm (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`, `Tài liệu không có tiêu đề.docx`) là read-only, KHÔNG được sửa.
 - PPTX slides chú ý: slide 2 panel tối (3 stats), slide 10 annotation "T4: 44 < 48 < T5: 50", speaker notes đã cập nhật số 165tr/4 KTV.

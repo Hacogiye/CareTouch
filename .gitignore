@@ -3,3 +3,4 @@ render/
 .playwright-mcp/
 render_sync/
 .claude/
+xsd_tmp/

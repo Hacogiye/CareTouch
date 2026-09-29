@@ -607,16 +607,35 @@ const bu = () => ({ code: "25B8", indent: 12 });
     x: 0.9, y: 3.7, w: 8, h: 0.55, fontSize: 22, italic: true, color: "F7965A", fontFace: "Georgia", margin: 0,
   });
   // ask card
-  s.addShape("roundRect", { x: 0.9, y: 4.5, w: 7.6, h: 1.5, rectRadius: 0.12, fill: { color: "0E4A41", transparency: 18 }, line: { color: TEALMID, width: 1 } });
+  s.addShape("roundRect", { x: 0.9, y: 4.42, w: 7.6, h: 2.08, rectRadius: 0.12, fill: { color: "0E4A41", transparency: 18 }, line: { color: TEALMID, width: 1 } });
   s.addText([
     { text: "Vốn gọi đề xuất (minh họa): 500 triệu đồng", options: { bold: true, fontSize: 17, color: "FFFFFF", breakLine: true } },
-    { text: "mở rộng lên 2 cơ sở + Zalo Mini App đặt lịch — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
-  ], { x: 1.2, y: 4.68, w: 7.0, h: 1.2, fontFace: FONT, margin: 0, paraSpaceAfter: 5 });
+    { text: "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
+  ], { x: 1.2, y: 4.58, w: 7.0, h: 0.78, fontFace: FONT, margin: 0, paraSpaceAfter: 5 });
+  // thanh phân bổ vốn (200/80/100/120 = 500)
+  const funds = [
+    [200, "F7965A"], [80, "0E7C6B"], [100, "9ED9CC"], [120, "CFE6DF"],
+  ];
+  let fx = 1.2;
+  const fw = 7.0;
+  funds.forEach((f) => {
+    const w = fw * f[0] / 500;
+    s.addShape("rect", { x: fx, y: 5.44, w: w - 0.03, h: 0.16, fill: { color: f[1] }, line: { type: "none" } });
+    fx += w;
+  });
+  s.addText([
+    { text: "200 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " cơ sở thứ 2      ", options: { color: "CFE6DF" } },
+    { text: "80 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " Zalo Mini App      ", options: { color: "CFE6DF" } },
+    { text: "100 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " marketing & nhân sự      ", options: { color: "CFE6DF" } },
+    { text: "120 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " vốn lưu động", options: { color: "CFE6DF" } },
+  ], { x: 1.2, y: 5.66, w: 7.0, h: 0.24, fontSize: 10, fontFace: FONT, margin: 0 });
+  s.addText("Hình thức huy động: góp vốn đổi cổ phần — 500 triệu ≈ 12–15% (tỷ lệ minh họa, định giá xác lập khi đàm phán).",
+    { x: 1.2, y: 5.98, w: 7.0, h: 0.26, fontSize: 10.5, italic: true, color: "9EC9BF", fontFace: FONT, margin: 0 });
   s.addText([
     { text: "Nhóm 3 · Tổ 14 · Lớp A1K79", options: { bold: true, color: "FFFFFF", breakLine: true } },
     { text: "Trịnh Hương Thảo · Bạch Thùy Trâm · Bùi Thị Anh Trâm · Phạm Quốc Việt · Viengkeo Shengchan", options: { color: "9EC9BF" } },
-  ], { x: 0.9, y: 6.5, w: 11.5, h: 0.8, fontSize: 12, fontFace: FONT, margin: 0, paraSpaceAfter: 4 });
-  s.addNotes("Kết: khoản vốn 500 triệu (minh họa) rót vào 2 cơ sở mới + nền tảng đặt lịch. Cảm ơn thầy/cô và nhà đầu tư.");
+  ], { x: 0.9, y: 6.66, w: 11.5, h: 0.8, fontSize: 12, fontFace: FONT, margin: 0, paraSpaceAfter: 4 });
+  s.addNotes("Kết: 500 triệu (minh họa) phân bổ 200 cơ sở thứ 2, 80 Zalo Mini App, 100 marketing & nhân sự, 120 vốn lưu động; hình thức góp vốn đổi cổ phần ~12-15% minh họa. Cảm ơn thầy/cô và nhà đầu tư.");
 }
 
 pres.writeFile({ fileName: path.join(__dirname, "CareTouch-deck.pptx") }).then(() => console.log("PPTX written OK"));
