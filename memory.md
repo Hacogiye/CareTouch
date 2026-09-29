@@ -16,7 +16,7 @@
 | `CareTouch-slides.html` | HTML deck tự chứa (Chart.js inline 245KB+), dựa trên bản ở `C:\Users\Tu_DZ\Downloads\CareTouch-slides.html` (bản user ưng nhất) |
 | `save.php` + `content.json` | đi kèm HTML khi up cPanel — lưu chỉnh sửa chung cho nhóm |
 | `assets/` | bg_cover, bg_close, logo, 4 chart PNG, chart.umd.min.js |
-| Script build | `make_assets.py` (assets+charts), `build_pptx.js` (pptxgenjs, cần NODE_PATH=C:\Users\Tu_DZ\AppData\Roaming\npm\node_modules), `fix_ppr.py` (sửa schema pPr sau build), `build_docx.py` (python-docx) |
+| Script build | `make_assets.py` (assets+charts), `build_pptx.js` (pptxgenjs, cần NODE_PATH=C:\Users\Tu_DZ\AppData\Roaming\npm\node_modules), `fix_ppr.py` (sửa schema pPr sau build — làm XML đổi prefix p: → ns0:), `add_anim.py` (chèn hiệu ứng: CHẠY SAU CÙNG), `build_docx.py` (python-docx) |
 | `deck_template.html` | nguồn của HTML hiện tại (phiên bản mới có stepper — **KHÔNG dùng, user đã chê**; file chạy thật là CareTouch-slides.html vá từ base) |
 
 ## 3. Brand tokens
@@ -48,10 +48,18 @@
 - Đã test OK: điều hướng tới/lùi, chrome-hide, H, lưu+persist sau reload, chart label slide 3 (plugin valueLabels tự viết: `afterDatasetsDraw` + `_showLabels:true` + `layout.padding.top`).
 - ⚠️ Bài học đã gặp: khi vá JS phải node --check cú pháp (đã từng mất 1 dấu `}` làm cả script điều hướng chết). Cache trình duyệt khi test: thêm `?v=N` vào URL.
 
-## 7. Git (trong thư mục làm việc, branch main)
+## 6b. Hiệu ứng trình chiếu PPTX (v1.2, add_anim.py)
+- Entrance "Float In" (fade 500ms + nhích lên 0.018×chiều cao) theo NHÓM: mỗi lần bấm chuột hiện 1 khối, shape con lệch 80–150ms (cascade).
+- Tiêu đề/kicker/motif/số trang/dòng nguồn: luôn hiển thị (không animate). S1 bìa + S14 kết: TỰ chạy khi mở slide (delay 0), không cần bấm.
+- Chuyển slide: fade 600ms (mc:AlternateContent p14:dur + fallback).
+- LƯU Ý: fix_ppr.py đổi namespace prefix → add_anim.py tự dò prefix (`<ns0:sld>`) trước khi chèn `<p:timing>` + `<p:transition>` trước `</ns0:sld>`.
+- Chuỗi build lại PPTX: `node build_pptx.js` → `python fix_ppr.py CareTouch-deck.pptx` → `python add_anim.py`.
+- Plan nhóm shape theo slide id nằm trong PLAN dict của add_anim.py (shape id từ python-pptx).
+
+## 7. Git (trong thư mục làm việc, branch main) — v1.2 = 64998dc (đồng bộ) + commit hiệu ứng
 - `161816e` — **Phiên bản 1.0** (trước phản biện)
 - `37519ca` — **Phiên bản 1.1** (hiện tại)
-- `.gitignore`: `~$*`, `render/`, `.playwright-mcp/`
+- `.gitignore`: `~$*`, `render/`, `render_sync/`, `.playwright-mcp/`
 - Quay lại: `git checkout 161816e -- .` hoặc `git checkout 161816e` (detached).
 
 ## 8. Sở thích/user preference đã chốt
@@ -70,6 +78,9 @@
 - Visual-judge subagent KHÔNG khả dụng (provider error) → tự inspect ảnh.
 
 ## 10. Việc còn treo / lưu ý
+- v1.2 đã rà soát đồng bộ HTML↔PPTX theo CẢ ẢNH (14 cặp, render LibreOffice vs screenshot Playwright): pass.
+- HTML slide 10: legend Chart.js tự vẽ bằng HTML (span line + dashed) vì legend gốc render ô đen.
+- Counter slide 2 HTML: đặt sẵn text đích (16,1 / 94,4), JS vẫn đếm từ 0 khi mở slide.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.
 - File gốc nhóm (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`, `Tài liệu không có tiêu đề.docx`) là read-only, KHÔNG được sửa.
 - PPTX slides chú ý: slide 2 panel tối (3 stats), slide 10 annotation "T4: 44 < 48 < T5: 50", speaker notes đã cập nhật số 165tr/4 KTV.
