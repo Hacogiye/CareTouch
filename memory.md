@@ -88,7 +88,9 @@
 - Đã test bằng PowerPoint COM trên máy user (render_sync/animtest/test_pp.ps1: Presentations.Open, WithWindow=0, DisplayAlerts=2): 4 biến thể + file cuối đều OK.
 - add_anim.py đã refactor: make(src, dst, timing, transition, rise, with_bld); PLAN cập nhật id slide 10 (26) và slide 14 (6–9 segment, 10 legend, 11 equity, 12 team).
 - PPTX hiện KHÔNG còn hiệu ứng (user rollback sau khi PowerPoint báo repair); add_anim.py vẫn giữ để sau này chạy lại nếu muốn.
-- Repo GitHub: https://github.com/Hacogiye/CareTouch (origin). File HTML chính đã đổi tên thành index.html để host GitHub Pages (Pages cần bật trong Settings → Pages nếu chưa). Chỉnh sửa trên GitHub Pages chỉ lưu localStorage.
+- LIVE: https://hacogiye.github.io/CareTouch/ (trang chủ) + /slide/ (deck) — GitHub Pages đã bật, xác nhận HTTP 200.
+- "Nguyên tắc bất di bất dịch" đã đổi thành "Nguyên tắc cốt lõi" đồng bộ PPTX S8 / slide deck / landing (theo yêu cầu user).
+- Repo GitHub: https://github.com/Hacogiye/CareTouch (origin). File HTML chính là index.html (landing); deck ở slide/index.html. Chỉnh sửa trên GitHub Pages chỉ lưu localStorage.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.
 - File gốc nhóm (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`, `Tài liệu không có tiêu đề.docx`) là read-only, KHÔNG được sửa.
 - PPTX slides chú ý: slide 2 panel tối (3 stats), slide 10 annotation "T4: 44 < 48 < T5: 50", speaker notes đã cập nhật số 165tr/4 KTV.
