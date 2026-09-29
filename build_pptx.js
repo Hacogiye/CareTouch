@@ -507,7 +507,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   const ph = [
     ["GĐ 1 · Tháng 1–6", "Kiểm chứng", "Vận hành cơ sở đầu tiên; chuẩn hóa quy trình khảo sát thể trạng & đào tạo; đo tỷ lệ khách quay lại từ tháng đầu."],
     ["GĐ 2 · Tháng 7–12", "Tăng trưởng", "Đạt 88 tr./th. doanh thu; ≥55% khách quay lại; hoàn tất hồ sơ pháp lý & chứng chỉ nghề."],
-    ["GĐ 3 · Năm 2", "Mở rộng", "Cơ sở thứ 2; Zalo Mini App đặt lịch & nhắc liệu trình; huy động vốn mở rộng."],
+    ["GĐ 3 · Năm 2", "Mở rộng", "Cơ sở thứ 2; nền tảng đặt lịch đa kênh & CRM (kênh đầu tiên: Zalo Mini App); huy động vốn mở rộng."],
     ["GĐ 4 · Năm 3", "Chuỗi hóa", "Nhượng quyền 3–5 cơ sở vệ tinh; chuẩn CareTouch Academy đào tạo kỹ thuật viên."],
   ];
   // timeline line
@@ -610,7 +610,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   s.addShape("roundRect", { x: 0.9, y: 4.42, w: 7.6, h: 2.08, rectRadius: 0.12, fill: { color: "0E4A41", transparency: 18 }, line: { color: TEALMID, width: 1 } });
   s.addText([
     { text: "Vốn gọi đề xuất (minh họa): 500 triệu đồng", options: { bold: true, fontSize: 17, color: "FFFFFF", breakLine: true } },
-    { text: "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
+    { text: "mở cơ sở thứ 2 và xây nền tảng đặt lịch đa kênh & CRM — mục tiêu doanh thu năm 2 gấp đôi năm 1.", options: { fontSize: 12.5, color: "CFE6DF" } },
   ], { x: 1.2, y: 4.58, w: 7.0, h: 0.78, fontFace: FONT, margin: 0, paraSpaceAfter: 5 });
   // thanh phân bổ vốn (200/80/100/120 = 500)
   const funds = [
@@ -625,7 +625,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
   });
   s.addText([
     { text: "200 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " cơ sở thứ 2      ", options: { color: "CFE6DF" } },
-    { text: "80 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " Zalo Mini App      ", options: { color: "CFE6DF" } },
+    { text: "80 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " nền tảng đặt lịch & CRM      ", options: { color: "CFE6DF" } },
     { text: "100 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " marketing & nhân sự      ", options: { color: "CFE6DF" } },
     { text: "120 tr.", options: { bold: true, color: "FFFFFF" } }, { text: " vốn lưu động", options: { color: "CFE6DF" } },
   ], { x: 1.2, y: 5.66, w: 7.0, h: 0.24, fontSize: 10, fontFace: FONT, margin: 0 });
@@ -635,7 +635,7 @@ const bu = () => ({ code: "25B8", indent: 12 });
     { text: "Nhóm 3 · Tổ 14 · Lớp A1K79", options: { bold: true, color: "FFFFFF", breakLine: true } },
     { text: "Trịnh Hương Thảo · Bạch Thùy Trâm · Bùi Thị Anh Trâm · Phạm Quốc Việt · Viengkeo Shengchan", options: { color: "9EC9BF" } },
   ], { x: 0.9, y: 6.66, w: 11.5, h: 0.8, fontSize: 12, fontFace: FONT, margin: 0, paraSpaceAfter: 4 });
-  s.addNotes("Kết: 500 triệu (minh họa) phân bổ 200 cơ sở thứ 2, 80 Zalo Mini App, 100 marketing & nhân sự, 120 vốn lưu động; hình thức góp vốn đổi cổ phần ~12-15% minh họa. Cảm ơn thầy/cô và nhà đầu tư.");
+  s.addNotes("Kết: 500 triệu (minh họa) phân bổ 200 cơ sở thứ 2, 80 nền tảng đặt lịch & CRM, 100 marketing & nhân sự, 120 vốn lưu động; hình thức góp vốn đổi cổ phần ~12-15% minh họa. Cảm ơn thầy/cô và nhà đầu tư.");
 }
 
 pres.writeFile({ fileName: path.join(__dirname, "CareTouch-deck.pptx") }).then(() => console.log("PPTX written OK"));

@@ -83,6 +83,10 @@
 - HTML slide 10: legend Chart.js tự vẽ bằng HTML (span line + dashed) vì legend gốc render ô đen.
 - Counter slide 2 HTML: đặt sẵn text đích (16,1 / 94,4), JS vẫn đếm từ 0 khi mở slide.
 - Slide 14 (kết): sửa câu Zalo ("mở rộng lên 2 cơ sở + Zalo Mini App" → "mở cơ sở thứ 2 và xây Zalo Mini App đặt lịch"), thêm thanh phân bổ vốn 200/80/100/120 (=500) + dòng hình thức huy động đổi cổ phần ~12–15% (minh họa) — đồng bộ PPTX/HTML/DOCX. CHỜ USER: SĐT/email liên hệ để chèn footer slide 14.
+- Thuật ngữ mới (yêu cầu user): "Nền tảng đặt lịch đa kênh & CRM" thay "Zalo Mini App đặt lịch" ở S14 + S11 (S11 giữ "(kênh đầu tiên: Zalo Mini App)"); DOCX có đoạn giải thích nền tảng ở phần khuyến nghị.
+- NGUYÊN NHÂN PowerPoint repair ĐÃ TÌM RA: script hiệu ứng cũ trỏ spid=25 cho nhãn 48 nhưng id thật là 26 (pptxgenjs bỏ id 25) → dangling spid → repair. PLAN đã sửa (26); kiểm tra dangling-spid=0.
+- Đã test bằng PowerPoint COM trên máy user (render_sync/animtest/test_pp.ps1: Presentations.Open, WithWindow=0, DisplayAlerts=2): 4 biến thể + file cuối đều OK.
+- add_anim.py đã refactor: make(src, dst, timing, transition, rise, with_bld); PLAN cập nhật id slide 10 (26) và slide 14 (6–9 segment, 10 legend, 11 equity, 12 team).
 - PPTX hiện KHÔNG còn hiệu ứng (user rollback sau khi PowerPoint báo repair); add_anim.py vẫn giữ để sau này chạy lại nếu muốn.
 - Không có việc dở nào. Nếu user yêu cầu sửa tiếp: sửa cả 3 nguồn (build_pptx.js / build_docx.py / CareTouch-slides.html trực tiếp) để giữ đồng bộ.
 - File gốc nhóm (`bao-cao-an-khang-duong.docx`, `slide-an-khang-duong.pptx`, `Tài liệu không có tiêu đề.docx`) là read-only, KHÔNG được sửa.
